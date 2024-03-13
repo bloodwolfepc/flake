@@ -1,5 +1,4 @@
 { home-manager, self, inputs, lib, ... }:
-
 {
 programs.zsh = {
 	enable = true;
@@ -44,3 +43,4 @@ programs.zsh = {
 	'';
 	};
 }
+

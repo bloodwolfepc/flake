@@ -29,6 +29,15 @@
 	wofi
 	alacritty
 	xfce.thunar
+	krita
+
+
+	#gamemode
+	#wine-wow-wayland #i might need staging idk
+	#gamescope
+	#steam-tui
+
+
 ];
 	#home.packages = [ pkgs.gitAndTools.gh ];
 	programs.gh.enable = true;
@@ -52,60 +61,12 @@ programs.neovim = {
   #;
 };
 
-#imports = [
-#(import ../modules/zsh/default.nix)
-#];
+imports = [
+	./zsh.nix
+	#./steam.nix
 
-programs.zsh = {
-	enable = true;
-	enableCompletion = true;
-	enableAutosuggestions = true;
-	syntaxHighlighting.enable = true;
-	dotDir = "$HOME/.config/zsh";
+];
 
-
-	zplug = {
-		enable = true;
-		plugins = [
-			{ name = "zsh-users/zsh-syntax-highlighting"; }
-			{ name = "zsh-users/zsh-autosuggestions"; }
-		];
-	};
-	shellAliases = {
-		nv = "nvim";
-	};
-	history = {
-		save = 10000;
-		size = 10000;
-		path = "$HOME/.cache/zsh_history";
-	};
-	profileExtra = ''
-		neofetch
-	'';
-
-	initExtra = ''
-    autoload -Uz compinit promptinit
-    compinit
-    promptinit
-    prompt walters #promp -p and prompt -l for themes
-    PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
-    autoload -Uz compiit
-    compinit #sshhashknownhosts todo
-    zstyle ':completion:*' menu select
-    zstyle ':completion::complete:*' gain-privileges 1
-    #historysearch
-    autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-    zle -N up-line-or-beginning-search
-    zle -N down-line-or-beginning-search
-    #bindkey '^[[A' history-substring-search-up
-    #bindkey '^[[B' history-substring-search-down
-	'';
-	};
-
-	wayland.windowManager.hyprland = {
-		enable = true;
-		#extraConfig = lib.fileContents xxx;
-	};
 programs.waybar = {
 	enable = true;
 };

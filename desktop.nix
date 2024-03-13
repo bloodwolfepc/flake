@@ -9,6 +9,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "pc";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
