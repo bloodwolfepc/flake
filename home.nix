@@ -90,13 +90,13 @@ wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     extraConfig = ''
-  source=./hypr/monitor.conf
-  source=./hypr/variables.conf
-  source=./hypr/definitions.conf
-  source=./hypr/environment.conf
-  source=./hypr/keybinds.conf
-  source=./hypr/modes.conf
-  source=./hypr/rules.conf
+  source=~/flake/monitor.conf
+  source=~/flake/variables.conf
+  source=~/flake/definitions.conf
+  source=~/flake/environment.conf
+  source=~/flake/keybinds.conf
+  source=~/flake/modes.conf
+  source=~/flake/rules.conf
   '';
   };
 
