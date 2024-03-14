@@ -6,9 +6,11 @@
       ./desktop-hardware-configuration.nix
     ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  #boot.loader.grub.enable = true;
+  #boot.loader.grub.device = "/dev/vda";
+  #boot.loader.grub.useOSProber = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "pc";
@@ -100,6 +102,8 @@ users.defaultUserShell = pkgs.zsh;
 security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
+    audio.enable = true;
+    wireplumber.enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;

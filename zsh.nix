@@ -8,11 +8,11 @@ programs.zsh = {
 		plugins = [
 			{ name = "laggardkernal/zsh-thefuck"; }
 			{ name = "zsh-users/zsh-syntax-highlighting"; }
-			{ name = "zsh-users/zsh-autosuggestions"; }
 		];
 	};
 	shellAliases = {
 		nv = "nvim";
+		update = "sudo nixos-rebuild switch --flake .#desktop";
 	};
 	history = {
 		save = 10000;

@@ -8,9 +8,8 @@
   home.packages = with pkgs; [
 	thefuck
 	git
-	#gh
+	gh
 	pkgs.gitAndTools.gh
-	git
 	sops
 	gnupg
  	hello
@@ -19,6 +18,9 @@
 	zsh
 	lf
 	ranger
+	btop
+	htop
+	zoxide
 	swaynotificationcenter
 	xdg-desktop-portal
 	xdg-desktop-portal-wlr
@@ -26,16 +28,31 @@
 	xdg-desktop-portal-hyprland
 	polkit-kde-agent
 	ksnip
-	wofi
-	alacritty
 	xfce.thunar
 	krita
+	gimp
+	firefox
+	discord
+	spotify 
 
 
-	#gamemode
+	#fonts
+	unscii
+	scientifica
+
+	swww
+
+
+
+	gamemode
 	#wine-wow-wayland #i might need staging idk
-	#gamescope
-	#steam-tui
+	gamescope
+	steam-tui
+	steamPackages.steamcmd
+	steam-run
+
+	#pl
+	ruby
 
 
 ];
@@ -63,11 +80,41 @@ programs.neovim = {
 
 imports = [
 	./zsh.nix
+	./waybar.nix
+	./rofi.nix
 	#./steam.nix
 
 ];
 
-programs.waybar = {
+wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    extraConfig = ''
+  source=./hypr/monitor.conf
+  source=./hypr/variables.conf
+  source=./hypr/definitions.conf
+  source=./hypr/environment.conf
+  source=./hypr/keybinds.conf
+  source=./hypr/modes.conf
+  source=./hypr/rules.conf
+  '';
+  };
+
+programs.alacritty = {
 	enable = true;
+	settings = {
+		font = {
+			normal.family = "unscii";
+			normal.style = "16-full";
+			};
+		window = {
+			opacity = 0.0;
+			blur = false;
+		};
+	};
+	
 };
+
 }
+
+

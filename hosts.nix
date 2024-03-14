@@ -7,6 +7,7 @@
 		modules = [
 			./desktop.nix
 			./hyprland.nix
+			./steam.nix
 				home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;

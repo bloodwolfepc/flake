@@ -23,6 +23,11 @@
       fsType = "vfat";
     };
 
+  fileSystems."/home/bloodwolfe/ssd2" =
+    { device = "/dev/disk/by-uuid/e57dc7be-0dd7-4e3b-9d93-9097163236c9";
+      fsType = "btrfs";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/556a6534-e3f8-47cf-94da-ab044edc7de4"; }
     ];

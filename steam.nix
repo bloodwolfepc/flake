@@ -1,6 +1,10 @@
+{ pkgs, config, ... }:
+{
 programs.steam = {
-  enable = treu;
-  reamotePlay.openFirewall = true;
-  dedicatedServer.openFirewall = true;
-  gamescopeSession.enable = true;
+	enable = true;
+	remotePlay.openFirewall = true;
+	dedicatedServer.openFirewall = true;
+	extest.enable = true;
+	#extraCompatPackages = [ ]
 };
+}
