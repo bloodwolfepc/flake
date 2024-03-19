@@ -34,11 +34,13 @@
 	firefox
 	discord
 	spotify 
+	playerctl
+	sptlrx
 
 
 	#fonts
-	unscii
-	scientifica
+	#unscii
+	#scientifica
 
 	swww
 
@@ -82,23 +84,10 @@ imports = [
 	./zsh.nix
 	./waybar.nix
 	./rofi.nix
+	./home-hyprland.nix
 	#./steam.nix
 
 ];
-
-wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-    extraConfig = ''
-  source=~/flake/hypr/monitor.conf
-  source=~/flake/hypr/variables.conf
-  source=~/flake/hypr/definitions.conf
-  source=~/flake/hypr/environment.conf
-  source=~/flake/hypr/keybinds.conf
-  source=~/flake/hypr/modes.conf
-  source=~/flake/hypr/rules.conf
-  '';
-  };
 
 programs.alacritty = {
 	enable = true;

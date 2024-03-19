@@ -13,6 +13,7 @@ programs.zsh = {
 	shellAliases = {
 		nv = "nvim";
 		update = "sudo nixos-rebuild switch --flake .#desktop";
+		neocities = "~/gem/neocities-ruby/bin/neocities";
 	};
 	history = {
 		save = 10000;

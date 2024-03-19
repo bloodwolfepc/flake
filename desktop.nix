@@ -120,5 +120,8 @@ security.rtkit.enable = true;
      DefaultTimeoutStopSec = 10s
     '';
   };
-    
+  fonts.fonts = with pkgs; [
+  unscii
+  comic-mono
+  ]; 
 }
