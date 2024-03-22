@@ -14,6 +14,12 @@ programs.zsh = {
 		nv = "nvim";
 		update = "sudo nixos-rebuild switch --flake .#desktop";
 		neocities = "~/gem/neocities-ruby/bin/neocities";
+
+		#cat-og = "/bin/cat";
+		cat = "lolcat";
+
+		#cd-og = "/bin/cd";
+		cd = "z";
 	};
 	history = {
 		save = 10000;
@@ -41,6 +47,7 @@ programs.zsh = {
     zle -N down-line-or-beginning-search
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
+    eval "$(zoxide init zsh)"
 	'';
 	};
 }

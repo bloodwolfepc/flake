@@ -124,4 +124,15 @@ security.rtkit.enable = true;
   unscii
   comic-mono
   ]; 
+
+programs.steam = {
+        enable = true;
+        remotePlay.openFirewall = true;
+        dedicatedServer.openFirewall = true;
+        extest.enable = true;
+        gamescopeSession.enable = true;
+        #extraCompatPackages = [ ]
+};
+programs.wshowkeys.enable = true;
+
 }

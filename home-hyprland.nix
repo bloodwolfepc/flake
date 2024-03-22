@@ -12,7 +12,7 @@ wayland.windowManager.hyprland = {
 	"monitor" = "DP-3, 1920x1080@144, 0x0, 1";
 
 	"$wallpaper-path" = "~/flake/assets/wallpapers/Black.png";
-	"$screenshot-path" = "~/Pictures";
+	"$screenshot-path" = "~/Pictures/Snips/";
 	    
 	"$mode-insert" = "i";
 	    "$mode-normal" = "SUPER_L";
@@ -22,16 +22,18 @@ wayland.windowManager.hyprland = {
 	    	"$left" = "h";
 	    	"$right" = "l";
 	    	"$center" = "c";
-	    	"$fullscreen" = "f";
+	    	"$fullscreen" = "v";
+		"$kill" = "x";
+		"$command-bar-key" = "semicolon";
 		#"$invert-transparency" = "0";
-		"$mode-screenshot" = "s";
+		"$mode-screentools" = "s";
 	    	    "$screenshot-key" = "s";
 	    	    "$full-screenshot-key" = "f";
 	    	"$mode-exec" = "e";
 	    	"$mode-term" = "t";
 	    	"$mode-goto-workspace" = "f";
 		"$mode-relocate-workspace" = "g";
-		"$mode-move-window" = "d";
+		"$mode-move-window" = "m";
 		"$mode-resize-window" = "r";
 
 		"$pass-oneshots" = "/home/bloodwolfe/flake/hypr/pass-oneshots.conf";
@@ -39,8 +41,8 @@ wayland.windowManager.hyprland = {
 
 	"$term" = "alacritty";
 	"$menu" = "rofi -show run";
-	"$screenshot" = "XDG_CURRENT_DESKTOP=sway flameshot gui -c -p $screenshot-path";
-	"$full-screenshot" = "flameshot full -c -p $screenshot-path";
+	"$screenshot" = "grimblast copysave area";
+	"$full-screenshot" = "grimblast copysave screen";
 
 	"bindi" = ", i, submap, INS";
 
@@ -67,14 +69,26 @@ wayland.windowManager.hyprland = {
 	    sensitivity = "0";
 	    accel_profile = "flat";
 	};
-
-
-		
-	    
-
     };
     extraConfig = '' 	
+
+	env = XCURSOR_SIZE,24
+	env = QT_QPA_PLATFORMTHEME,qt6ct
+	env = QT_QPA_PLATFORM=wayland;xcb
+	env = GDK_BACKEND=wayland,x11
+	env = SDL_VIDEODRIVER=wayland
+	env = CLUTTER_BACKEND=wayland
+	env = XDG_CURRENT_DESKTOP=sway
+	env = XDG_DESSION_TYPE=wayland
+	env = XDG_SESSION_DESKTOP=Hyprland
+	env = WLR_DRM_NO_ATOMIC,1
+	env = WLR_DRM_NO_ATOMIC,1
+
+
+
+
 	exec-once = swaync
+	exec-once = waybar
 	exec-once = alacritty
 	exec-once = polkit-kde-agent
 	exec-once = wl-clipbard-history
@@ -94,7 +108,9 @@ wayland.windowManager.hyprland = {
 	    bindi = ,$mode-relocate-workspace, submap, MIGRATE
 	    bindi = ,$mode-move-window, submap, MOVE
 	    bindi = ,$mode-resize-window, submap, RESIZE
-	    bindi = ,$mode-screenshot, submap, REC
+	    bindi = ,$mode-screentools, submap, REC
+
+	    bindi = ,$command-bar-key, exec, $menu
 	    
 	    bindm = ,mouse:272, movewindow
 	    bindm = ,mouse:273, resizewindow
@@ -102,6 +118,9 @@ wayland.windowManager.hyprland = {
 	    bindi = ,$right, movefocus, r
 	    bindi = ,$up, movefocus, u
 	    bindi = ,$down, movefocus, d
+	    bindi = ,$float, togglefloating
+	    bindi = ,$fullscreen, fullscreen
+	    bindi = ,$kill, killactive
 	    source = $pass-oneshots
 
 	submap = escape
@@ -254,12 +273,11 @@ wayland.windowManager.hyprland = {
 	    bindi =, $left, resizeactive, -20 0
 	    bindi =, $right, resizeactive, 20 0
 	    bindi =, $mode-normal, submap, NML
-	    source = $pass-oneshots
 	submap = escape
 	submap = REC
 	    bindi = ,$mode-insert, submap, INS
-	    bindi =, $screenshot-key, exec, $screenshot
-	    bindi =, $full-screenshot-key, exec, $full-screenshot
+	    bindi =, $screenshot-key, exec, $screenshot $screenshot-path
+	    bindi =, $full-screenshot-key, exec, $full-screenshot $screenshot-path
 	    bindi =, $mode-normal, submap, NML
 	    source = $pass-oneshots
 	submap = escape

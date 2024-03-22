@@ -21,30 +21,26 @@
 	btop
 	htop
 	zoxide
+	lolcat
 	swaynotificationcenter
 	xdg-desktop-portal
 	xdg-desktop-portal-wlr
 	xdg-desktop-portal-gtk
 	xdg-desktop-portal-hyprland
 	polkit-kde-agent
-	ksnip
+	grimblast
+	gromit-mpx
 	xfce.thunar
 	krita
 	gimp
 	firefox
 	discord
 	spotify 
+	spotify-player
 	playerctl
 	sptlrx
 
-
-	#fonts
-	#unscii
-	#scientifica
-
 	swww
-
-
 
 	gamemode
 	#wine-wow-wayland #i might need staging idk
@@ -53,10 +49,10 @@
 	steamPackages.steamcmd
 	steam-run
 
-	#pl
 	ruby
 
-
+	wl-clipboard
+  gay
 ];
 	#home.packages = [ pkgs.gitAndTools.gh ];
 	programs.gh.enable = true;
@@ -76,8 +72,9 @@
 programs.neovim = {
 	enable = true;
 	extraLuaConfig = lib.fileContents ./nvim-init.lua;
+	#extraConfig = ''
     #set number relativenumber
-  #;
+#	'';
 };
 
 imports = [
@@ -85,8 +82,6 @@ imports = [
 	./waybar.nix
 	./rofi.nix
 	./home-hyprland.nix
-	#./steam.nix
-
 ];
 
 programs.alacritty = {
