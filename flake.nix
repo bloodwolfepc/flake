@@ -4,8 +4,8 @@
 		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		nixpkgs.follows = "unstable";
 		
-		flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
-		flake-utils-plus.inputs.nixpkgs.follows = "nixpkgs";
+	#	flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+	#	flake-utils-plus.inputs.nixpkgs.follows = "nixpkgs";
 
 		nur.url = "github:nix-community/NUR";
 
@@ -23,7 +23,7 @@
 		#discord.inputs.nixpkgs.follows = "nixpkgs";
 	};
 
-	outputs = inputs@{ unstable, nixpkgs, flake-utils-plus, home-manager, nur, neovim, self, ... }:
+	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, neovim, self, ... }:
 	let 
 		system = "x86_64-linux";
 		user = "bloodwolfe";
