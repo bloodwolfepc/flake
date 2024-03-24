@@ -6,7 +6,7 @@
 
   home.stateVersion = "23.11"; 
   home.packages = with pkgs; [
-	thefuck
+	#thefuck
 	git
 	gh
 	pkgs.gitAndTools.gh
@@ -71,17 +71,17 @@
 	
 programs.neovim = {
 	enable = true;
-	extraLuaConfig = lib.fileContents ./nvim-init.lua;
+	extraLuaConfig = lib.fileContents ./scripts/nvim-init.lua;
 	#extraConfig = ''
     #set number relativenumber
 #	'';
 };
 
 imports = [
-	./zsh.nix
-	./waybar.nix
-	./rofi.nix
-	./home-hyprland.nix
+	./modules/zsh.nix
+	./modules/waybar.nix
+	./modules/rofi.nix
+	./modules/home-hyprland.nix
 ];
 
 programs.alacritty = {

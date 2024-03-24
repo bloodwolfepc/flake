@@ -5,7 +5,7 @@
 		inherit system;
 		specialArgs = {inherit user inputs; };
 		modules = [
-			./desktop.nix
+			./hosts/desktop.nix
 			./hyprland.nix
 			./steam.nix
 				home-manager.nixosModules.home-manager {
