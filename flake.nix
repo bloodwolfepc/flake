@@ -17,9 +17,11 @@
 	
 		neovim.url = "github:nix-community/neovim-nightly-overlay";
 
-		hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
-    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+    url = "github:hyprwm/hyprland-plugins";
+    inputs.hyprland.follows = "hyprland";
+    };
 
 		#discord.url = "github:InternetUnexplorer/discord=overlay";
 		#discord.inputs.nixpkgs.follows = "nixpkgs";
