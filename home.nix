@@ -50,9 +50,13 @@
 	steam-run
 
 	ruby
+  lua
+  ctags
 
 	wl-clipboard
   gay
+  xf86_input_wacom
+
 ];
 	#home.packages = [ pkgs.gitAndTools.gh ];
 	programs.gh.enable = true;
@@ -71,7 +75,7 @@
 	
 programs.neovim = {
 	enable = true;
-	extraLuaConfig = lib.fileContents ./scripts/nvim-init.lua;
+	extraLuaConfig = lib.fileContents ./scripts/nvim/init.lua;
 	#extraConfig = ''
     #set number relativenumber
 #	'';
@@ -82,6 +86,7 @@ imports = [
 	./modules/waybar.nix
 	./modules/rofi.nix
 	./modules/home-hyprland.nix
+  ./modules/tmux.nix
 ];
 
 programs.alacritty = {

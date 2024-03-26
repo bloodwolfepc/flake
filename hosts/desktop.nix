@@ -40,8 +40,8 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -120,7 +120,7 @@ security.rtkit.enable = true;
      DefaultTimeoutStopSec = 10s
     '';
   };
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
   unscii
   comic-mono
   ]; 

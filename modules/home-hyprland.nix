@@ -1,11 +1,13 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
 wayland.windowManager.hyprland = {
     enable = true;
     #systemd.enable = true;
     xwayland.enable = true;
-#    plugins = with pkgs; [
-#    ];
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprwinwrap
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprtrails
+    ];
 
     settings = {
 
@@ -36,7 +38,7 @@ wayland.windowManager.hyprland = {
 		"$mode-move-window" = "m";
 		"$mode-resize-window" = "r";
 
-		"$pass-oneshots" = "./scripts/pass-oneshots.conf";
+		"$pass-oneshots" = "/home/bloodwolfe/flake/scripts/pass-oneshots.conf";
 		"$submap-reset" = "submap, INS";
 
 	"$term" = "alacritty";
