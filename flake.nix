@@ -1,8 +1,8 @@
 {
 	inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-		nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11:";
-		nixpkgs-unstalbe.url = "github:nixos/nixpkgs/nixos-unstable";
+		#nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+		nixpkgs.url = "github:nixOs/nixpkgs/nixos-unstable";
 		#nixpkgs.follows = "unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
@@ -27,7 +27,7 @@
 
 	};
 
-	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, self, disko, ... }:
+	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let 
 
     inherit (self) outputs;

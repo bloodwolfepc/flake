@@ -8,13 +8,13 @@
       inputs.hardware.nixosModules.common-pc-ssd
       inputs.hardware.nixosModules.common-pc
 
-      ./desktop-hardware-configuration.nix
+      ./hardware-configuration.nix
       ../modules/require
 
       ../modules/option/steam.nix
       ../modules/option/hyprland.nix
 
-      ../modules/users/bloodwolfe.nix
+      ../modules/users/bloodwolfe
     ];
 
   boot.loader.systemd-boot.enable = true;

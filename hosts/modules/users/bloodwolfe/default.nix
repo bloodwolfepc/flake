@@ -11,6 +11,6 @@
     ];
   };
 
-  home-manager.user.bloodwolfe = import ../../../../home/bloodwolfe/lapis.nix;
+  home-manager.users.bloodwolfe = import ../../../../home/bloodwolfe/lapis.nix;
 }
 

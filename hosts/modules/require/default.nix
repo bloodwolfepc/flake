@@ -13,8 +13,8 @@
     config.allowUnfree = true;
   };
 
-  hardware.enableRedistibutableFirmware = true;
-  security.sudo.extraconfig = ''
+  hardware.enableRedistributableFirmware = true;
+  security.sudo.extraConfig = ''
     Defaults timestamp_timeout = 120
   '';
 }

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  fonts.fontconfig.enbale = true;
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     unscii
   ];

@@ -1,2 +1,3 @@
+{ pkgs ? import <nixpkgs> }:
 {
 }
