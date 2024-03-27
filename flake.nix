@@ -1,8 +1,9 @@
 {
 	inputs = {
-		stable.url = "github:nixos/nixpkgs/nixos-23.11:";
-		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-		nixpkgs.follows = "unstable";
+    #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11:";
+		nixpkgs-unstalbe.url = "github:nixos/nixpkgs/nixos-unstable";
+		#nixpkgs.follows = "unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
 
@@ -21,12 +22,12 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    sops-nix.url = "github:mix92/sops-nix";
-    inputs.nixpkgs.follows = "nixpkgs";
+    #sops-nix.url = "github:mix92/sops-nix";
+    #inputs.nixpkgs.follows = "nixpkgs";
 
 	};
 
-	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, neovim, self, disko, ... }:
+	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, self, disko, ... }:
 	let 
 
     inherit (self) outputs;
