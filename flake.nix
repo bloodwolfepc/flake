@@ -1,192 +1,74 @@
 {
 	inputs = {
-		#stable.url = "github:nixos/nixpkgs/nixos-23.11:";
+		stable.url = "github:nixos/nixpkgs/nixos-23.11:";
 		unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		nixpkgs.follows = "unstable";
-		
-	#	flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
-	#	flake-utils-plus.inputs.nixpkgs.follows = "nixpkgs";
 
-		nur.url = "github:nix-community/NUR";
+    hardware.url = "github:nixos/nixos-hardware";
+
+		#flake-utils-plus.url = "github:gytis-ivaskevicius/flake-utils-plus";
+		#flake-utils-plus.inputs.nixpkgs.follows = "nixpkgs";
 
 		home-manager.url = "github:nix-community/home-manager";
 		home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-		#neofetch.url = "github:dylanaraps/neofetch";
-		#neofetch.inputs.nixpkgs.follows = "nixpkgs";
-	
-		neovim.url = "github:nix-community/neovim-nightly-overlay";
+		nur.url = "github:nix-community/NUR";
 
     hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-    url = "github:hyprwm/hyprland-plugins";
-    inputs.hyprland.follows = "hyprland";
-    };
+    hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
+    hyprland-plugins.inputs.hyprland.follows = "hyprland";
+  
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
-		#discord.url = "github:InternetUnexplorer/discord=overlay";
-		#discord.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:mix92/sops-nix";
+    inputs.nixpkgs.follows = "nixpkgs";
+
 	};
 
-	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, neovim, self, ... }:
+	outputs = inputs@{ unstable, nixpkgs, home-manager, nur, neovim, self, disko, ... }:
 	let 
-		system = "x86_64-linux";
+
+    inherit (self) outputs;
+
 		user = "bloodwolfe";
-	
-		pkgs =  import nixpkgs {
+
+		systems = [
+      "x86_64-linux"
+    ];
+
+		lib = nixpkgs.lib // home-manager.lib;
+
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+
+		pkgsFor = lib.genAttrs systems (system: import nixpkgs {
 			inherit system;
 			config.allowUnfree = true;
-		};
+		});
 
-		lib = nixpkgs.lib;
 	in
 	{
-		nixosConfigurations = (
-			import ./hosts.nix {
-				inherit (nixpkgs) lib;
-				inherit inputs user system home-manager;
-			}
-		);
+    inherit lib;
+    customNixosModules = import ./custom-modules/nixos;
+    customHomeManagerModules = import ./custom-modules/home-manager;
+    overlays = import ./overlays {inherit inputs outputs; };
+    customPackages = forEachSystem (pkgs: import ./custom-packages { inherit pkgs; });
+    #devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+    #formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
+
+		nixosConfigurations = {
+      lapis = lib.nixosSystem {
+        modules = [ ./hosts/lapis ];
+        specialArgs = { inherit inputs outputs; };
+      };
+    };
+
+    homeConfigurations = {
+      "bloodwolfe@lapis" = lib.homeManagerConfiguration {
+        modules = [ ./home/bloodwolfe/lapis.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
 	};
 }
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#inputs.flake-utils-plus.lib.mkFlake {
-#			inherit inputs self;
-#			supportedSystems = [ "x86_64-linux" ];
-#
-#			#channels
-#			channelsConifg = {
-#				allowUnfree = true;
-#			};
-#
-#			sharedOverlays = with inputs; [
-#				self.overlay
-#				nur.overlay
-#				#neovim.overlay
-#			];
-#
-#			channels = {
-#
-#				stable = {
-#					input = inputs.stable;
-#				};
-#				
-#				unstable = {
-#					input = inputs.unstable;
-#					#overlaysBuilder = channels: [
-#					#	(final: prev: {
-#					#		inherit (channels.stable) pass-secret-service;
-#					#	})
-#					#];
-#				};
-#			};
-#			#hosts
-#			hostDefaults = let
-#				sys = "x86_64-linux";
-#			in {
-#				system = sys;
-#				modules = with self.moduleSets; system ++ hardware;
-#				channelName = "unstable";
-#				specialArgs = { inherit inputs; system = sys; };
-#			};
-#
-#			hosts = with inputs; {
-#				desktop = {
-#					modules = [
-#						./hardware/desktop-hardware-config.nix
-#						./systems/desktop-system-config.nix
-#						./users/bloodwolfe.nix
-#					];
-#				};
-#				test = {
-#					modules = [
-#						./hardware/test-hardware-config.nix
-#						./system/test-system-config.nix
-#						./users/bloodwolfe.nix
-#					];
-#				};
-#			};
-#			#modules
-#			#nixosModules = let
-#			#	moduleList = [
-#			#		<systems/modules>
-#			#		<hardware/modules>
-#			#		<users/modules>
-#			#	];
-#			nixosModules = inputs.flake-utils-plus.lib.exportModules [
-#				./systems/modules
-#				./hardware/modules
-#				./users/modules
-#			];
-#
-#
-#			moduleSets = {
-#				system = [
-#					<systems/modules>
-#				];
-#				hardware = [
-#					<hardware/modules>
-#				];
-#				user = [
-#					<users/modules>
-#				];
-#			};
-#			#overlay
-#			overlay = import ./pkgs;
-#
-#			#outputsbuilder apps shell
-#			
-#			#outputsBuilder = channels: {
-#
-#			#};
-#		};
-#
-#}
-#
-#		
-#
-#				
-#				
-#			
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#			#channels hosts modules overlay
-#			#APPS SHELL
-#			
-#
-#			
-#
-#
-#			
-#			
-#
-#
-#
