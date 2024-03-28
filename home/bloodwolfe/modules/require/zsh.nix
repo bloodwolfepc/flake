@@ -18,7 +18,7 @@
       highlight = "fg=#ff00ff,bg=cyan,bold,underline";
     };
     defaultKeymap = "viins";
-    completionInit = "autoload -U compinit && compinit && promptinit";
+    #completionInit = "autoload -U compinit && compinit && promptinit";
     syntaxHighlighting.enable = true;
   	history = {
   		save = 10000;
@@ -27,10 +27,11 @@
       expireDuplicatesFirst = true;
   	};
   
-    historySubsringSearch = {
+    historySubstringSearch = {
       enable = true;
-      seachDownKey = [ "^k" ];
+      searchDownKey = [ "^k" ];
       searchUpKey = [ "^j" ];
+    };
   	profileExtra = ''
   		neofetch
   	'';
@@ -54,7 +55,6 @@
       eval "$(zoxide init zsh)"
 
   	'';
-  	};
   };
 }
 

@@ -29,7 +29,7 @@
   system.stateVersion = "23.11";
 
   programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
+  #users.defaultUserShell = pkgs.zsh;
 
   systemd = {
     extraConfig = ''
