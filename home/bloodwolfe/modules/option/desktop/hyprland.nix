@@ -4,10 +4,10 @@ wayland.windowManager.hyprland = {
     enable = true;
     #systemd.enable = true;
     xwayland.enable = true;
-    plugins = [
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprwinwrap
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprtrails
-    ];
+    #plugins = [
+    #  inputs.hyprland-plugins.packages."${pkgs.system}".hyprwinwrap
+    #  inputs.hyprland-plugins.packages."${pkgs.system}".hyprtrails
+    #];
 
     settings = {
 

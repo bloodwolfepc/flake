@@ -43,6 +43,7 @@
     packages = with pkgs; [
 
 	    #thefuck
+      ripgrep
 	    pkgs.gitAndTools.gh
 	    sops
 	    gnupg

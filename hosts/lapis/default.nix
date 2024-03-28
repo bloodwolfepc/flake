@@ -37,10 +37,4 @@
     '';
   };
 
-  fonts.packages = with pkgs; [
-  unscii
-  comic-mono
-  ]; 
-
-
 }
