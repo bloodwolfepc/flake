@@ -9,8 +9,8 @@
     keyMode = "vi";
     prefix = "C-a";
     tmuxinator.enable = true;
-    plugins = with pkgs; [
-      tmuxPlugins.vim-tmux-navigator
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
       #tmuxPlugins.resurrect
       ];
     extraConfig = ''

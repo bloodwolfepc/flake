@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ...}:
+{ pkgs, config, ... }:
 {
   users.users.bloodwolfe = {
     isNormalUser = true;
@@ -8,9 +8,11 @@
       "audio"
       "video"
       "networkmanager"
+      "libvirtd"
+      #"docker"
     ];
   };
 
-  home-manager.users.bloodwolfe = import ../../../../home/bloodwolfe/lapis.nix;
+  home-manager.users.bloodwolfe = import ../../../../home/bloodwolfe/${config.networking.hostName}.nix;
 }
 

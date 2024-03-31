@@ -90,6 +90,8 @@
 	    wl-clipboard
       gay
       xf86_input_wacom
+
+      mpv
     ];
   };
 }

@@ -3,17 +3,18 @@
 {
   imports =
     [ 
-      inputs.hardware.nixosModules.common-cpu-intel
-      inputs.hardware.nixosModules.common-gpu-amd
-      inputs.hardware.nixosModules.common-pc-ssd
-      inputs.hardware.nixosModules.common-pc
+      
+      inputs.hardware.nixosModules.asus-zephyrus-ga402 #G14 GA402
+      #inputs.hardware.nixosModules.common-cpu-amd
+      #inputs.hardware.nixosModules.common-gpu-amd
+      #inputs.hardware.nixosModules.common-pc-ssd
+      #inputs.hardware.nixosModules.common-pc
 
       ./hardware-configuration.nix
       ../modules/require
 
       ../modules/option/steam.nix
       ../modules/option/hyprland.nix
-      ../modules/option/xdg-portal.nix
 
       ../modules/users/bloodwolfe
     ];
@@ -22,7 +23,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  networking.hostName = "lapis";
+  networking.hostName = "angel";
   networking.networkmanager.enable = true;
 
   services.openssh.enable = true;

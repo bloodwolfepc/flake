@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.home-manager #gets homemanager
     ./locale.nix
     ./nix.nix
+    ./pipewire.nix
   ] ++ (builtins.attrValues outputs.customNixosModules); #concatenate customNixosModules
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };

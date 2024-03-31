@@ -2,7 +2,7 @@
 	inputs = {
     #nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		#nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
-		nixpkgs.url = "github:nixOs/nixpkgs/nixos-unstable";
+		nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 		#nixpkgs.follows = "unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
@@ -25,14 +25,14 @@
     #sops-nix.url = "github:mix92/sops-nix";
     #inputs.nixpkgs.follows = "nixpkgs";
 
+    nixvim.url = "github:bloodwolfepc/die";
+
 	};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let 
 
     inherit (self) outputs;
-
-		user = "bloodwolfe";
 
 		systems = [
       "x86_64-linux"
@@ -58,8 +58,19 @@
     #formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 
 		nixosConfigurations = {
+
       lapis = lib.nixosSystem {
         modules = [ ./hosts/lapis ];
+        specialArgs = { inherit inputs outputs; };
+      };
+
+      angel = lib.nixosSystem {
+        modules = [ ./hosts/angel ];
+        specialArgs = { inherit inputs outputs; };
+      };
+
+      waterdreamer = lib.nixosSystem {
+        modules = [ ./hosts/waterdreamer ];
         specialArgs = { inherit inputs outputs; };
       };
     };
@@ -67,6 +78,18 @@
     homeConfigurations = {
       "bloodwolfe@lapis" = lib.homeManagerConfiguration {
         modules = [ ./home/bloodwolfe/lapis.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+
+      "bloodwolfe@angel" = lib.homeManagerConfiguration {
+        modules = [ ./home/bloodwolfe/angel.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+
+      "bloodwolfe@waterdreamer" = lib.homeManagerConfiguration {
+        modules = [ ./home/bloodwolfe/waterdreamer.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };
