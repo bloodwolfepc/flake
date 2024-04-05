@@ -12,6 +12,7 @@
     ./util/zoxide.nix
     ./util/ripgrep.nix
     ./util/thefuck.nix
+    ./util/hyfetch.nix
     ./util/miscellaneous-utils.nix
 
   ] ++ (builtins.attrValues outputs.customHomeManagerModules);

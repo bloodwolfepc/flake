@@ -11,6 +11,5 @@
     lolcat
     gay
     neofetch
-    hyfetch
   ];
 }

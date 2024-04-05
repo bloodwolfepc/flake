@@ -32,7 +32,7 @@
       #searchUpKey = [ "^k" ];
     };
   	profileExtra = ''
-  		neofetch
+  		hyfetch
   	'';
   
   	shellAliases = {

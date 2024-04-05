@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     steamPackages.steamcmd
     steam-run
   ];

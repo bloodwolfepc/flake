@@ -3,12 +3,14 @@
 {
   imports =
     [ 
-
       ./hardware-configuration.nix
+
       ../modules/require
 
-      ../modules/option/steam.nix
-      ../modules/option/hyprland.nix
+      ../modules/option/gui/gaming/steam.nix
+      ../modules/option/gui/desktop-environment/hyprland.nix
+      ../modules/option/utils/xdg-portal.nix
+      ../modules/option/virtualization/virtualization.nix
 
       ../modules/users/bloodwolfe
     ];

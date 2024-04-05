@@ -1,6 +1,6 @@
 {
-  programs = {
-    thefuck.enable = true;
+  programs.thefuck = {
+    enable = true;
     enableZshIntegration = true;
   };
 }

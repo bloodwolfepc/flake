@@ -1,3 +1,3 @@
 {
-  programs.neomutt.enbale = true;
+  programs.neomutt.enable = true;
 }
