@@ -2,9 +2,10 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager #gets homemanager
-    ./locale.nix
-    ./nix.nix
-    ./pipewire.nix
+    ./audio/pipewire.nix
+    ./system-services/keyd.nix
+    ./system-configuration/nix.nix
+    ./system-configuration/locale.nix
   ] ++ (builtins.attrValues outputs.customNixosModules); #concatenate customNixosModules
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };

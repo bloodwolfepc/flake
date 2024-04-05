@@ -1,0 +1,3 @@
+{
+  programs.neomutt.enbale = true;
+}

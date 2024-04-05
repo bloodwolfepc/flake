@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{lib, inputs, pkgs, ... }:
 
 {
   imports =
@@ -14,6 +14,7 @@
       ../modules/option/steam.nix
       ../modules/option/hyprland.nix
       ../modules/option/xdg-portal.nix
+      ../modules/option/virtualization.nix
 
       ../modules/users/bloodwolfe
     ];
@@ -25,7 +26,7 @@
   networking.hostName = "lapis";
   networking.networkmanager.enable = true;
 
-  services.openssh.enable = true;
+  services.openssh.enable = lib.mkForce false;
 
   system.stateVersion = "23.11";
 

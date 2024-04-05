@@ -9,7 +9,7 @@
       "video"
       "networkmanager"
       "libvirtd"
-      #"docker"
+      "docker"
     ];
   };
 
