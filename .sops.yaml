@@ -1,0 +1,11 @@
+keys:
+  - &users:
+    - &bloodwolfe age1da8lp5dzwenrc4mrtpnk3ah9989zuuq2sy447n4rpkh28x7ahqkqtz08ul
+  - &hosts:
+    - &lapis age1y5qefq3v2mn8dqlvq2rw0ysmmn0fh3sp6rdmxw0c8r4ndvnfyvssn99k4w
+creation_rules:
+  - path_regex: secrets.yaml$
+    key_groups:
+    - age:
+      - *bloodwolfe
+      - *lapis

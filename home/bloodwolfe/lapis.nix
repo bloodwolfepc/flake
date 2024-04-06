@@ -28,5 +28,7 @@
     ./modules/option/gui/desktop-ui/waybar.nix
     ./modules/option/gui/desktop-ui/alacritty.nix
     ./modules/option/gui/desktop-ui/grimblast.nix
+
+    ./modules/option/gui/theme/darktop/fonts.nix
   ];
 }

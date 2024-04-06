@@ -22,8 +22,8 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    #sops-nix.url = "github:mix92/sops-nix";
-    #inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     nixvim.url = "github:bloodwolfepc/die";
 

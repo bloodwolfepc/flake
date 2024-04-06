@@ -1,4 +1,4 @@
-{lib, inputs, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports =
@@ -27,7 +27,7 @@
   networking.hostName = "lapis";
   networking.networkmanager.enable = true;
 
-  services.openssh.enable = lib.mkForce false;
+  services.openssh.enable = true;
 
   system.stateVersion = "23.11";
 
