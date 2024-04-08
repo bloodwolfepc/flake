@@ -6,7 +6,7 @@
     ./system-services/keyd.nix
     ./system-configuration/nix.nix
     ./system-configuration/locale.nix
-    ./sops.nix
+    ./security/sops.nix
   ] ++ (builtins.attrValues outputs.customNixosModules); #concatenate customNixosModules
 
   home-manager.extraSpecialArgs = { inherit inputs outputs; };
