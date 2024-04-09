@@ -14,10 +14,12 @@
     ./modules/option/gui/gaming/gamescope.nix
     ./modules/option/gui/communitcation/discord.nix
     ./modules/option/gui/playback/mpv.nix
+    ./modules/option/gui/playback/zathura.nix
     ./modules/option/gui/playback/spotify.nix
     ./modules/option/gui/editors/gimp.nix
     ./modules/option/gui/editors/krita.nix
     ./modules/option/gui/editors/thunar.nix
+    ./modules/option/gui/editors/reaper.nix
     ./modules/option/gui/browsers/firefox.nix
 
     ./modules/option/gui/desktop-environment/hyprland.nix

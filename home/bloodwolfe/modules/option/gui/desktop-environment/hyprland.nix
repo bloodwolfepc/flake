@@ -1,77 +1,92 @@
+{ inputs, pkgs, ... }:
 {
+  imports = [
+    #../theme/darktop/hyprland-darktop.nix
+    ../theme/hyprland-no-anim.nix
+#TODO create simple flicker border script
+  ];
 wayland.windowManager.hyprland = {
-    enable = true;
-    #systemd.enable = true;
-    xwayland.enable = true;
-    #plugins = [
-    #  inputs.hyprland-plugins.packages."${pkgs.system}".hyprwinwrap
-    #  inputs.hyprland-plugins.packages."${pkgs.system}".hyprtrails
-    #];
+  enable = true;
+  systemd.enable = true;
+  xwayland.enable = true;
+  plugins = [
+    #inputs.hypr-darkwindow.packages.${pkgs.system}.default
+    #inputs.hyprfocus.packages.${pkgs.system}.default
+  ];
+  settings = {
+    #"plugin:hyprfocus" = {
+    #  enabled = "yes";
+    #};
+	  "monitor" = "DP-3, 1920x1080@144, 0x0, 1"; #TODO find a way to make this system specific
+#   #ALSO with settings.misc.vrr
+#will make hyprland/hyprland.nix with hyprland/for-<somehost>.nix
 
-    settings = {
-
-	"monitor" = "DP-3, 1920x1080@144, 0x0, 1";
-
-	"$wallpaper-path" = "~/flake/assets/wallpapers/Black.png";
-	"$screenshot-path" = "~/Pictures/Snips/";
-	    
-	"$mode-insert" = "i";
+	  "$wallpaper-path" = "~/flake/assets/wallpapers/Black.png";
+	  "$screenshot-path" = "~/Pictures/Snips/";
+	      
+	  "$mode-insert" = "i";
 	    "$mode-normal" = "SUPER_L";
-		"$float" = "space";
-		"$up" = "k";
-		"$down" = "j";
-	    	"$left" = "h";
-	    	"$right" = "l";
-	    	"$center" = "c";
-	    	"$fullscreen" = "v";
-		"$kill" = "x";
-		"$command-bar-key" = "semicolon";
-		#"$invert-transparency" = "0";
-		"$mode-screentools" = "s";
-	    	    "$screenshot-key" = "s";
-	    	    "$full-screenshot-key" = "f";
-	    	"$mode-exec" = "e";
-	    	"$mode-term" = "t";
-	    	"$mode-goto-workspace" = "f";
-		"$mode-relocate-workspace" = "g";
-		"$mode-move-window" = "m";
-		"$mode-resize-window" = "r";
+	  	"$float" = "space";
+	  	"$up" = "k";
+	  	"$down" = "j";
+	    "$left" = "h";
+	    "$right" = "l";
+	    "$center" = "c";
+	    "$fullscreen" = "v";
+	  	"$kill" = "x";
+	  	"$command-bar-key" = "semicolon";
+	  	#"$invert-transparency" = "0";
+	  	"$mode-screentools" = "s";
+	      "$screenshot-key" = "s";
+	      "$full-screenshot-key" = "f";
+	    "$mode-exec" = "e";
+	    "$mode-term" = "t";
+	    "$mode-goto-workspace" = "f";
+	  	"$mode-relocate-workspace" = "g";
+	  	"$mode-move-window" = "m";
+	  	"$mode-resize-window" = "r";
 
-		"$pass-oneshots" = "/home/bloodwolfe/flake/scripts/pass-oneshots.conf";
-		"$submap-reset" = "submap, INS";
+	  "$pass-oneshots" = "/home/bloodwolfe/flake/scripts/pass-oneshots.conf";
+	  "$submap-reset" = "submap, INS";
 
-	"$term" = "alacritty";
-	"$menu" = "rofi -show run";
-	"$screenshot" = "grimblast copysave area";
-	"$full-screenshot" = "grimblast copysave screen";
+	  "$term" = "alacritty --command tmux";
+	  "$menu" = "rofi -show run";
+	  "$screenshot" = "grimblast copysave area";
+	  "$full-screenshot" = "grimblast copysave screen";
 
-	"bindi" = ", i, submap, INS";
+	  "bindi" = ", i, submap, INS";
 
-    	general.allow_tearing = true;
-	animations.enabled = false;
-
-	dwindle = {
+    general = {
+      allow_tearing = true;
+      cursor_inactive_timeout = "1";
+    };
+	  dwindle = {
 	    pseudotile = true;
 	    preserve_split = true;
 	    permanent_direction_override = true;
-	};
-
-	input = {
+	  };
+	  input = {
 	    touchpad = {
-		natural_scroll = false;
-		disable_while_typing = false;
+	  	  natural_scroll = false;
+	  	  disable_while_typing = false;
 	    };
 	    tablet = {
-		transform = "6";
-		region_size = "1920 1268";
+	  	  transform = "6";
+	  	  region_size = "1920 1268";
 	    };
 	    kb_layout = "us";
 	    follow_mouse = "1";
 	    sensitivity = "0";
 	    accel_profile = "flat";
-	};
-    };
-    extraConfig = '' 	
+	  };
+    #Misc = {
+    #  focus_on_activate = true; #TODO or create rule for rofi
+    #  hide_cursor_on_touch = true;
+    #  hide_cursor_on_key_press = true;
+    #};
+  };
+#TODO switch lyrics to mkshellscriptbin
+  extraConfig = '' 	
 
 	env = XCURSOR_SIZE,24
 	env = QT_QPA_PLATFORMTHEME,qt6ct

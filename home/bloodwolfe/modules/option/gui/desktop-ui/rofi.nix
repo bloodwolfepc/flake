@@ -5,9 +5,9 @@ in
 {
 programs.rofi = {
 	enable = true;
-	package = pkgs.rofi.override { plugins = with pkgs; [
-	rofi-wayland-unwrapped 
-	]; };
+	#package = pkgs.rofi.override { plugins = with pkgs; [
+	#rofi-wayland-unwrapped 
+	#]; };
 	plugins = with pkgs; [
 	rofi-emoji
 	rofi-calc

@@ -18,7 +18,11 @@
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins.url = "github:hyprwm/hyprland-plugins";
     hyprland-plugins.inputs.hyprland.follows = "hyprland";
-  
+    hyprfocus.url = "github:VortexCoyote/hyprfocus";
+    hyprfocus.inputs.hyprland.follows = "hyprland";
+    hypr-darkwindow.url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; 
+    hypr-darkwindow.inputs.hyprland.follows = "hyprland";
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
