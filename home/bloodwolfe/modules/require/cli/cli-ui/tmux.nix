@@ -7,10 +7,11 @@
     historyLimit = 100000;
     clock24 = true;
     keyMode = "vi";
-    prefix = "C-f";
+    prefix = "C-Space";
     disableConfirmationPrompt = true;
     mouse = false;
     tmuxinator.enable = true;
+    sensibleOnTop = true;
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
       tmux-thumbs
@@ -36,15 +37,16 @@
         plugin = continuum;
         extraConfig = ''
           set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '60'
+          set -g @continuum-save-interval '30'
         '';
       }
 
       ];
     extraConfig = ''
       unbind %
-      bind-key - split-window -h -c "#{pane_current_path}"
-      bind-key v split-window -v -c "#{pane_current_path}"
+      bind b split-window -h -c "{pane_current_path}"
+      unbind '"'
+      bind v split-window -v -c "{pane_current_path}"
 
       bind -r j resize-pane -D 5
       bind -r k resize-pane -U 5

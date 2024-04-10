@@ -110,7 +110,7 @@ wayland.windowManager.hyprland = {
 	exec-once = wl-clipbard-history
 	exec-once = swww init
 	exec-once = hyprctl dispatch submap INS
-	exec-once = /home/bloodwolfe/flake/lyrics.sh
+	exec-once = /home/bloodwolfe/flake/scripts/lyrics.sh
 
 	submap = INS
 	    bind =, $mode-normal, submap, NML
