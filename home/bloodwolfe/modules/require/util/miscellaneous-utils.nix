@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     tree
     ctags
+    fzf
 
     sops
     

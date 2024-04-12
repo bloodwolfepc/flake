@@ -1,6 +1,9 @@
+
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-   gamescope
+   webcord-vencord
+   discord-rpc
+   discord-gamesdk
   ];
 }

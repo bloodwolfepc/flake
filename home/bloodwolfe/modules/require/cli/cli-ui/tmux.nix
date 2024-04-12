@@ -1,5 +1,5 @@
 { pkgs, ... }:
-{
+{ #TODO numbers start from one
   programs.tmux = {
     enable = true;
     shell = "${pkgs.zsh}/bin/zsh";

@@ -15,7 +15,11 @@
       ../modules/option/gui/gaming/steam.nix
       ../modules/option/gui/desktop-environment/hyprland.nix
       ../modules/option/utils/xdg-portal.nix
-      ../modules/option/virtualization/virtualization.nix
+      ../modules/option/utils/openrgb.nix
+      ../modules/option/virtualization/libvirt.nix
+      ../modules/option/virtualization/docker.nix
+      ../modules/option/virtualization/waydroid.nix
+      ../modules/option/security/yubikey.nix
 
       ../modules/users/bloodwolfe
     ];

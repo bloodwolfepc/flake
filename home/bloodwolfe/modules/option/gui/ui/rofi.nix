@@ -5,14 +5,15 @@ in
 {
 programs.rofi = {
 	enable = true;
+  package = pkgs.rofi-wayland-unwrapped;
 	#package = pkgs.rofi.override { plugins = with pkgs; [
-	#rofi-wayland-unwrapped 
+	#rofi
 	#]; };
-	plugins = with pkgs; [
-	rofi-emoji
-	rofi-calc
-	rofi-systemd
-	];
+	#plugins = with pkgs; [
+	#rofi-emoji
+	#rofi-calc
+	#rofi-systemd
+	#];
 	terminal = "alacritty";
 	font = "Unscii 12";
 	location = "bottom";
