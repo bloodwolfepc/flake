@@ -36,7 +36,7 @@
   	'';
   
   	shellAliases = {
-  		vi = "nix run ~/die --";
+  		#vi = "nix run ~/die --";
   		vi-bu = "nvim";
   		update = "sudo nixos-rebuild switch --flake .#lapis | gay -g";
   		neocities = "~/gem/neocities-ruby/bin/neocities";

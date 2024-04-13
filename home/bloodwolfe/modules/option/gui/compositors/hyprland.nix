@@ -17,7 +17,7 @@ wayland.windowManager.hyprland = {
     #"plugin:hyprfocus" = {
     #  enabled = "yes";
     #};
-	  "monitor" = "DP-3, 1920x1080@144, 0x0, 1"; #TODO find a way to make this system specific
+	  #"monitor" = "DP-3, 1920x1080@144, 0x0, 1"; #TODO find a way to make this system specific
 #   #ALSO with settings.misc.vrr
 #will make hyprland/hyprland.nix with hyprland/for-<somehost>.nix
 
