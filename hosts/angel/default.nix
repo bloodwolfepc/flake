@@ -4,10 +4,15 @@
   imports =
     [ 
       
-      inputs.hardware.nixosModules.asus-zephyrus-ga402 #G14 GA402
+      inputs.hardware.nixosModules.asus-zephyrus-ga402
       #inputs.hardware.nixosModules.common-cpu-amd
       #inputs.hardware.nixosModules.common-gpu-amd
-      #inputs.hardware.nixosModules.common-pc-ssd
+      ./hardware-configuration.nix
+
+      inputs.disko.nixosModules.default
+      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
+      ../modules/option/impermanence/impermanence-btrfs.nix
+
       ../modules/require
 
       ../modules/option/gui/gaming/steam.nix
@@ -34,7 +39,6 @@
   system.stateVersion = "23.11";
 
   programs.zsh.enable = true;
-  #users.defaultUserShell = pkgs.zsh;
 
   systemd = {
     extraConfig = ''

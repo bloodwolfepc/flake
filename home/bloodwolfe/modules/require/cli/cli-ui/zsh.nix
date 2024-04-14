@@ -36,9 +36,11 @@
   	'';
   
   	shellAliases = {
-  		vi = "nvim";
-  		vi-bu = "nvim";
-  		update = "sudo nixos-rebuild switch --flake .#lapis | gay -g";
+  		vi = "nix run /home/bloodwolfe/die";
+  		vi-git = "nix run github:evilcatlawyer/die"; 
+      vi-bin = "nvim";
+  		update-lapis = "sudo nixos-rebuild switch --flake .#lapis | gay -g";
+  		update-angel = "sudo nixos-rebuild switch --flake .#angel | gay -g";
   		neocities = "~/gem/neocities-ruby/bin/neocities";
   
   		#cat-og = "/bin/cat";
