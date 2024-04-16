@@ -5,8 +5,6 @@
     [ 
       
       inputs.hardware.nixosModules.asus-zephyrus-ga402
-      #inputs.hardware.nixosModules.common-cpu-amd
-      #inputs.hardware.nixosModules.common-gpu-amd
       ./hardware-configuration.nix
 
       inputs.disko.nixosModules.default
@@ -34,7 +32,7 @@
 	
   networking.hostName = "angel";
   networking.networkmanager.enable = true;
-users.users."bloodwolfe".initialPassword = "12345";
+  #users.users."bloodwolfe".initialPassword = "12345";
   services.openssh.enable = true;
 
   system.stateVersion = "23.11";

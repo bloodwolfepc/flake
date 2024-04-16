@@ -1,11 +1,11 @@
 { pkgs, config, ... }:
 {
-  #sops.secrets.bloodwolfe-password.neededForUsers = true;
+  sops.secrets.bloodwolfe-password.neededForUsers = true;
   users.mutableUsers = true;
 
   users.users.bloodwolfe = {
     isNormalUser = true;
-    #hashedPasswordFile = config.sops.secrets.bloodwolfe-password.path;
+    hashedPasswordFile = config.sops.secrets.bloodwolfe-pass.path;
     shell = pkgs.zsh;
     extraGroups = [
       "wheel"

@@ -7,15 +7,19 @@
       inputs.hardware.nixosModules.common-gpu-amd
       inputs.hardware.nixosModules.common-pc-ssd
       inputs.hardware.nixosModules.common-pc
-
       ./hardware-configuration.nix
 
+      inputs.disko.nixosModules.default
+      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
+      ../modules/option/impermanence/impermanence-btrfs.nix
+
       ../modules/require
+      #../modules/option/spec/powersave.nix
 
       ../modules/option/gui/gaming/steam.nix
       ../modules/option/gui/desktop-environment/hyprland.nix
       ../modules/option/utils/xdg-portal.nix
-      ../modules/option/utils/openrgb.nix
+      #../modules/option/utils/openrgb.nix
       ../modules/option/virtualization/libvirt.nix
       ../modules/option/virtualization/docker.nix
       ../modules/option/virtualization/waydroid.nix
@@ -24,6 +28,7 @@
       ../modules/users/bloodwolfe
     ];
 
+  #users.users."bloodwolfe".initialPassword = "12345";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
