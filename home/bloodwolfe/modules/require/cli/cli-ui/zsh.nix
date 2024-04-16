@@ -36,9 +36,10 @@
   	'';
   
   	shellAliases = {
-  		vi = "nix run /home/bloodwolfe/die";
+  		vi-staging = "nix run /home/bloodwolfe/Projects/die";
   		vi-git = "nix run github:evilcatlawyer/die"; 
       vi-bin = "nvim";
+      vi = "nvim";
   		update-lapis = "sudo nixos-rebuild switch --flake .#lapis | gay -g";
   		update-angel = "sudo nixos-rebuild switch --flake .#angel | gay -g";
   		neocities = "~/gem/neocities-ruby/bin/neocities";

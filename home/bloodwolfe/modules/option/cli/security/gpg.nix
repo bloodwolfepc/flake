@@ -1,3 +1,4 @@
+#TODO the location of this is pretty bad I should move it
 { config, pkgs, ... }:
 {
   services.gpg-agent = {
@@ -12,11 +13,11 @@
   programs.gpg = {
     enable = true;
     homedir = "${config.home.homeDirectory}/.gnupg";
-    #mutableKeys = false;
-    #mutableTrust = false;
+    mutableKeys = false;
+    mutableTrust = false;
     publicKeys = [ 
       {
-        source = ./469F9D3A5AD73958-2024-04-12.asc;
+        source = ./B74857A702B0C92B-2024-04-15.asc;
         trust = 5;
       }
     ];

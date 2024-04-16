@@ -1,11 +1,12 @@
 {
   wayland.windowManager.hyprland.settings = {
-    "monitor" = "DP-3, 1920x1080@60, 0x0, 1";
+    "monitor" = "eDP-2, 2560x1600@120, 0x0, 1";
+#TODO setup vrr
   };
   imports = [
     ./modules/option/impermanence/impermanence-home.nix
     ./modules/require
-
+    ./modules/option/security/sops.nix
     ./modules/option/cli/security/gpg.nix
     ./modules/option/util/miscellaneous-utils.nix
 

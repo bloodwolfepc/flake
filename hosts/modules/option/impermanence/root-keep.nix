@@ -9,10 +9,11 @@
 		"/var/lib/bluetooth"
 		"/var/lib/systemd/coredump"
 		"/etc/NetworkManager/system-connections"
-		{ directory = "/var/lib/bloodwolfe"; user = "bloodwolfe"; group = "bloodwolfe"; mode = "u=rwx,g=rx,o="; }
+    "/etc/ssh"
 		];
 		files = [
 			"/etc/machine-id"
+		  "/var/lib/sops-nix/key.txt"
 			{ file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
 		];
 	};

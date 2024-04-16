@@ -90,7 +90,7 @@
         specialArgs = { inherit inputs outputs; };
       };
     };
-    programs.fuse.userAllowOther = true;
+
     homeConfigurations = {
       "bloodwolfe@lapis" = lib.homeManagerConfiguration {
         modules = [ ./home/bloodwolfe/lapis.nix ];

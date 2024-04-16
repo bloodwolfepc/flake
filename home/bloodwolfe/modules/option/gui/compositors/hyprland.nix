@@ -17,11 +17,10 @@ wayland.windowManager.hyprland = {
     #"plugin:hyprfocus" = {
     #  enabled = "yes";
     #};
-	  #"monitor" = "DP-3, 1920x1080@144, 0x0, 1"; #TODO find a way to make this system specific
-#   #ALSO with settings.misc.vrr
 #will make hyprland/hyprland.nix with hyprland/for-<somehost>.nix
 
-	  "$wallpaper-path" = "~/flake/assets/wallpapers/Black.png";
+	  "$wallpaper-path" = "~/Projects/flake/assets/wallpapers/Black.png";
+#TODO this also causes a tether
 	  "$screenshot-path" = "~/Pictures/Snips/";
 	      
 	  "$mode-insert" = "i";
@@ -46,7 +45,10 @@ wayland.windowManager.hyprland = {
 	  	"$mode-move-window" = "m";
 	  	"$mode-resize-window" = "r";
 
-	  "$pass-oneshots" = "/home/bloodwolfe/flake/scripts/pass-oneshots.conf";
+	  "$pass-oneshots" = "/home/bloodwolfe/Projects/flake/scripts/pass-oneshots.conf";
+#I cant think of a cleaner way to do this, it will for the time being tether the config to Projects
+#dir, but I hope that they clean the syntax so i don't need to source a file
+#TODO
 	  "$submap-reset" = "submap, INS";
 
 	  "$term" = "alacritty --command tmux";
@@ -108,9 +110,11 @@ wayland.windowManager.hyprland = {
 	exec-once = alacritty
 	exec-once = polkit-kde-agent
 	exec-once = wl-clipbard-history
-	exec-once = swww init
+	exec-once = swww-daemon
+	exec-once = swww img $wallpaper-path
 	exec-once = hyprctl dispatch submap INS
-	exec-once = /home/bloodwolfe/flake/scripts/lyrics.sh
+	exec-once = /home/bloodwolfe/Projects/flake/scripts/lyrics.sh
+#to be replaced with TODO make shell script bin
 
 	submap = INS
 	    bind =, $mode-normal, submap, NML

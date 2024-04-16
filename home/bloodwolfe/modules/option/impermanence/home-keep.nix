@@ -1,5 +1,5 @@
 {
-	home.persistence."/persist/home" = {
+	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
 			"Downloads"
 			"Music"
@@ -7,11 +7,13 @@
 			"Documents"
 			"Videos"
       "Projects"
-			".gnupg"
+			#".gnupg"
 			".ssh"
+      #".config/sops"
 			".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
+      ".ssh"
 			{
 				directory = ".local/share/Steam";
 				method = "symlink";
@@ -19,6 +21,8 @@
 		];
 		files = [
 			".screenrc"
+      ".config/sops/age/keys.txt"
 		];
+		allowOther = true;
 	};
 }

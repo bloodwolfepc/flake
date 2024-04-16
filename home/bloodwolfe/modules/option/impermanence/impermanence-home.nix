@@ -5,5 +5,5 @@
     ./home-keep.nix
 	];
 	home.stateVersion = "23.11";
-  home.persistence.allowOther = true;
+  #home.persistence.allowOther = true;
 }		
