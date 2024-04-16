@@ -5,6 +5,7 @@
   ];
 
   sops = {
+    age.keyFile = "/persist/system/var/lib/sops-nix/key.txt";
     #age.keyFile = "/persist/home/bloodwolfe/.config/sops/age/keys.txt";
     #gnupg.home = "~/.gnupg";
 
