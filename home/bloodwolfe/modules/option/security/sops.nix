@@ -5,7 +5,7 @@
   ];
 
   sops = {
-    age.keyFile = "/persist/home/bloodwolfe/.config/sops/age/keys.txt";
+    #age.keyFile = "/persist/home/bloodwolfe/.config/sops/age/keys.txt";
     #gnupg.home = "~/.gnupg";
 
     defaultSopsFile = ../../../../../secrets.yaml;
