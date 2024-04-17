@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    "monitor" = "DP-3, 2560x1600@144, 0x0, 1";
+    #"monitor" = "DP-3, 2560x1600@144, 0x0, 1";
 #TODO setup vrr
   };
   imports = [
