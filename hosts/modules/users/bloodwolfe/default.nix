@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   #sops.secrets.bloodwolfe-pass.neededForUsers = true;
-  users.mutableUsers = true;
+  users.mutableUsers = false;
 
   users.users.bloodwolfe = {
     isNormalUser = true;
