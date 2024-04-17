@@ -32,7 +32,7 @@
 	
   networking.hostName = "angel";
   networking.networkmanager.enable = true;
-  #users.users."bloodwolfe".initialPassword = "12345";
+  users.users."bloodwolfe".initialPassword = "12345";
   services.openssh.enable = true;
 
   system.stateVersion = "23.11";

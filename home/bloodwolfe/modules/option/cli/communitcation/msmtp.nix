@@ -18,7 +18,7 @@
         tls_starttls = true;
         from = { };
         user = { };
-        passwordeval = "cat ${config.sops.secrets."msmtp-password".path}";
+        #passwordeval = "cat ${config.sops.secrets."msmtp-password".path}";
         logfile = "~/.msmtp.log";
       };
     };
