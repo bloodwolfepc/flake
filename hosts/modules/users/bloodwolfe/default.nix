@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
-  #sops.secrets.bloodwolfe-pass.neededForUsers = true;
+  sops.secrets.bloodwolfe-pass.neededForUsers = true;
   users.mutableUsers = false;
 
   users.users.bloodwolfe = {
@@ -14,6 +14,7 @@
       "networkmanager"
       "libvirtd"
       "docker"
+      "keys"
     ];
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/id_default.pub)

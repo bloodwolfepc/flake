@@ -3,10 +3,9 @@
 {
   imports =
     [ 
-      inputs.hardware.nixosModules.common-cpu-intel
-      inputs.hardware.nixosModules.common-gpu-amd
-      inputs.hardware.nixosModules.common-pc-ssd
-      inputs.hardware.nixosModules.common-pc
+      
+	inputs.hardware.nixosModules.common-cpu-intel
+	inputs.hardware.nixosModules.common-gpu-amd
       ./hardware-configuration.nix
 
       inputs.disko.nixosModules.default
@@ -28,19 +27,19 @@
       ../modules/users/bloodwolfe
     ];
 
-  #users.users."bloodwolfe".initialPassword = "12345";
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
-
+	
   networking.hostName = "lapis";
   networking.networkmanager.enable = true;
-
+  users.users."bloodwolfe".initialPassword = "12345";
   services.openssh.enable = true;
 
   system.stateVersion = "23.11";
 
   programs.zsh.enable = true;
+	programs.fuse.userAllowOther = true;
 
   systemd = {
     extraConfig = ''

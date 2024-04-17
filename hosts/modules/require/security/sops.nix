@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -12,12 +12,8 @@
       keyFile = "/persist/system/var/lib/sops-nix/key.txt";
       generateKey = true;
     };
-    gnupg = { 
-      #home = "/home/bloodwolfe/.gnupg";
-      sshKeyPaths = [];
-    };
     secrets = {
-      #msmtp-password = {};
+      bloodwolfe-pass = {};
     };
   };
 
