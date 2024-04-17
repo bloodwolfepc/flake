@@ -2,8 +2,8 @@
 {
   sops.secrets = {
     "git-auth" = {
-      #owner = config.users.users.bloodwolfe.name;
-      #inherit (config.users.users.bloodwolfe) group;
+     #owner = config.users.users.bloodwolfe.name;
+     #inherit (config.users.users.bloodwolfe) group;
     };
   };
 
