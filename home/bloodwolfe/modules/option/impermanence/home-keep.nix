@@ -7,13 +7,12 @@
 			"Documents"
 			"Videos"
       "Projects"
-			#".gnupg"
 			".ssh"
-      #".config/sops"
 			".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
-      ".ssh"
+      #".cache/zsh_history"
+      #".cache/mozilla"
 			{
 				directory = ".local/share/Steam";
 				method = "symlink";

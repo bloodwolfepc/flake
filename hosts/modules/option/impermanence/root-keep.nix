@@ -13,8 +13,8 @@
 		];
 		files = [
 			"/etc/machine-id"
-		  "/var/lib/sops-nix/key.txt"
-			{ file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+		  #"/var/lib/sops-nix/key.txt"
+			#{ file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
 		];
 	};
 }

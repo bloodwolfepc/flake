@@ -1,14 +1,16 @@
 keys:
   - &users:
-    #- &bloodwolfe 161647C114E21F60A186E252B74857A702B0C92B
+    - &bloodwolfe 161647C114E21F60A186E252B74857A702B0C92B
   - &hosts:
-     - &lapis age1ewvncfc0d6gqg6f3vyjyy0ga9ht2h5fgjjjmaeytv3ya2lyvxaysy7hlm9
-    #- &angel age1zg4xs5p40rc50es7sg8c9epflm03ktxc7225kjnqydltmk26pv0sacumpa
+    - &lapis age1ewvncfc0d6gqg6f3vyjyy0ga9ht2h5fgjjjmaeytv3ya2lyvxaysy7hlm9
+    - &angel age1zg4xs5p40rc50es7sg8c9epflm03ktxc7225kjnqydltmk26pv0sacumpa
+    - &lapis2 age1u45zt7sh7kj98yxurg04a8rlpfzfp8xf9l4g82j6l2vsuvpt5ctsts43zj
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
       - age:
         - *lapis
-        #- *angel
-        #  - pgp:
-        #- *bloodwolfe
+        - *angel
+        - *lapis2
+        pgp:
+        - *bloodwolfe

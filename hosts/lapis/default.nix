@@ -35,6 +35,7 @@
   networking.networkmanager.enable = true;
   users.users."bloodwolfe".initialPassword = "12345";
   services.openssh.enable = true;
+  services.openssh.settings.PasswordAuthentication = false;
 
   system.stateVersion = "23.11";
 
