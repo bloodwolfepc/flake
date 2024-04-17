@@ -3,7 +3,8 @@ keys:
     - &bloodwolfe 161647C114E21F60A186E252B74857A702B0C92B
   - &hosts:
     #- &lapis age1y5qefq3v2mn8dqlvq2rw0ysmmn0fh3sp6rdmxw0c8r4ndvnfyvssn99k4w
-    - &angel age1e5t5a5py5clu7yalcks3hyc5rcmdwelkeerprct30d4gywwclpeqnmft9u
+    #- &angel age1e5t5a5py5clu7yalcks3hyc5rcmdwelkeerprct30d4gywwclpeqnmft9u
+    - &angel age1zg4xs5p40rc50es7sg8c9epflm03ktxc7225kjnqydltmk26pv0sacumpa
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
