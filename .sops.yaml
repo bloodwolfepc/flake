@@ -5,6 +5,7 @@ keys:
     - &lapis age1ewvncfc0d6gqg6f3vyjyy0ga9ht2h5fgjjjmaeytv3ya2lyvxaysy7hlm9
     - &angel age1zg4xs5p40rc50es7sg8c9epflm03ktxc7225kjnqydltmk26pv0sacumpa
     - &lapis2 age1u45zt7sh7kj98yxurg04a8rlpfzfp8xf9l4g82j6l2vsuvpt5ctsts43zj
+    - &lapis3 age1zzcvjddqx9rqrkaytjzckq7zgx6nw36n4m9gc3wwzkh0x54cwf9qvcxfhy
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
@@ -14,3 +15,4 @@ creation_rules:
         - *lapis
         - *angel
         - *lapis2
+        - *lapis3

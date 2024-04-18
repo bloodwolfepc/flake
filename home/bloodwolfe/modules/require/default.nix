@@ -41,8 +41,11 @@
     homeDirectory = "/home/bloodwolfe";
 
     sessionVariables = {
-      FLAKE = "$HOME/flake";
+      FLAKE = "$HOME/Projects/flake";
     };
+    packages = with pkgs; [
+      home-manager
+    ];
 
   };
 }

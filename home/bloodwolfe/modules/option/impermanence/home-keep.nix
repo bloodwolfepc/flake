@@ -12,7 +12,8 @@
 			".local/share/keyrings"
 			".local/share/direnv"
       #".cache/zsh_history"
-      #".cache/mozilla"
+      ".cache/mozilla"
+      ".mozilla"
 			{
 				directory = ".local/share/Steam";
 				method = "symlink";
@@ -20,7 +21,7 @@
 		];
 		files = [
 			".screenrc"
-      ".config/sops/age/keys.txt"
+      #".config/sops/age/keys.txt"
 		];
 		allowOther = true;
 	};

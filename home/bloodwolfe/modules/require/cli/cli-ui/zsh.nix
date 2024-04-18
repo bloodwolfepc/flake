@@ -45,7 +45,7 @@
   		neocities = "~/gem/neocities-ruby/bin/neocities";
   
   		#cat-og = "/bin/cat";
-  		cat = "lolcat";
+  		#cat = "lolcat";
   
   		#cd-og = "/bin/cd";
   		cd = "z";

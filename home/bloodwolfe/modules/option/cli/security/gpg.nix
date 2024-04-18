@@ -8,13 +8,13 @@
     enableSshSupport = true;
     pinentryPackage = pkgs.pinentry-tty;
     verbose = true;
-    sshKeys = [ ];
+    #sshKeys = [ ];
   };
   programs.gpg = {
     enable = true;
     homedir = "${config.home.homeDirectory}/.gnupg";
-    mutableKeys = true;
-    mutableTrust = true;
+    mutableKeys = false;
+    mutableTrust = false;
     publicKeys = [ 
       {
         source = ./B74857A702B0C92B-2024-04-15.asc;

@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config,... }:
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -17,16 +17,60 @@
 #  ];
   sops = {
     defaultSopsFile = ../../../../secrets.yaml;
-    validateSopsFiles = false;
+ #   validateSopsFiles = false;
+    defaultSopsFormat = "yaml";
+    gnupg.sshKeyPaths = [];
     age = {
      sshKeyPaths = [ "/persist/system/etc/ssh/ssh_host_ed25519_key" ];
-     #keyFile = "/persist/system/var/lib/sops-nix/key.txt";
-     keyFile = "/persist/home/bloodwolfe/.config/sops/age/keys.txt";
+     keyFile = "/persist/system/var/lib/sops-nix/key.txt";
      generateKey = true;
     };
     secrets = {
-      bloodwolfe-pass = { };
+      "bloodwolfe-pass" = { 
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+      };
+      "spotify-cookie" = { 
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+      };
+      "git-auth" = {
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+        format = "yaml";
+        mode = "7777";
+      };
+      "test-2" = {
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+      };
+      "test-pass" = {
+        owner = "testservice";
+      };
     };
   };
+  systemd.services."testservice" = {
+    script = ''
+      echo "
+      $(cat ${config.sops.secrets."test-pass".path}) is of
+      ${config.sops.secrets."test-pass".path}
+      " > /var/lib/testservice/testfile
+      echo "
+      service can work 
+      $(cat ${config.sops.secrets."test-pass".path})
+      " > /var/lib/testservice/testfile2.txt
 
+    '';
+    serviceConfig = {
+      User = "testservice";
+      WorkingDirectory = "/var/lib/testservice";
+    };
+  };
+  users.users.testservice = {
+    home = "/var/lib/testservice";
+    createHome = true;
+    isSystemUser = true;
+    group = "testservice";
+  };
+  users.groups.testservice = { };
 }
