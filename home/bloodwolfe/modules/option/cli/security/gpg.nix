@@ -13,8 +13,8 @@
   programs.gpg = {
     enable = true;
     homedir = "${config.home.homeDirectory}/.gnupg";
-    mutableKeys = false;
-    mutableTrust = false;
+    mutableKeys = true;
+    mutableTrust = true;
     publicKeys = [ 
       {
         source = ./B74857A702B0C92B-2024-04-15.asc;

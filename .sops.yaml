@@ -8,9 +8,9 @@ keys:
 creation_rules:
   - path_regex: secrets.yaml$
     key_groups:
-      - age:
+      - pgp:
+        - *bloodwolfe
+        age:
         - *lapis
         - *angel
         - *lapis2
-        pgp:
-        - *bloodwolfe
