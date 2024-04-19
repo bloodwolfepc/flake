@@ -44,10 +44,17 @@
         owner = config.users.users.bloodwolfe.name;
         group = config.users.users.bloodwolfe.group;
       };
+      "openai-auth" = {
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+      };
       "test-pass" = {
         owner = "testservice";
       };
     };
+  };
+  environment.sessionVariables = {
+    OPENAI_API_KEY = "$(cat ${config.sops.secrets."openai-auth".path})";
   };
   systemd.services."testservice" = {
     script = ''

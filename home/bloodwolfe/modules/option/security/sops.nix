@@ -17,6 +17,16 @@
 
     secrets = {
       git-auth = { };
+      openai-auth = {
+      };
     };
+  defaultSymlinkPath = "/run/user/1000/secrets";
+  defaultSecretsMountPoint = "/run/user/1000/secrets.d";
   };
+  home.sessionVariables = {
+    OPENAI_API_KEY = "$(cat ${config.sops.secrets."openai-auth".path})";
+  };
+  programs.zsh.envExtra = ''
+    export OPENAI_API_KEY=$(cat ${config.sops.secrets."openai-auth".path})
+  '';
 }

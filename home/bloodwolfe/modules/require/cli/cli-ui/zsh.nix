@@ -22,7 +22,7 @@
   	history = {
   		save = 10000;
   		size = 10000;
-  		path = "$HOME/.cache/zsh_history";
+  		path = "/persist/zsh_history"; #write to persist
       expireDuplicatesFirst = true;
   	};
   

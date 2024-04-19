@@ -16,14 +16,14 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
-    hyprfocus = {
-      url = "github:VortexCoyote/hyprfocus";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hypr-darkwindow = {
-      url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; 
-      inputs.hyprland.follows = "hyprland";
-    };
+    #hyprfocus = {
+    #  url = "github:VortexCoyote/hyprfocus";
+    #  inputs.hyprland.follows = "hyprland";
+    #};
+    #hypr-darkwindow = {
+    #  url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; 
+    #  inputs.hyprland.follows = "hyprland";
+    #};
 
     disko = {
       url = "github:nix-community/disko";
@@ -42,6 +42,16 @@
     nixvim = {
       url = "github:bloodwolfepc/die";
     };
+
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #nixos-anywhere = {
+    #  url = "github:nix-community/nixos-anywhere";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
 	};
 
