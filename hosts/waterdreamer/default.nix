@@ -1,38 +1,28 @@
-{ pkgs, ... }:
-
-{
+{ inputs, ... }: {
   imports =
-    [ 
+    [  
       ./hardware-configuration.nix
 
+      inputs.disko.nixosModules.default
+      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
+      ../modules/option/impermanence/impermanence-btrfs.nix
       ../modules/require
 
+      ../modules/option/spec/jovian-hardware-steamdeck.nix
+      ../modules/option/gui/gaming/jovian-software.nix
+
       ../modules/option/gui/gaming/steam.nix
+
       ../modules/option/gui/desktop-environment/hyprland.nix
-      ../modules/option/utils/xdg-portal.nix
-      ../modules/option/virtualization/virtualization.nix
+      ../modules/option/gui/desktop-environment/xdg-portal.nix
+
+      ../modules/option/virtualization/libvirt.nix
+      ../modules/option/virtualization/docker.nix
+      ../modules/option/virtualization/waydroid.nix
+
+      ../modules/option/security/yubikey.nix
 
       ../modules/users/bloodwolfe
     ];
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-
   networking.hostName = "waterdreamer";
-  networking.networkmanager.enable = true;
-
-  services.openssh.enable = true;
-
-  system.stateVersion = "23.11";
-
-  programs.zsh.enable = true;
-  #users.defaultUserShell = pkgs.zsh;
-
-  systemd = {
-    extraConfig = ''
-     DefaultTimeoutStopSec = 10s
-    '';
-  };
-
 }

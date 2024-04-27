@@ -1,7 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
-    "monitor" = "DP-3, 1920x1080@144, 0x0, 1";
-#TODO setup vrr
+    "monitor" = "DP-3, 1920x1080@144, 0x0, 1"; # vrr, 1";
   };
   imports = [
     ./modules/option/security/bitwarden.nix

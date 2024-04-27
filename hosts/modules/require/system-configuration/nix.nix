@@ -16,12 +16,12 @@
     registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
     nixPath = [ "nixpkgs=${inputs.nixpkgs.outPath}" ];
 
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      randomizedDelaySec = "10m";
-      options = "--delete-older-than +20";
-    };
+#    gc = {
+#      automatic = true;
+#      dates = "weekly";
+#      randomizedDelaySec = "10m";
+#      options = "--delete-older-than +20";
+#    };
   };
 }
 

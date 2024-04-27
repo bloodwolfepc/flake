@@ -18,7 +18,7 @@
   ] ++ (builtins.attrValues outputs.customHomeManagerModules);
 
   programs.home-manager.enable = true;
-  systemd.user.startServices = "sd-switch";
+  #systemd.user.startServices = "sd-switch";
 
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
@@ -37,21 +37,15 @@
 
   home = {
     username = lib.mkDefault "bloodwolfe";
-    stateVersion = lib.mkDefault "23.05";
+    stateVersion = lib.mkDefault "23.11";
     homeDirectory = "/home/bloodwolfe";
 
     sessionVariables = {
       FLAKE = "$HOME/Projects/flake";
     };
-    packages = with pkgs; [
-      home-manager
-    ];
+    #packages = with pkgs; [
+    #  home-manager
+    #];
 
   };
-}
-
-        
-        
-
-
-        
+} 

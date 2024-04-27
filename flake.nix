@@ -53,6 +53,10 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    jovian = {
+      url = "github:Jovian-Experiments/Jovian-NixOS";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 	};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
