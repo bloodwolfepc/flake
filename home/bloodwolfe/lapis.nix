@@ -15,6 +15,8 @@
 
     ./modules/option/cli/gaming/steam-tui.nix
 
+    ./modules/option/cli/browsers/browsh.nix
+
     ./modules/option/cli/playback/sptlrx.nix
     ./modules/option/cli/playback/spotify-player.nix
 

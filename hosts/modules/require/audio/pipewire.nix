@@ -1,5 +1,6 @@
-{
+{ pkgs, ... }: {
   security.rtkit.enable = true;
+  sound.enable = true; #saves volume states
   services.pipewire = {
     enable = true;
     audio.enable = true;
@@ -9,5 +10,8 @@
     pulse.enable = true;
     jack.enable = true;
   };
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+  ];
 }
   

@@ -436,7 +436,7 @@
         "type": "github"
       }
     },
-    "jovian-nixos": {
+    "jovian": {
       "inputs": {
         "nix-github-actions": "nix-github-actions",
         "nixpkgs": [
@@ -482,7 +482,7 @@
     "nix-github-actions": {
       "inputs": {
         "nixpkgs": [
-          "jovian-nixos",
+          "jovian",
           "nixpkgs"
         ]
       },
@@ -682,7 +682,7 @@
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
         "impermanence": "impermanence",
-        "jovian-nixos": "jovian-nixos",
+        "jovian": "jovian",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "sops-nix": "sops-nix"
