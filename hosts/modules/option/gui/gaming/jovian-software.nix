@@ -14,7 +14,8 @@
       #extraPackages = []; 
       stateDir = "/persist/system/var/lib/decky-loader"; #write to persist (viable while not
       #using extraPackages)
-      #https://github.com/mirobouma/MusicControl
+      #TODO package https://github.com/mirobouma/MusicControl
+#TODO setups for making hyprland work as the DE, not shutting down on "shutdown"
     };
   };
 }

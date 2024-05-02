@@ -57,6 +57,10 @@
       url = "github:Jovian-Experiments/Jovian-NixOS";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    #musnix = {
+    #  url = "github:musnix/musnix";
+    #};
 	};
 
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -122,6 +126,7 @@
         modules = [ ./home/bloodwolfe/waterdreamer.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
+#TODO create an USB bootable nospec host
       };
     };
 	};

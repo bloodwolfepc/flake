@@ -6,20 +6,11 @@
       inputs.disko.nixosModules.default
       ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
       ../modules/option/impermanence/impermanence-btrfs.nix
-      ../modules/require
       ../modules/option/spec/powersave.nix
+      ../modules/option/spec/asus.nix
+      ../modules/require
 
-
-      ../modules/option/gui/gaming/steam.nix
-
-      ../modules/option/gui/desktop-environment/hyprland.nix
-      ../modules/option/gui/desktop-environment/xdg-portal.nix
-
-      ../modules/option/virtualization/libvirt.nix
-      ../modules/option/virtualization/docker.nix
-      ../modules/option/virtualization/waydroid.nix
-
-      ../modules/option/security/yubikey.nix
+      ../modules/preset/pc.nix
 
       ../modules/users/bloodwolfe
     ];

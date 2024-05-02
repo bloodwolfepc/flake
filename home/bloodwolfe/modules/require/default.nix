@@ -43,9 +43,9 @@
     sessionVariables = {
       FLAKE = "$HOME/Projects/flake";
     };
-    #packages = with pkgs; [
-    #  home-manager
-    #];
+    packages = with pkgs; [
+      home-manager
+    ];
 
   };
 } 
