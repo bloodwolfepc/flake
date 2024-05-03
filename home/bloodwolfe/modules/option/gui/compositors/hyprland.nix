@@ -32,6 +32,7 @@ wayland.windowManager.hyprland = {
     #  enabled = "yes";
     #};
 #will make hyprland/hyprland.nix with hyprland/for-<somehost>.nix
+#TODO screenshots need to write to a file dir
 
 	  "$wallpaper-path" = "~/Projects/flake/assets/wallpapers/Black.png";
 #TODO this also causes a tether

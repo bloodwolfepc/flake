@@ -17,9 +17,6 @@
 
     #TODO temporary placement
     soundfont-fluid
-    #for nh
-    nix-output-monitor
-    nvd
     #soundfont-arachno
   ];
 }

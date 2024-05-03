@@ -18,6 +18,9 @@
     ../option/virtualization/waydroid.nix
     ../option/virtualization/libvirt.nix
 
+    ../option/server/jellyfin.nix
+    ../option/server/transmission.nix
+
     ../option/security/yubikey.nix
 
     ../option/systemd/systemd.nix
