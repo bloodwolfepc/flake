@@ -13,7 +13,7 @@
 
     ./modules/option/cli/gaming/steam-tui.nix
 
-    ./modules/option/cli/playback/sptlrx.nix
+    #./modules/option/cli/playback/sptlrx.nix
     ./modules/option/cli/playback/spotify-player.nix
 
     #./modules/option/gui/communitcation/discord.nix

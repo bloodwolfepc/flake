@@ -17,7 +17,7 @@
 
     ./modules/option/cli/browsers/browsh.nix
 
-    ./modules/option/cli/playback/sptlrx.nix
+    #./modules/option/cli/playback/sptlrx.nix
     ./modules/option/cli/playback/spotify-player.nix
 
     #./modules/option/gui/communitcation/discord.nix

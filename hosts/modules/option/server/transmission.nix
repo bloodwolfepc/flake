@@ -3,11 +3,8 @@
     enable = true;
     openFirewall = true;
     settings = {
-      download-dir = "/home/bloodwolfe/Downloads";
+      download-dir = "${config.services.transmission.home}/Downloads";
     };
-
-    #settings = {
-    #}
   };
   services.sonarr = {
     enable = true;
@@ -26,7 +23,7 @@
     openFirewall = true;
   };
   environment.systemPackages = with pkgs; [
-    transmission_4-gtk
+    transmission-gtk
   ];
   #services.rtorrent = {
   #  enable = true;
