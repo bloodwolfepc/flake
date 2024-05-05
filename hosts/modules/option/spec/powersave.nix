@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   #services.tlp = {
   #  enable = true;
   #  settings = {
@@ -31,4 +31,7 @@
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+    powertop
+  ];
 }

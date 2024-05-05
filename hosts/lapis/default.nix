@@ -11,7 +11,7 @@
       ../modules/option/audio/focusrite-low-latency-audio.nix
       ../modules/require
 
-      ../modules/preset/pc.nix
+      ../modules/preset/full-system.nix
 
       ../modules/users/bloodwolfe
 

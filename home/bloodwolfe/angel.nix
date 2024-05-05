@@ -1,7 +1,6 @@
 {
   wayland.windowManager.hyprland.settings = {
     "monitor" = "eDP-2, 2560x1600@120, 0x0, 1";
-#TODO setup vrr
   };
   imports = [
     ./modules/option/impermanence/impermanence-home.nix
@@ -51,5 +50,7 @@
 
     ./modules/option/gui/theme/darktop/fonts.nix
     ./modules/option/gui/theme/darktop/gtk.nix
+
+    ./modules/option/gui/gaming/retroarch.nix
   ];
 }

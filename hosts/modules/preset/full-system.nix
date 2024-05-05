@@ -1,0 +1,16 @@
+{
+  imports = [
+    ../option/boot/systemdboot.nix
+    ../option/kernal/zen.nix
+    ../option/systemd/systemd.nix
+
+    ../option/security/yubikey.nix
+    ../option/audio/pipewire.nix
+
+    ./collection/gaming-complete.nix
+    ./collection/hosting-complete.nix
+    ./collection/hyprland-complete.nix
+    ./collection/notworking-complete.nix
+    ./collection/virtualization-complete.nix
+  ];
+}

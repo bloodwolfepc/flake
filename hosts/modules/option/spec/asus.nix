@@ -9,7 +9,13 @@
     #fanCurvesConfig
     #userLedModesConfig
   };
-  exvironment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     asusctl
   ];
+  services.supergfxd = {
+    enable = true;
+    #path = [ pkgs.pciutils ];
+  };
+  services.switcherooControl.enable = true;
+  services.power-profiles-daemon.enable = true;
 }

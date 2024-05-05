@@ -10,9 +10,11 @@
       ../modules/option/spec/asus.nix
       ../modules/require
 
-      ../modules/preset/pc.nix
+      ../modules/preset/laptop.nix
 
       ../modules/users/bloodwolfe
+
+      #../modules/option/gui/gaming/jovian-software.nix
     ];
   networking.hostName = "angel";
 }

@@ -1,5 +1,7 @@
-#nmcli device wifi scan
+#nmcli device wifi list
 #nmcli device wifi connect X password Y
+#manual add
+#nmcli connection add type wifi con-name "cobblestone" ifname "wlp5s0" ssid "Cobblestone_Guest"
 
 WORK=--experimental-features "nix-command flakes"
 git clone <flake> /tmp
