@@ -1,5 +1,8 @@
 { pkgs, ... }: {
-  imports = [ ./low-latency-audio.nix ];
+  imports = [ 
+    ../audio/low-latency-audio.nix
+    ../audio/musnix.nix
+  ];
   services.pipewire.wireplumber.configPackages = [
     (pkgs.writeTextDir "share/wireplumber/main.lua.d/99-alsa-lowlatency.lua" ''
       alsa_monitor.rules = {

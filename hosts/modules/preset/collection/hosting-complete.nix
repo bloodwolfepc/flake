@@ -1,7 +1,6 @@
 {
   imports = [
-    ../../option/server/jellyfin.nix
-    ../../option/server/transmission.nix
+    ../../option/server/nixarr.nix
     #add minecraft, i think
   ];
 }

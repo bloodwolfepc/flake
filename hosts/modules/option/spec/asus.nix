@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  programs.rog-control-center.enable = true;
   services.asusd = {
     enable = true;
     enableUserService = true;
@@ -19,4 +18,5 @@
   };
   services.switcherooControl.enable = true;
   services.power-profiles-daemon.enable = true;
+  programs.rog-control-center.enable = true;
 }

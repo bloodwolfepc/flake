@@ -23,6 +23,8 @@
       ssh-to-age
       gnupg
       age
+      #gource
+      #vrrtest
     ];
   };
 }
