@@ -10,7 +10,7 @@
     };
   
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     #hyprland-plugins = {
@@ -40,10 +40,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixos-mailserver = {
-      url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #nixos-mailserver = {
+    #  url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-unstable";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   
     nixvim = {
       url = "github:bloodwolfepc/die";
