@@ -1,5 +1,5 @@
 {
   imports = [
-  ./collection/cli-apps-complete.nix
+    ./collection/cli-apps-complete.nix
   ];
 }

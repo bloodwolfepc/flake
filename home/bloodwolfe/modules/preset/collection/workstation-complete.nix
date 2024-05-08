@@ -1,7 +1,7 @@
 {
   imports = [
-    ../../modules/option/gui/editors/gimp.nix
-    ../../modules/option/gui/editors/krita.nix
-    ../../modules/option/gui/editors/reaper.nix
+    ../../option/gui/editors/gimp.nix
+    ../../option/gui/editors/krita.nix
+    ../../option/gui/editors/reaper.nix
   ];
 }
