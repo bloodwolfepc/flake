@@ -3,6 +3,7 @@
 	environment.persistence."/persist/system" = {
 		hideMounts = true;
 		directories = [
+    "/data"
 		"/etc/nixos"
 		"/var/log"
 		"/var/lib/nixos"

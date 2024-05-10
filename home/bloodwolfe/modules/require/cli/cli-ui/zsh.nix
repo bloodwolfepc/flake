@@ -32,22 +32,19 @@
       #searchUpKey = [ "^k" ];
     };
   	profileExtra = ''
-  		hyfetch
+      ${pkgs.hyfetch}/bin/hyfetch
   	'';
   
   	shellAliases = {
-  		vi-staging = "nix run /home/bloodwolfe/Projects/die";
-  		vi-git = "nix run github:evilcatlawyer/die"; 
+  		vi-staging = "nix run /home/bloodwolfe/Projects/dead";
+  		vi-git = "nix run github:evilcatlawyer/dead"; 
       vi-bin = "nvim";
       vi = "nvim";
-  		update-lapis = "sudo nixos-rebuild switch --flake .#lapis | gay -g";
-  		update-angel = "sudo nixos-rebuild switch --flake .#angel | gay -g";
-  		neocities = "~/gem/neocities-ruby/bin/neocities";
   
-  		#cat-og = "/bin/cat";
-  		#cat = "lolcat";
+  		#cat-og = "${pkgs.cat}/bin/cat";
+  		cat = "lolcat";
   
-  		#cd-og = "/bin/cd";
+  		#cd-og = "${pkgs.cd}/bin/cd";
   		cd = "z";
   	};
     #TODO change zsh readkey engine

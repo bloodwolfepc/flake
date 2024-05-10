@@ -6,6 +6,7 @@
     enableZshIntegration = true;
     enableScDaemon = true;
     enableSshSupport = true;
+    enableExtraSocket = true;
     pinentryPackage = pkgs.pinentry-tty;
     verbose = true;
     #sshKeys = [ ];
@@ -25,7 +26,4 @@
         disable-ccid = true;
     };
   };
-  #home.packages = with pkgs; [
-    #yubikey-manager
-  #];
 }

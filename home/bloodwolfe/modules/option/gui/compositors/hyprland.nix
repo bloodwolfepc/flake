@@ -114,7 +114,6 @@ wayland.windowManager.hyprland = {
 	exec-once = swaync
 	exec-once = waybar
 	exec-once = alacritty
-	exec-once = polkit-kde-agent
 	exec-once = wl-clipbard-history
 	exec-once = swww-daemon
 	exec-once = swww img $wallpaper-path

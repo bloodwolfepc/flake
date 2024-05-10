@@ -9,5 +9,6 @@
     ../../option/gui/browsers/firefox.nix
 
     ../../option/gui/editors/thunar.nix
+    ../../option/gui/communitcation/obs.nix
   ];
 }

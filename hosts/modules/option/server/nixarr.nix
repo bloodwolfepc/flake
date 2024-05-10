@@ -1,13 +1,13 @@
 { inputs , ... }: {
-  imports = [ inputs.nixarr ];
+  imports = [ inputs.nixarr.nixosModules.default ];
   nixarr = {
     enable = true;
     mediaDir = "/data/media";
     stateDir = "/data/media/.state/nixarr";
-    vpn = {
-      enable = true;
-      wgconf = "/data/.secret/wg.conf";
-    };
+    #vpn = {
+    #  enable = true;
+    #  wgConf = "/data/.secret/wg.conf";
+    #};
     jellyfin = {
       enable = true;
       #expose.https = {

@@ -41,15 +41,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #nixos-mailserver = {
     #  url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-unstable";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
-  
-    nixvim = {
-      url = "github:bloodwolfepc/die";
-    };
-  
+    
     deploy-rs = {
       url = "github:serokell/deploy-rs";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -73,6 +74,14 @@
     nixarr = {
       url = "github:rasmus-kirk/nixarr";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:bloodwolfepc/die";
+    };
+
+    neovim = {
+      url = "github:bloodwolfepc/dead";
     };
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -119,6 +128,11 @@
         modules = [ ./hosts/waterdreamer ];
         specialArgs = { inherit inputs outputs; };
       };
+      
+      meadow = lib.nixosSystem {
+        modules = [ ./hosts/orchid ];
+        specialArgs = { inherit inputs outputs; };
+      };
     };
 
     homeConfigurations = {
@@ -138,7 +152,12 @@
         modules = [ ./home/bloodwolfe/waterdreamer.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
-#TODO create an USB bootable nospec host
+      };
+      
+      "bloodwolfe@meadow" = lib.homeManagerConfiguration {
+        modules = [ ./home/bloodwolfe/waterdreamer.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
       };
     };
 	};

@@ -21,7 +21,7 @@
       ".local/share/Steam"
       ".local/share/zoxide"
       ".config/spotify"
-
+      ".config/obs-studio"
 		];
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse
