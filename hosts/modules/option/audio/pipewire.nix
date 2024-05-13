@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   security.rtkit.enable = true;
-  sound.enable = true; #saves volume states
+  #sound.enable = true;
   services.pipewire = {
     enable = true;
     audio.enable = true;

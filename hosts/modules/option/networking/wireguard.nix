@@ -4,6 +4,7 @@
   };
 #TODO setup a vps
   environment.systemPackages = with pkgs; [
-    wgnord
+  #  wgnord
+    wireguard-tools 
   ];
 }

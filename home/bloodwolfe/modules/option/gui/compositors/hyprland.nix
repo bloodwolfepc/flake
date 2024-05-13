@@ -118,7 +118,8 @@ wayland.windowManager.hyprland = {
 	exec-once = swww-daemon
 	exec-once = swww img $wallpaper-path
 	exec-once = hyprctl dispatch submap INS
-	exec-once = /home/bloodwolfe/Projects/flake/scripts/lyrics.sh
+  exec-once = swaync --inhibitor-add Alacritty #block spotify_player 
+  #exec-once = swaync --dnd-on
 #to be replaced with TODO make shell script bin
 
 	submap = INS

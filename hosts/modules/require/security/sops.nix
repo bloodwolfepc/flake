@@ -14,22 +14,6 @@
      generateKey = true;
     };
     secrets = {
-      #"bloodwolfe-pass" = { 
-      #  owner = config.users.users.bloodwolfe.name;
-      #  group = config.users.users.bloodwolfe.group;
-      #};
-      "spotify-cookie" = { 
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };
-      "git-auth" = {
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };
-      "test-2" = {
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };
       "openai-auth" = {
         owner = config.users.users.bloodwolfe.name;
         group = config.users.users.bloodwolfe.group;

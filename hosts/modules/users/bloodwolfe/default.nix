@@ -17,7 +17,7 @@
       "keys"
     ];
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ./keys/id_default.pub)
+      (builtins.readFile ./keys/rainbow.pub)
     ];
   };
 

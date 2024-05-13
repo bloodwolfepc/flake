@@ -1,5 +1,5 @@
 #TODO the location of this is pretty bad I should move it
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   services.gpg-agent = {
     enable = true;
@@ -10,6 +10,7 @@
     pinentryPackage = pkgs.pinentry-tty;
     verbose = true;
     #sshKeys = [ ];
+    
   };
   programs.gpg = {
     enable = true;
@@ -25,5 +26,13 @@
     scdaemonSettings = {
         disable-ccid = true;
     };
+    #package = pkgs.gnupg.override {
+    #  pcsclite = pkgs.pcsclite.overrideAttrs (old: {
+    #    postPatch = old.postPatch + (lib.optionalString (!(lib.strings.hasInfix ''--replace-fail "libpcsclite_real.so.1"'' old.postPatch)) ''
+    #      substituteInPlace src/libredirect.c src/spy/libpcscspy.c \
+    #      --replace-fail "libpcsclite_real.so.1" "$lib/lib/libpcsclite_real.so.1"
+    #    '');
+    #  });
+    #};
   };
 }
