@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    reaper
+    #reaper
 
     #yabride
     #surge

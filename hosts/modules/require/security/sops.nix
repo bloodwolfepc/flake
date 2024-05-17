@@ -7,17 +7,33 @@
     defaultSopsFile = ../../../../secrets.yaml;
     validateSopsFiles = false;
     defaultSopsFormat = "yaml";
-    gnupg.sshKeyPaths = [];
+    #gnupg.sshKeyPaths = [];
     age = {
      sshKeyPaths = [ "/persist/system/etc/ssh/ssh_host_ed25519_key" ];
-     keyFile = "/persist/system/var/lib/sops-nix/key.txt";
-     generateKey = true;
+     keyFile = "/persist/system/var/lib/sops-nix/key.txt"; #TODO I think it is safe not to persist this if the key available on boot
+     generateKey = true; 
     };
     secrets = {
       "openai-auth" = {
         owner = config.users.users.bloodwolfe.name;
         group = config.users.users.bloodwolfe.group;
+      };  
+      "ssh1" = {
+        path = "/home/bloodwolfe/.ssh/rainbow";
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
       };
+      "google-api" = {
+        path = "/home/bloodwolfe/.local/share/google-api/key";
+        owner = config.users.users.bloodwolfe.name;
+        group = config.users.users.bloodwolfe.group;
+      };
+     # "spotify-credential" = {
+     #   path = "/home/bloodwolfe/.cache/spotify-player/credentials.json"; 
+     #   owner = config.users.users.bloodwolfe.name;
+     #   group = config.users.users.bloodwolfe.group;
+     #   mode = "7777";
+     # }; 
     };
   };
 #  environment.sessionVariables = {

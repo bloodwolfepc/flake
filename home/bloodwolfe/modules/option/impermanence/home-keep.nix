@@ -11,7 +11,6 @@
 			".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
-      #".cache/zsh_history" #write to persist
       ".cache/mozilla"
       ".mozilla"
 			#{
@@ -22,6 +21,8 @@
       ".local/share/zoxide"
       ".config/spotify"
       ".config/obs-studio"
+      ".cache/spotify-player" #TODO replace with EOF shell scirpt 
+      #krita, reaper and gimp need better setups
 		];
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse

@@ -1,4 +1,15 @@
 {
+#TODO 
+#screenshots are weird
+#mailmutt
+#callendar
+#firefox extension, local host webpage
+#hm sops keys
+#pipewire 
+#gimp, krita, reaper
+#spt player login
+#cacheix 
+#ssh domains
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   
@@ -130,7 +141,7 @@
       };
       
       meadow = lib.nixosSystem {
-        modules = [ ./hosts/orchid ];
+        modules = [ ./hosts/meadow ];
         specialArgs = { inherit inputs outputs; };
       };
     };
