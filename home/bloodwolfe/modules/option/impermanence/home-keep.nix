@@ -20,14 +20,23 @@
       ".local/share/Steam"
       ".local/share/zoxide"
       ".config/spotify"
-      ".config/obs-studio"
       ".cache/spotify-player" #TODO replace with EOF shell scirpt 
-      #krita, reaper and gimp need better setups
+
+      
+      #no nix workstation solution, probably host these dirs
+      ".config/REAPER"
+      ".config/GIMP"
+      ".config/obs-studio"
+      
+      ".local/share/krita" 
 		];
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse
-			".screenrc"
-      #".config/sops/age/keys.txt"
+			".screenrc" 
+      
+      #no nix workstation solution, probably host these dirs
+      ".config/kritarc"
+      ".config/kritadisplayrc"
 		];
 		allowOther = true;
 	};

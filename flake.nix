@@ -10,6 +10,9 @@
 #spt player login
 #cacheix 
 #ssh domains
+#depersist Downloads but ensure creation
+#quick terminal pop up
+#reorg/clear archives
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   

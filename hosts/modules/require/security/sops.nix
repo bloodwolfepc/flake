@@ -14,20 +14,6 @@
      generateKey = true; 
     };
     secrets = {
-      "openai-auth" = {
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };  
-      "ssh1" = {
-        path = "/home/bloodwolfe/.ssh/rainbow";
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };
-      "google-api" = {
-        path = "/home/bloodwolfe/.local/share/google-api/key";
-        owner = config.users.users.bloodwolfe.name;
-        group = config.users.users.bloodwolfe.group;
-      };
      # "spotify-credential" = {
      #   path = "/home/bloodwolfe/.cache/spotify-player/credentials.json"; 
      #   owner = config.users.users.bloodwolfe.name;
