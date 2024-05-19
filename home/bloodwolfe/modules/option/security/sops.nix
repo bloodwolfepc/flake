@@ -11,10 +11,10 @@
   validateSopsFiles = false; 
     secrets = {
       "ssh-lapis" = {
-        path = "/home/bloodwolfe/.ssh/ssh-lapis";
+        path = "/home/bloodwolfe/.ssh/id_lapis";
       };
       "ssh-angel" = {
-        path = "/home/bloodwolfe/.ssh/ssh-angel";
+        path = "/home/bloodwolfe/.ssh/id_angel";
       };
       "google-api" = {
         path = "/home/bloodwolfe/.local/share/google-api/key";

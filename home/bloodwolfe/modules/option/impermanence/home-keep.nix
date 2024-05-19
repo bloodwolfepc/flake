@@ -7,7 +7,6 @@
 			"Documents"
 			"Videos"
       "Projects"
-			".ssh"
 			".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
@@ -33,6 +32,7 @@
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse
 			".screenrc" 
+      ".ssh/known_hosts"
       
       #no nix workstation solution, probably host these dirs
       ".config/kritarc"
