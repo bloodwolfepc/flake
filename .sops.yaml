@@ -5,7 +5,7 @@ keys:
     - &lapis age1w5jq428kdf8v4ycyg23gyp6c0rm2x5fpsxgd3ctr6ykjcr9gqdwqp56var
     - &angel age14gxrh9kgl3e4u46a84lprkgnjalk8wz2l8qd9c87wszfmjg5nahs2847hh
 creation_rules:
-  - path_regex: secrets.yaml$
+  - path_regex: secrets/.*
     key_groups:
       - pgp:
         - *bloodwolfe

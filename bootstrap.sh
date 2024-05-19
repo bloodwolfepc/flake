@@ -27,4 +27,5 @@ sudo cp /tmp/flake /etc/nixos #(~/Projects/flake)
 #PERSIST
 #sudo chown -R $(id -u):$(id -g) /persist/home/bloodwolfe
 #
-#SWITCH TO SOPS USER PASSWORD
+#
+#ssh-keygen -t ed25519 -f ~/.ssh/KEY

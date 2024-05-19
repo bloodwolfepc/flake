@@ -1,15 +1,22 @@
 { inputs, config, ... }: {
   imports = [ inputs.nixarr.nixosModules.default ];
-  #sops.secrets.wg-conf = { };
+  sops.secrets."wg.conf" = {
+    format = "binary";
+    sopsFile = ../../../../secrets/wg.conf;
+    #sopsFile = "/data/.secret/wg.conf";
+  };
+  systemd.services.wg.after = [ "NetworkManager.service" ];
   #services.nginx.enable = true;
+  networking.nftables.enable = true;
   nixarr = {
     enable = true;
     mediaDir = "/data/media";
     stateDir = "/data/media/.state/nixarr";
     vpn = {
       enable = true;
-      wgConf = "/data/.secret/wg.conf"; #todo I can probably sops this
-#config.sops.secrets.wg-conf.path;
+      #wgConf = "/data/.secret/wg.conf"; #todo I can probably sops this
+      wgConf = config.sops.secrets."wg.conf".path;
+      #"$(cat ${config.sops.secrets."wg-conf".path})";
       #vpnTestService = {
       #  enable = true;
       #  port = 58403;

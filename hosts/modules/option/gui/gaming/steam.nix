@@ -10,6 +10,7 @@
   	extraCompatPackages = with pkgs; [
       proton-ge-bin    
       #steamtinkerlaunch
+      #mangohud
     ];
   };
   environment.systemPackages = with pkgs; [
