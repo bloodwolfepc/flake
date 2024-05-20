@@ -34,7 +34,9 @@ export WINEPREFIX=~/.local/share/bottles/bottles/spitfire
 export WINELOADER=~/.local/share/bottles/runners/soda-9.0-1/bin/wine
 reaper
 
-yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files/Common Files/VST3
-yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files/VstPlugins
-yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files (x86)/Common Files/VST3
-yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files (x86)/VstPlugins
+sudo mkdir ~/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files\ \(x86\)/Common\ Files/VST3
+sudo mkdir ~/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files/Common\ Files/VST3
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files/Common\ Files/VST3
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files/VstPlugins
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files\ \(x86\)/Common\ Files/VST3
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program\ Files\ \(x86\)/VstPlugins

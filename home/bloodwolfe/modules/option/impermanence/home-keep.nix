@@ -28,6 +28,7 @@
       ".config/obs-studio"
       
       ".local/share/krita" 
+      ".local/share/bottles"
 		];
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse
@@ -37,8 +38,6 @@
       #no nix workstation solution, probably host these dirs
       ".config/kritarc"
       ".config/kritadisplayrc"
-
-      ".local/share/bottles"
 		];
 		allowOther = true;
 	};
