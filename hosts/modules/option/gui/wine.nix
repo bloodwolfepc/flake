@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [
     wineWowPackages.stable
     wine
     (wine.override { wineBuild = "wine64"; })

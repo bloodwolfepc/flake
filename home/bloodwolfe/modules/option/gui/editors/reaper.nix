@@ -3,7 +3,8 @@
   home.packages = with pkgs; [
     reaper
 
-    #yabride
+    yabridge
+    yabridgectl
     #surge
     carla
     #faust

@@ -29,3 +29,12 @@ sudo cp /tmp/flake /etc/nixos #(~/Projects/flake)
 #
 #
 #ssh-keygen -t ed25519 -f ~/.ssh/KEY
+#
+export WINEPREFIX=~/.local/share/bottles/bottles/spitfire
+export WINELOADER=~/.local/share/bottles/runners/soda-9.0-1/bin/wine
+reaper
+
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files/Common Files/VST3
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files/VstPlugins
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files (x86)/Common Files/VST3
+yabridgectl add /home/bloodwolfe/.local/share/bottles/bottles/spitfire/drive_c/Program Files (x86)/VstPlugins

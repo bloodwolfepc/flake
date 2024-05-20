@@ -75,7 +75,7 @@ wayland.windowManager.hyprland = {
 
     general = {
       allow_tearing = true;
-      cursor_inactive_timeout = "1";
+      #cursor_inactive_timeout = "1"; #FIXME depreciated
     };
 	  dwindle = {
 	    pseudotile = true;

@@ -14,6 +14,27 @@
       ../modules/preset/full-system.nix
 
       ../modules/users/bloodwolfe
+
+
+      ../modules/option/gui/wine.nix
     ];
-  networking.hostName = "lapis";
+  networking = {
+    hostName = "lapis";
+    #interfaces.enp6s0.useDHCP = true;
+    #useDHCP = true;
+    #interfaces.wlo1 = { #wireless
+    #  useDHCP = true;
+    #  ipv4.addresses = [
+    #    {
+    #      address = "";
+    #      prefixLength = 23;
+    #    }
+    #  ];
+    #  ipv6.addresses = [
+    #    {
+    #    }
+    #  ];
+    #};
+  };    
+  #networking.hostName = "lapis";
 }

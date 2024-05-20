@@ -18,6 +18,9 @@
       };
     };
   };
+  home.packages = with pkgs; [
+    cli-visualizer
+  ];
 }
   #if auth file exists then
   #spotify_player authenticate EOF >>

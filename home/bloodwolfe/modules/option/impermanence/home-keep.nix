@@ -37,6 +37,8 @@
       #no nix workstation solution, probably host these dirs
       ".config/kritarc"
       ".config/kritadisplayrc"
+
+      ".local/share/bottles"
 		];
 		allowOther = true;
 	};
