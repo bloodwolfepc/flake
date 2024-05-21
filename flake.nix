@@ -13,6 +13,7 @@
 #depersist Downloads but ensure creation
 #quick terminal pop up
 #reorg/clear archives
+#changedetection.io
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   
@@ -22,24 +23,6 @@
       url = "github:nix-community/home-manager";
   	  inputs.nixpkgs.follows = "nixpkgs";
     };
-  
-    hyprland = {
-      #url = "github:hyprwm/Hyprland";
-      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    #hyprland-plugins = {
-    #  url = "github:hyprwm/hyprland-plugins";
-    #  inputs.hyprland.follows = "hyprland";
-    #};
-    #hyprfocus = {
-    #  url = "github:VortexCoyote/hyprfocus";
-    #  inputs.hyprland.follows = "hyprland";
-    #};
-    #hypr-darkwindow = {
-    #  url = "github:micha4w/Hypr-DarkWindow/tags/v0.36.0"; 
-    #  inputs.hyprland.follows = "hyprland";
-    #};
   
     disko = {
       url = "github:nix-community/disko";
@@ -57,6 +40,11 @@
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hydra = {
+      url = "github:nixos/hydra";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -90,13 +78,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:bloodwolfepc/die";
-    };
-
     neovim = {
       url = "github:bloodwolfepc/dead";
     };
+    
+    hyprland = {
+      #url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #steam-tui = {
+    #  url = "github:dmadisetti/steam-tui";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let 

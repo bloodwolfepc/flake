@@ -38,12 +38,6 @@
   };    
   sops.secrets."noip-pass" = { };
   services.ddclient = {
-    #configFile = pkgs.writeText "my-config-fiel" ''
-    #  protocol=duckdns
-    #  use=web, web=checkup.dyndns.com
-      
-      
-    
     enable = true;
     protocol = "duckdns"; 
     server = "www.duckdns.org";
