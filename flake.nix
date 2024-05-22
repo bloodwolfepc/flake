@@ -1,19 +1,30 @@
-{
+
 #TODO 
 #screenshots are weird
 #mailmutt
 #callendar
 #firefox extension, local host webpage
-#hm sops keys
-#pipewire 
-#gimp, krita, reaper
 #spt player login
 #cacheix 
-#ssh domains
-#depersist Downloads but ensure creation
+#bin-cache
+#depersist Downloads but ensure creation, alias the downloads folder too
 #quick terminal pop up
-#reorg/clear archives
-#changedetection.io
+#reorg/clear archives, archiving automation
+
+#nixarr:
+#ffmpeg commands
+#vpn remote access
+#borg backup .state dir
+#fine grain perm setting
+
+#pipewire 
+#gimp, krita, reaper sftp or nix solution
+
+#discord solutions
+#nvim fixes
+#tmux fixes, ssh solutions
+#lf solutions
+{
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   

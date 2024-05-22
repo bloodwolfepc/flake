@@ -5,6 +5,9 @@
     ../theme/hyprland-no-anim.nix
 #TODO create simple flicker border script
   ];
+home.packages = with pkgs; [
+  wayvnc
+];
 wayland.windowManager.hyprland = {
   enable = true;
   systemd.enable = true;

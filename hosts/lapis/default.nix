@@ -1,4 +1,4 @@
-{ inputs, config, ... }: {
+{ inputs, config, pkgs, ... }: {
   imports =
     [  
 	    inputs.hardware.nixosModules.common-cpu-intel
@@ -48,4 +48,16 @@
     passwordFile = config.sops.secrets."noip-pass".path;
     interval = "300";
   };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      vaapiVdpau
+      #libva-vdpau-driver
+      #libvapau-va-gl
+    ];  
+    
+    
+  };
+  
+  boot.initrd.kernelModules = [ "amdgpu" ];
 }

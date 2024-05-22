@@ -23,7 +23,6 @@
       expose.https = {
         enable = true;
         domainName = "bloodwolfe.duckdns.org";
-        #acmeMail = "bloodwolfe@bloodwolfe.duckdns.org";
         acmeMail = "bloodwolfepc@gmail.com";
       };
     };
