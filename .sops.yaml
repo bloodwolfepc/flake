@@ -3,7 +3,7 @@ keys:
     - &bloodwolfe 161647C114E21F60A186E252B74857A702B0C92B
   - &hosts:
     - &lapis age13xnylc88zkscls5xyvryg3t8uarc7tezcr6xhmmpwgm2clhns3nqfhpsas
-    - &angel age14gxrh9kgl3e4u46a84lprkgnjalk8wz2l8qd9c87wszfmjg5nahs2847hh
+    - &angel age15nju2qyyen8clwxsr0jgnnjxv9z8c0gyqdngcl2aj65r5xt5cpequxu86j   
 creation_rules:
   - path_regex: secrets/.*
     key_groups:
