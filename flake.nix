@@ -1,29 +1,45 @@
-
+#project send, nextcloud, or filebrowser
 #TODO 
 #screenshots are weird
 #mailmutt
-#callendar
+#callendar, todo
 #firefox extension, local host webpage
 #spt player login
 #cacheix 
 #bin-cache
-#depersist Downloads but ensure creation, alias the downloads folder too
+#depersist Downloads but ensure creation, alias the downloads folder/ other stuff too.
 #quick terminal pop up
-#reorg/clear archives, archiving automation
+#reorg/clear archives, archiving automation, reorg emulators
+#reorg hyprland, swww, swaync
+#waydroid
+#wayvnc
+#neocities cli
+#wine solutions, read docs
+#pipewire read docs
+#gimp, krita, reaper sftp or nix solution
+#discord solutions, likely with arrpc + browser, discordo
+#nvim fixes
+#tmux fixes, ssh solutions
+#lf solutions
+#gtk, qt theme changes, theme chagnes general
+#VM usage
 
 #nixarr:
 #ffmpeg commands
 #vpn remote access
 #borg backup .state dir
 #fine grain perm setting
+#location migration
 
-#pipewire 
-#gimp, krita, reaper sftp or nix solution
+#angel:
+#passthough
+#ignore lid state when external monitor is plugged in
 
-#discord solutions
-#nvim fixes
-#tmux fixes, ssh solutions
-#lf solutions
+#vps for vpn, syncthing, mailserver possbily
+#hydra, forge server
+#deploy-rs, nixops, nixos anywhere
+#switch to mkOption usage, nixutilsplus
+
 {
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -60,7 +76,7 @@
     };
 
     #nixos-mailserver = {
-    #  url = "gitlab:simple-nixos-mailserver/nixos-mailserver/nixos-unstable";
+    #  url = "gitlab:simple-nixos-mailserver/nixos-mailserver";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
     

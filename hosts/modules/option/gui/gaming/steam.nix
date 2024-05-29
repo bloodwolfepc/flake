@@ -5,7 +5,6 @@
   	enable = true;
   	remotePlay.openFirewall = true;
   	dedicatedServer.openFirewall = true;
-  	#extest.enable = true;
   	gamescopeSession.enable = true;
   	extraCompatPackages = with pkgs; [
       proton-ge-bin    
@@ -14,6 +13,7 @@
     ];
   };
   environment.systemPackages = with pkgs; [
+    #mangohud
     steamPackages.steamcmd
     steam-run
     steamtinkerlaunch #BROKEN https://github.com/NixOS/nixpkgs/issues/210018

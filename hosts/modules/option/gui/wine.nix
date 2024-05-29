@@ -10,5 +10,8 @@
     wineWowPackages.waylandFull 
     
     bottles
+    xclip 
+    #working clipboard
+    #wl-paste -t text -w xclip -selection clipboard
   ];
 }

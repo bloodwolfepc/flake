@@ -12,6 +12,8 @@
 			".local/share/direnv"
       ".cache/mozilla"
       ".mozilla"
+      
+      ".wine"
 			#{
 			#	directory = ".local/share/Steam";
 			#	method = "symlink";
