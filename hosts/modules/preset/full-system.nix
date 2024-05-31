@@ -15,4 +15,6 @@
 
     #../option/services/sptlrx-service.nix
   ];
+  
+  boot.loader.efi.canTouchEfiVariables = true;
 }

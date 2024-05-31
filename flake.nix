@@ -40,6 +40,9 @@
 #deploy-rs, nixops, nixos anywhere
 #switch to mkOption usage, nixutilsplus
 
+#navi:
+#migrate hosting
+
 {
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -165,7 +168,7 @@
         specialArgs = { inherit inputs outputs; };
       };
       
-      meadow = lib.nixosSystem {
+      navi = lib.nixosSystem {
         modules = [ ./hosts/meadow ];
         specialArgs = { inherit inputs outputs; };
       };
@@ -190,7 +193,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
       
-      "bloodwolfe@meadow" = lib.homeManagerConfiguration {
+      "bloodwolfe@navi" = lib.homeManagerConfiguration {
         modules = [ ./home/bloodwolfe/waterdreamer.nix ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };

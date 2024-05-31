@@ -7,6 +7,7 @@
 			"Documents"
 			"Videos"
       "Projects"
+      "Wine"
 			".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
