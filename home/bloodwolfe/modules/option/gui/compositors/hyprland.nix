@@ -1,9 +1,11 @@
 { inputs, pkgs, ... }:
+#TODO 
+#create flicker border script
+#things like waybar should be depended on this module
 {
   imports = [
     #../theme/darktop/hyprland-darktop.nix
     ../theme/hyprland-no-anim.nix
-#TODO create simple flicker border script
   ];
 home.packages = with pkgs; [
   wayvnc
@@ -12,10 +14,7 @@ wayland.windowManager.hyprland = {
   enable = true;
   systemd.enable = true;
   xwayland.enable = true;
-  plugins = [
-    #inputs.hypr-darkwindow.packages.${pkgs.system}.default
-    #inputs.hyprfocus.packages.${pkgs.system}.default
-  ];
+  plugins = [ ];
   settings = {
     env = [
 	    "XCURSOR_SIZE,24"
@@ -27,19 +26,13 @@ wayland.windowManager.hyprland = {
 	    "XDG_CURRENT_DESKTOP=sway"
 	    "XDG_DESSION_TYPE=wayland"
 	    "XDG_SESSION_DESKTOP=Hyprland"
+      "XDG_SCREENSHOTS_DIR=/home/bloodwolfe/pictures/snips"
 	    "WLR_DRM_NO_ATOMIC,1"
 	    "WLR_DRM_NO_ATOMIC,1"
       "MOZ_ENABLE_WAYLAND=1"
   ];
-    #"plugin:hyprfocus" = {
-    #  enabled = "yes";
-    #};
-#will make hyprland/hyprland.nix with hyprland/for-<somehost>.nix
-#TODO screenshots need to write to a file dir
-
-	  "$wallpaper-path" = "~/Projects/flake/assets/wallpapers/Black.png";
-#TODO this also causes a tether
-	  "$screenshot-path" = "~/Pictures/Snips/";
+	  "$wallpaper-path" = "/home/bloodwolfe/Projects/flake/assets/wallpapers/Black.png";
+	  "$screenshot-path" = "/home/bloodwolfe/Pictures/snips/";
 	      
 	  "$mode-insert" = "i";
 	    "$mode-normal" = "SUPER_L";
@@ -52,7 +45,6 @@ wayland.windowManager.hyprland = {
 	    "$fullscreen" = "v";
 	  	"$kill" = "x";
 	  	"$command-bar-key" = "semicolon";
-	  	#"$invert-transparency" = "0";
 	  	"$mode-screentools" = "s";
 	      "$screenshot-key" = "s";
 	      "$full-screenshot-key" = "f";
@@ -78,7 +70,11 @@ wayland.windowManager.hyprland = {
 
     general = {
       allow_tearing = true;
-      #cursor_inactive_timeout = "1"; #FIXME depreciated
+    };
+    cursor = {
+      inactive_timeout = 0.5;
+      hide_on_key_press = true;
+      hide_on_touch = true;
     };
 	  dwindle = {
 	    pseudotile = true;
@@ -99,31 +95,30 @@ wayland.windowManager.hyprland = {
 	    sensitivity = "0";
 	    accel_profile = "flat";
 	  };
-    #Misc = {
-    #  focus_on_activate = true; #TODO or create rule for rofi
-    #  hide_cursor_on_touch = true;
-    #  hide_cursor_on_key_press = true;
-    #};
+    exec-once = [
+      "wl-paste -t text -w xclip -selection clipboard"
+      "wl-paste --watch cliphist store"
+	    "swaync"
+	    "waybar"
+	    "alacritty"
+	    "wl-clipbard-history"
+	    "swww-daemon"
+	    "swww img $wallpaper-path"
+	    "hyprctl dispatch submap INS"
+      "swaync --inhibitor-add Alacritty" #block spotify_player 
+    ];
   };
-#TODO switch lyrics to mkshellscriptbin
   extraConfig = '' 	
-
-
-
-
-
-
-
-	exec-once = swaync
-	exec-once = waybar
-	exec-once = alacritty
-	exec-once = wl-clipbard-history
-	exec-once = swww-daemon
-	exec-once = swww img $wallpaper-path
-	exec-once = hyprctl dispatch submap INS
-  exec-once = swaync --inhibitor-add Alacritty #block spotify_player 
-  #exec-once = swaync --dnd-on
-#to be replaced with TODO make shell script bin
+  #exec-once = wl-paste -t text -w xclip -selection clipboard
+  #exec-once = wl-paste --watch cliphist store
+	#exec-once = swaync
+	#exec-once = waybar
+	#exec-once = alacritty
+	#exec-once = wl-clipbard-history
+	#exec-once = swww-daemon
+	#exec-once = swww img $wallpaper-path
+	#exec-once = hyprctl dispatch submap INS
+  #exec-once = swaync --inhibitor-add Alacritty #block spotify_player 
 
 	submap = INS
 	    bind =, $mode-normal, submap, NML

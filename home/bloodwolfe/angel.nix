@@ -12,6 +12,6 @@
 
     ./modules/preset/full-system.nix
 
-    #./modules/option/gui/compatability/wine.nix
+    ./modules/option/gui/compatability/wine.nix
   ];
 }

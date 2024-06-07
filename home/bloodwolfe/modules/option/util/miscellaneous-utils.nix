@@ -5,6 +5,7 @@
     xf86_input_wacom
 
     wl-clipboard
+    cliphist
 
     playerctl
 
