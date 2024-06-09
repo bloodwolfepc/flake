@@ -36,7 +36,7 @@
   	'';
   
   	shellAliases = {
-  		vi-staging = "nix run /home/bloodwolfe/Projects/dead";
+  		vi-staging = "nix run /home/bloodwolfe/projects/dead";
   		vi-git = "nix run github:evilcatlawyer/dead"; 
       vi-bin = "nvim";
       vi = "nvim";

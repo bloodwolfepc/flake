@@ -31,8 +31,7 @@ wayland.windowManager.hyprland = {
 	    "WLR_DRM_NO_ATOMIC,1"
       "MOZ_ENABLE_WAYLAND=1"
   ];
-	  "$wallpaper-path" = "/home/bloodwolfe/Projects/flake/assets/wallpapers/Black.png";
-	  "$screenshot-path" = "/home/bloodwolfe/Pictures/snips/";
+	  "$wallpaper-path" = "/home/bloodwolfe/projects/flake/assets/wallpapers/Black.png";
 	      
 	  "$mode-insert" = "i";
 	    "$mode-normal" = "SUPER_L";
@@ -55,7 +54,7 @@ wayland.windowManager.hyprland = {
 	  	"$mode-move-window" = "m";
 	  	"$mode-resize-window" = "r";
 
-	  "$pass-oneshots" = "/home/bloodwolfe/Projects/flake/scripts/pass-oneshots.conf";
+	  "$pass-oneshots" = "/home/bloodwolfe/projects/flake/scripts/pass-oneshots.conf";
 #I cant think of a cleaner way to do this, it will for the time being tether the config to Projects
 #dir, but I hope that they clean the syntax so i don't need to source a file
 #TODO
@@ -70,11 +69,6 @@ wayland.windowManager.hyprland = {
 
     general = {
       allow_tearing = true;
-    };
-    cursor = {
-      inactive_timeout = 0.5;
-      hide_on_key_press = true;
-      hide_on_touch = true;
     };
 	  dwindle = {
 	    pseudotile = true;
@@ -95,30 +89,35 @@ wayland.windowManager.hyprland = {
 	    sensitivity = "0";
 	    accel_profile = "flat";
 	  };
-    exec-once = [
-      "wl-paste -t text -w xclip -selection clipboard"
-      "wl-paste --watch cliphist store"
-	    "swaync"
-	    "waybar"
-	    "alacritty"
-	    "wl-clipbard-history"
-	    "swww-daemon"
-	    "swww img $wallpaper-path"
-	    "hyprctl dispatch submap INS"
-      "swaync --inhibitor-add Alacritty" #block spotify_player 
-    ];
+    #cursor = {
+    #  inactive_timeout = 0.5;
+    #  hide_on_key_press = true;
+    #  hide_on_touch = true;
+    #};
+    #exec-once = [
+    #  "wl-paste -t text -w xclip -selection clipboard"
+    #  "wl-paste --watch cliphist store"
+	  #  "swaync"
+	  #  "waybar"
+	  #  "alacritty"
+	  #  "wl-clipbard-history"
+	  #  "swww-daemon"
+	  #  "swww img $wallpaper-path"
+	  #  "hyprctl dispatch submap INS"
+    #  "swaync --inhibitor-add Alacritty" #block spotify_player 
+    #];
   };
   extraConfig = '' 	
-  #exec-once = wl-paste -t text -w xclip -selection clipboard
-  #exec-once = wl-paste --watch cliphist store
-	#exec-once = swaync
-	#exec-once = waybar
-	#exec-once = alacritty
-	#exec-once = wl-clipbard-history
-	#exec-once = swww-daemon
-	#exec-once = swww img $wallpaper-path
-	#exec-once = hyprctl dispatch submap INS
-  #exec-once = swaync --inhibitor-add Alacritty #block spotify_player 
+    exec-once = wl-paste -t text -w xclip -selection clipboard
+    exec-once = wl-paste --watch cliphist store
+	  exec-once = swaync
+	  exec-once = waybar
+	  exec-once = alacritty
+	  exec-once = wl-clipbard-history
+	  exec-once = swww-daemon
+	  exec-once = swww img $wallpaper-path
+	  exec-once = hyprctl dispatch submap INS
+    exec-once = swaync --inhibitor-add Alacritty #block spotify_player 
 
 	submap = INS
 	    bind =, $mode-normal, submap, NML

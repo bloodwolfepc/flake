@@ -5,9 +5,9 @@
     config = {
       common.default = [ "gtk" ];
     };
-    wlr = {
-      enable = true;
-      settings = { };
-    };
+    #wlr = {
+    #  enable = true;
+    #  settings = { };
+    #};
   };
 }

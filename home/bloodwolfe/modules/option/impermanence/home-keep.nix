@@ -30,9 +30,9 @@
       "pictures/snips" #TODO couple these with syncting in their respective configs
       "pictures/gallery"
       "documents/notebook"
-      "documnets/gimp"
+      "documents/gimp"
       "documents/krita"
-      "documnets/reaper"
+      "documents/reaper"
       "documents/ardour"
       "documents/kdenlive"
 		];
@@ -55,6 +55,7 @@
     };
     Service = {
       Type = "oneshot";
+      #ExecStart = "";
       script = ''
         #xargs -d '\n' -I mkdir -p {} <<EOF
         xargs -I {} mkdir -p "/home/bloodwolfe/{}" <<EOF
@@ -63,7 +64,16 @@
       '';
     };
   };
-  systemd.user.sessionVariables = {
-    XDG_DOWNLOAD_DIR = "/home/bloodwolfe/downloads";
+  xdg.userDirs = {
+    enable = true;
+    desktop = "/home/bloodwolfe/desktop";
+    documents = "/home/bloodwolfe/documents";
+    download = "/home/bloodwolfe/downloads";
+    music = "/home/bloodwolfe/music";
+    pictures = "/home/bloodwolfe/pictures";
+    videos = "/home/bloodwolfe/videos";
+  };
+  home.sessionVariables = {
+    XDG_SCREENSHOTS_DIR = "/home/bloodwolfe/pictures/snips";
   };
 }
