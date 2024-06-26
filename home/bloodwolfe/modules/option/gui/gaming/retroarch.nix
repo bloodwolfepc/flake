@@ -4,5 +4,6 @@
    retroarch #includes cores
    retroarch-assets
    retroarch-joypad-autoconfig
+   easyrpg-player
   ];
 }

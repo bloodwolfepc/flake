@@ -15,6 +15,9 @@ wayland.windowManager.hyprland = {
   systemd.enable = true;
   xwayland.enable = true;
   plugins = [ ];
+  #systemd.variables = [
+  #  "XDG_SCREENSHOTS_DIR"
+  #];
   settings = {
     env = [
 	    "XCURSOR_SIZE,24"
@@ -108,6 +111,14 @@ wayland.windowManager.hyprland = {
     #];
   };
   extraConfig = '' 	
+    
+    #windowrulev2 = nofocus,title:(Ardour)
+    
+    #windowrulev2 = float, class:^(jetbrains-.*),title:^(win.*)
+    #windowrulev2 = noinitialfocus, opacity 0.9 0.9, class:^(jetbrains-.*)
+    
+    windowrulev2=noinitialfocus,xwayland:1
+    
     exec-once = wl-paste -t text -w xclip -selection clipboard
     exec-once = wl-paste --watch cliphist store
 	  exec-once = swaync

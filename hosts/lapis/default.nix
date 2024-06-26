@@ -20,38 +20,46 @@
     ];
   networking = {
     hostName = "lapis";
-    #interfaces.enp6s0.useDHCP = true;
-    #useDHCP = true;
-    #interfaces.wlo1 = { #wireless
-    #  useDHCP = true;
-    #  ipv4.addresses = [
-    #    {
-    #      address = "";
-    #      prefixLength = 23;
-    #    }
-    #  ];
-    #  ipv6.addresses = [
-    #    {
-    #    }
-    #  ];
+    useDHCP = true;
+    defaultGateway = {
+      address = "192.168.0.1";
+      interface = "enp6s0";
+    };
+    #nameservers = [ "192.168.0.1" ];
+    interfaces = {
+      enp6s0 = {
+        #ipv4.addresses = [
+        #  {
+        #    address = "192.168.0.189"; #189
+        #    prefixLength = 24;
+        #  }
+        #];
+        #ipv6.addresses = [
+        #  {
+        #    address = "2a01:4f8:1c1b:16d0::1";
+        #    prefixLength = 64;
+        #  }
+        #];
+      };
+    };
+    #defaultGateway6 = {
+    #  address = "fe80::1";
     #};
   };    
-  sops.secrets."noip-pass" = { };
-  services.ddclient = {
-    enable = true;
-    protocol = "duckdns"; 
-    server = "www.duckdns.org";
-    domains = [ "bloodwolfe.duckdns.org" ];
-    use = "web, web=ifconfig.me";
-    #"cmd, cmd=/persist/duckdns.sh"; 
-    username = "haschabert@gmail.com";
-    passwordFile = config.sops.secrets."noip-pass".path;
-    interval = "300";
-  };
+  #sops.secrets."noip-pass" = { };
+  #services.ddclient = {
+  #  enable = true;
+  #  protocol = "duckdns"; 
+  #  server = "www.duckdns.org";
+  #  domains = [ "bloodwolfe.duckdns.org" ];
+  #  use = "web, web=ifconfig.me";
+  #  #"cmd, cmd=/persist/duckdns.sh"; 
+  #  username = "haschabert@gmail.com";
+  #  passwordFile = config.sops.secrets."noip-pass".path;
+  #  interval = "300";
+  #};
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
     extraPackages = with pkgs; [
       vaapiVdpau
       #libvdpau-va-gl 

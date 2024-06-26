@@ -5,5 +5,6 @@
     ../../option/gui/gaming/retroarch.nix
     ../../option/cli/gaming/steam-tui.nix
     ../../option/gui/compositors/gamescope.nix
+    ../../option/gui/gaming/mangohud.nix
   ];
 }

@@ -1,8 +1,8 @@
 { pkgs, ... }:
-{
-  home.packages = with pkgs; [
-   discord
-   discord-rpc
-   discord-gamesdk
-  ];
-}
+{ }#{
+#  home.packages = with pkgs; [
+#   discord
+#   discord-rpc
+#   discord-gamesdk
+#  ];
+#}

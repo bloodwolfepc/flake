@@ -45,7 +45,7 @@
 
 {
   inputs = {
-  	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+  	nixpkgs.url = "github:nixos/nixpkgs/24.05"; #stable
   
     hardware.url = "github:nixos/nixos-hardware";
   
@@ -113,7 +113,6 @@
     };
     
     hyprland = {
-      #url = "github:hyprwm/Hyprland";
       url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -122,6 +121,10 @@
     #  url = "github:dmadisetti/steam-tui";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+    };
+    
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let 

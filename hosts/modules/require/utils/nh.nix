@@ -6,7 +6,7 @@
     clean.extraArgs = "--keee-since 4d --keep 3";
     flake = "/home/bloodwolfe/projects/flake";
   };
-  environment.systemPackages = with pkgs;[
+  environment.systemPackages = with pkgs; [
     nix-output-monitor
     nvd
   ];

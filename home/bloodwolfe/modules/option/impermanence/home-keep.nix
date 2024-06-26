@@ -1,3 +1,4 @@
+{ config, ... }:
 {
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
@@ -6,7 +7,7 @@
 			".local/share/direnv"
       ".cache/mozilla"
       ".mozilla"
-      ".wine"
+      #".wine"
       ".local/share/Steam"
       ".local/share/zoxide"
       ".local/share/krita" 
@@ -17,6 +18,7 @@
       ".config/obs-studio" 
       ".config/REAPER"
       ".config/ardour8"
+      ".config/vesktop"
       ".cache/spotify-player" #TODO replace with EOF shell scirpt 
       ".cache/ardour8"
       
@@ -66,14 +68,18 @@
   };
   xdg.userDirs = {
     enable = true;
+    createDirectories = false;
     desktop = "/home/bloodwolfe/desktop";
     documents = "/home/bloodwolfe/documents";
     download = "/home/bloodwolfe/downloads";
     music = "/home/bloodwolfe/music";
     pictures = "/home/bloodwolfe/pictures";
     videos = "/home/bloodwolfe/videos";
+    extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/pictures/snips";
+    };
   };
-  home.sessionVariables = {
-    XDG_SCREENSHOTS_DIR = "/home/bloodwolfe/pictures/snips";
-  };
+  #home.sessionVariables = {
+  #  XDG_SCREENSHOTS_DIR = "/home/bloodwolfe/pictures/snips";
+  #};
 }

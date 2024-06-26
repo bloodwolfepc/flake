@@ -39,6 +39,9 @@
     zam-plugins
     x42-plugins
     calf
+    #EFFECTS GUITAR
+    gxplugins-lv2
+    guitarix
     
     #TODO add reakeys
   ];
