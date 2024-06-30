@@ -7,7 +7,7 @@
       inputs.disko.nixosModules.default
       ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
       ../modules/option/impermanence/impermanence-btrfs.nix
-      #../modules/option/spec/openrgb.nix
+      ../modules/option/spec/openrgb.nix
       ../modules/option/spec/focusrite-low-latency-audio.nix
       ../modules/require
 
@@ -25,7 +25,6 @@
       address = "192.168.0.1";
       interface = "enp6s0";
     };
-    #nameservers = [ "192.168.0.1" ];
     interfaces = {
       enp6s0 = {
         #ipv4.addresses = [
@@ -67,5 +66,12 @@
   }; 
   #services.xserver.enable = true;
   #services.xserver.videoDrivers = [ "amdgpu" ];
+  #hardware.amdgpu.initrd.enable = true; #UPDATE
   boot.initrd.kernelModules = [ "amdgpu" ];
+  programs.corectrl = {
+    enable = true;
+    gpuOverclock.enable = true;
+  };
+  programs.thunar.enable = true;
+  services.tumbler.enable = true;
 }

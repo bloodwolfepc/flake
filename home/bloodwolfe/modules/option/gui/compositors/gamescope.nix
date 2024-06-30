@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    gamescope
-  ];
+#  programs.gamescope = {  
+#    enable = true;
+#    #args = [
+#    #  "--rt"
+#    #];
+#  };
 }

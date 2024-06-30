@@ -17,4 +17,6 @@
       #../modules/option/gui/gaming/jovian-software.nix
     ];
   networking.hostName = "angel";
+  networking.networkmanager.enable = true;
+  #TODO undervolt
 }
