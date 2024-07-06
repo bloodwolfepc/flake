@@ -5,16 +5,27 @@
     #DAW
     reaper
     ardour
+    musescore
 
     #VST BRIDGE/PATCHBAY
     yabridge
     yabridgectl
     carla
+    sfizz
     
     #PROGRAMMING LANGUAGES
-    puredata
     orca-c
+    
+    puredata
+    plugdata
+    #zexy
+    #timbreid 
+    #maxlib 
+    #cyclone 
+    
     #faust
+    
+#carla background piano processing
     
     #SYNTHS
     surge #maveform
@@ -28,6 +39,7 @@
     x42-avldrums
     freepats
     drumgizmo
+    
 
     #LIBRARIES
     freepats
@@ -39,6 +51,13 @@
     zam-plugins
     x42-plugins
     calf
+    
+    CHOWTapeModel
+    ladspaPlugins
+    AMB-plugins
+    aether-lv2
+
+    
     #EFFECTS GUITAR
     gxplugins-lv2
     guitarix

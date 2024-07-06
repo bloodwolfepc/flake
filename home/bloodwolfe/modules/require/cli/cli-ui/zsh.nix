@@ -46,6 +46,7 @@
   
   		#cd-og = "${pkgs.cd}/bin/cd";
   		cd = "z";
+      dirty = "watch grep -e Dirty: -e Writeback: /proc/meminfo";
   	};
     #TODO change zsh readkey engine
     initExtraFirst = ''
