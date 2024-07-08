@@ -25,6 +25,7 @@
       address = "192.168.0.1";
       interface = "enp6s0";
     };
+    boot.loader.efi.canTouchEfiVariables = true;
     interfaces = {
       enp6s0 = {
         #ipv4.addresses = [

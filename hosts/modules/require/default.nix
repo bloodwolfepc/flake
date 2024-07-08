@@ -20,7 +20,6 @@
   security.sudo.extraConfig = ''
     Defaults timestamp_timeout = 120
   '';
-  boot.loader.efi.canTouchEfiVariables = true;
 
   system.stateVersion = "23.11";
 
