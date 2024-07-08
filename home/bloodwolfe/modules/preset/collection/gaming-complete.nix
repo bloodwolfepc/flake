@@ -6,5 +6,7 @@
     ../../option/cli/gaming/steam-tui.nix
     ../../option/gui/compositors/gamescope.nix
     ../../option/gui/gaming/mangohud.nix
+
+    ../../option/gui/gaming/minecraft.nix
   ];
 }

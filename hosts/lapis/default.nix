@@ -68,10 +68,10 @@
   #services.xserver.videoDrivers = [ "amdgpu" ];
   #hardware.amdgpu.initrd.enable = true; #UPDATE
   boot.initrd.kernelModules = [ "amdgpu" ];
-  programs.corectrl = {
-    enable = true;
-    gpuOverclock.enable = true;
-  };
+ # programs.corectrl = {
+ #   enable = true;
+ #   gpuOverclock.enable = true;
+ # };
   programs.thunar.enable = true;
   services.tumbler.enable = true;
 }
