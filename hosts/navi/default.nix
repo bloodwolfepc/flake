@@ -5,8 +5,7 @@
       #inputs.hardware.nixosModules.<something>
       ./hardware-configuration.nix
       inputs.disko.nixosModules.default
-      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/sda"; })
-      #{ device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467"; })
+      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467"; })
       ../modules/option/impermanence/impermanence-btrfs.nix
       ../modules/require
       ../modules/option/security/yubikey.nix
@@ -21,7 +20,7 @@
   networking.hostName = "navi";
   boot.loader.grub.enable = true;
   boot.loader.grub.gfxmodeBios = "text";
-  #boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
   networking.useDHCP = true;
   
 
