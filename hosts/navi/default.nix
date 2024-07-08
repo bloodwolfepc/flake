@@ -21,7 +21,7 @@
   boot.loader.grub = { 
     enable = true;
     efiSupprt = true;
-    efiInstallAsRemovealbe = true;
+    efiInstallAsRemovable = true;
     gfxmodeBios = "text"; 
   }; 
   #boot.loader.grub.device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
