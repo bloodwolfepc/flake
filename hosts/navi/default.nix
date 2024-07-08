@@ -21,7 +21,7 @@
   networking.hostName = "navi";
   boot.loader.grub = { 
     enable = true;
-    #efiSupport = true;
+    efiSupport = true;
     #efiInstallAsRemovable = true;
     gfxmodeBios = "text"; 
   }; 
