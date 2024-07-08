@@ -2,7 +2,7 @@
 {
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
-			".nixops"
+			#".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"
       ".cache/mozilla"

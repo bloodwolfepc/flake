@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./modules/option/impermanence/impermanence-home.nix #require, maybe
     ./modules/option/security/sops.nix #require
@@ -11,4 +11,5 @@
 
     #./modules/option/gui/compatability/wine.nix
   ];
+  home.packages = [ pkgs.dconf ];
 }

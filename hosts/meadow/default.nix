@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports =
     [       
-      inputs.nixos-generators.noxosModules.all-formats 
+      inputs.nixos-generators.nixosModules.all-formats 
       ../modules/require
       ../modules/preset/iso.nix
       ../modules/users/bloodwolfe

@@ -50,7 +50,7 @@
     hardware.url = "github:nixos/nixos-hardware";
   
   	home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
   	  inputs.nixpkgs.follows = "nixpkgs";
     };
   
@@ -124,6 +124,10 @@
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
     };
+
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+    };
     
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -172,7 +176,7 @@
       };
       
       navi = lib.nixosSystem {
-        modules = [ ./hosts/meadow ];
+        modules = [ ./hosts/navi ];
         specialArgs = { inherit inputs outputs; };
       };
     };
