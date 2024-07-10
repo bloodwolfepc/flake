@@ -208,3 +208,29 @@
     };
 	};
 }
+#day 1: Eat breakfast
+#day 2: Eat lunch
+#day 3: Eat dinner
+#day 4: Go to bed
+#day 5: Go to the store
+#day 6: Apply for jobs
+#day 7: Go to a friend's
+#day 8: Go to bed
+
+#day 1: Eat breakfast
+#day 2: Eat lunch
+#day 3: Eat dinner
+#day 4: Go to bed
+#day 5: Go to the store
+#day 6: Apply for jobs
+#day 7: Go to a friend's
+#day 8: Go to bed
+
+#day 1: Eat breakfast
+#day 2: Eat lunch
+#day 3: Eat dinner
+#day 4: Go to bed
+#day 5: Go to the store
+#day 6: Apply for jobs
+#day 7: Go to a friend's
+#day 8: Go to bed

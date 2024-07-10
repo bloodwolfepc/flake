@@ -12,7 +12,7 @@
           boot = {
             name = "boot";
             size = "1M";
-            type = "EF02";
+            type = "EF02"; # for grub MBR
           };
           esp = {
             name = "ESP";
