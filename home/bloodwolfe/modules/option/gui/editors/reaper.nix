@@ -63,5 +63,27 @@
     guitarix
     
     #TODO add reakeys
+
+    
+    #soundboard
+    #soundux #removed due to being unmaintained
+
+
+    #TBE
+    supercollider
+    airwindows-lv2
+    tap-plugins
+    zynaddsubfx
+    helm
+
+    #sound over network
+    sonobus
+
+    #pipewire analyzer
+    coppwr
+    
+    
+    
+    #zrythm
   ];
 }

@@ -1,23 +1,36 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, ... }: {
+
+
+
 #TODO 
 #create flicker border script
 #things like waybar should be depended on this module
-{
+#open with steam, spotify, firefox, alacritty, and carla
+
+  #programs.zsh.shellAliases = {
+  #  pc = 
+  #  "
+  
+  home.packages = [
+    pkgs.wayvnc
+    (pkgs.writeShellScriptBin "pc" ''
+      ${pkgs.hyprland}/bin/Hyprland
+    '')
+  ];
+      #{ inherit pkgs; }
+    
   imports = [
     #../theme/darktop/hyprland-darktop.nix
     ../theme/hyprland-no-anim.nix
   ];
-home.packages = with pkgs; [
-  wayvnc
-];
+#home.packages = with pkgs; [
+#  wayvnc
+#];
 wayland.windowManager.hyprland = {
   enable = true;
   systemd.enable = true;
   xwayland.enable = true;
   plugins = [ ];
-  #systemd.variables = [
-  #  "XDG_SCREENSHOTS_DIR"
-  #];
   settings = {
     env = [
 	    "XCURSOR_SIZE,24"

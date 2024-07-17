@@ -1,23 +1,50 @@
 { inputs, config, pkgs, ... }: {
-  imports =
-    [  
-	    inputs.hardware.nixosModules.common-cpu-intel
-	    inputs.hardware.nixosModules.common-gpu-amd
-      ./hardware-configuration.nix
-      inputs.disko.nixosModules.default
-      ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
-      ../modules/option/impermanence/impermanence-btrfs.nix
-      ../modules/option/spec/openrgb.nix
-      ../modules/option/spec/focusrite-low-latency-audio.nix
-      ../modules/require
+  imports = [  
+	  inputs.hardware.nixosModules.common-cpu-intel
+	  inputs.hardware.nixosModules.common-gpu-amd
+    ./hardware-configuration.nix
+    inputs.disko.nixosModules.default
+    ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
+    ../modules/option/impermanence/impermanence-btrfs.nix
+    ../modules/option/spec/openrgb.nix
+    ../modules/option/spec/focusrite-low-latency-audio.nix
+    ../modules/require
 
-      ../modules/preset/full-system.nix
+    ../modules/preset/full-system.nix
 
-      ../modules/users/bloodwolfe
+    ../modules/users/bloodwolfe
 
 
-      ../modules/option/gui/wine.nix
-    ];
+    ../modules/option/gui/wine.nix
+  ];
+  monitors = [
+    #( 
+    #  import ../../hardware/msi-g241.nix { 
+    #    primary = true;
+    #    x = 0;
+    #)
+    {
+      primary = true;
+      port = "DP-3";
+      width = 1920;
+      height = 1080;
+      refreshRate = 144;
+      x = 0;
+      workspace = "1";
+    }
+    {
+      port = "HDMI-A-1";
+      width = 1920;
+      height = 1080;
+      refreashRate = 70;
+      x = -1920;
+      workspace = "2";
+    }
+  ];
+  powerManagement = {
+    enable = true;
+    cpuFreqGovernor = "performance";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   networking = {
     hostName = "lapis";

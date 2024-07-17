@@ -6,6 +6,7 @@
   users.users.bloodwolfe = {
     isNormalUser = true;
     hashedPasswordFile = config.sops.secrets.bloodwolfe-pass.path;
+    #useDefaultShell = true;
     shell = pkgs.zsh;
     extraGroups = [
       "wheel"

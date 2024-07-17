@@ -13,7 +13,6 @@
 #reorg hyprland, swww, swaync
 #waydroid
 #wayvnc
-#neocities cli
 #wine solutions, read docs
 #pipewire read docs
 #gimp, krita, reaper sftp or nix solution
@@ -42,6 +41,19 @@
 
 #navi:
 #migrate hosting
+
+#is it possible to user home manager configurations on the root user?
+#hyprland should switch from using a key for every workspace to to having dedicated workspaces for some keys
+
+#package:
+#ynodesktop
+#crossover
+#neocities cli
+
+#other:
+#color callibration with colord & displaycal
+#monitor configuraiton
+#snipe-it or glpi
 
 {
   inputs = {

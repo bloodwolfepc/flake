@@ -14,4 +14,8 @@
 	  xdg-desktop-portal-gtk
 	  xdg-desktop-portal-hyprland
   ];
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 }

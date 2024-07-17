@@ -24,8 +24,7 @@
 
           gamemode = {
             interval = 1;
-            format = "{glyph}";
-            glyph = "GM" ;
+            format = "gm={count}";
           };
           network = {
             interval = 1;

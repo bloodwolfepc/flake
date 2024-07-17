@@ -25,6 +25,8 @@
       age
       #gource
       #vrrtest
+      #vkmark
+      #vkbassalt-cli
     ];
   };
 }

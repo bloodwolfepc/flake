@@ -37,6 +37,8 @@
       "documents/reaper"
       "documents/ardour"
       "documents/kdenlive"
+      
+      ".cache/nix-index"
 		];
 		files = [
       ".config/gh/hosts.yml" #TODO place this somewhere less worse
@@ -45,7 +47,9 @@
       
       ".config/kritarc"
       ".config/kritadisplayrc"
+
 		];
+    
 		allowOther = true;
 	};
   systemd.user.services."home-bloodwolfe-extra-directory-creation" = {

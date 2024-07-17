@@ -1,11 +1,11 @@
 { ... }: {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
+    enableSessionWide = false;
     settings = { #the final result is alphabetized 
       #fps_limit = "0";
       #fps_limit_method = "";
-      toggle_hud = "Control_L+F1";
+      toggle_hud = "Control_L+F12";
       custom_text_center = "never knows best";
       legacy_layout = 0;
       time = 1;
