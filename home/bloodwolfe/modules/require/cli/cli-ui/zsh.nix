@@ -22,7 +22,7 @@
   	history = {
   		save = 10000;
   		size = 10000;
-  		path = "/persist/zsh_history"; #write to persist
+  		path = "/persist/home/bloodwolfe/.zhistory"; #write to persist
       expireDuplicatesFirst = true;
   	};
   
