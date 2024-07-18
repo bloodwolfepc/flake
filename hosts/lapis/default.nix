@@ -16,7 +16,9 @@
 
 
     ../modules/option/gui/wine.nix
+    ../modules/option/virtualization/docker.nix
   ];
+  
   monitors = [
     #( 
     #  import ../../hardware/msi-g241.nix { 
@@ -36,7 +38,7 @@
       port = "HDMI-A-1";
       width = 1920;
       height = 1080;
-      refreashRate = 70;
+      refreshRate = 70;
       x = -1920;
       workspace = "2";
     }

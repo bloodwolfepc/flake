@@ -16,7 +16,7 @@
       ../modules/users/bloodwolfe
 
       #../modules/option/server/nixarr.nix
-      #../modules/option/virtualization/docker.nix
+      ../modules/option/virtualization/docker.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 

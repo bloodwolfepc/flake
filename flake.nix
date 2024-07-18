@@ -56,6 +56,11 @@
 #color callibration with colord & displaycal
 #monitor configuraiton
 #snipe-it or glpi
+#piknik clipboard share
+#zsh hostname color coding
+
+#netdata
+#wireshark
 
 {
   inputs = {
