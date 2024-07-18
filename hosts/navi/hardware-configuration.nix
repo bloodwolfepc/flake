@@ -40,6 +40,14 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/c99155a0-d1eb-4531-b9d6-c02aec0fa491"; }
     ];
+    
+    #raid 1 on partition level
+  fileSystems."/data" =
+    { device = "/dev/disk/by-uuid/4e2e932f-e058-4e88-89ca-780492779206";
+      fsType = "btrfs";
+      options = [ "subvol=data" ];
+    };
+
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

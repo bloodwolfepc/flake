@@ -33,6 +33,8 @@
 #angel:
 #passthough
 #ignore lid state when external monitor is plugged in
+#perform a minimal hyperland launch if not plugged in 
+#target 7watts idle
 
 #vps for vpn, syncthing, mailserver possbily
 #hydra, forge server

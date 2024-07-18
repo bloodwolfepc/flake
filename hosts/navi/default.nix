@@ -21,6 +21,7 @@
   networking.hostName = "navi";
   boot.loader.grub = { 
     enable = true;
+    device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
     #efiSupport = true;
     #efiInstallAsRemovable = true;
     gfxmodeBios = "text"; 
