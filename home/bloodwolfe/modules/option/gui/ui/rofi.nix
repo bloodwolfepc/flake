@@ -14,12 +14,12 @@ programs.rofi = {
 	#rofi-calc
 	#rofi-systemd
 	#];
-	terminal = "alacritty";
-	font = "Unscii 12";
-	location = "bottom";
+	#terminal = "alacritty";
+	#font = "Unscii 12";
+	location = "top";
 	theme = {	
 		"*" = {
-			background-color = mkLiteral "#000000";
+			#background-color = mkLiteral "#000000";
 		};
 		"#window" =  {
 			children = map mkLiteral [ "mainbox" ];
@@ -51,7 +51,7 @@ programs.rofi = {
 		"#entry" = {
 			expand = mkLiteral "false";
 			placeholder = "";
-			text-color = mkLiteral "#ffffff";
+			#text-color = mkLiteral "#ffffff";
 			blink = mkLiteral "true";
 			width = mkLiteral "20%";
 			margin = mkLiteral "0px";
@@ -66,7 +66,7 @@ programs.rofi = {
 		};
 		"#element-text" = {
 			expand = mkLiteral "true";
-			text-color = mkLiteral "#ffffff";
+			#text-color = mkLiteral "#ffffff";
 		};
 	};
 };

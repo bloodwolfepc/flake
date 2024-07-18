@@ -28,6 +28,30 @@
   }; 
   #boot.loader.grub.device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
   networking.useDHCP = true;
-  
 
+  #networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  #networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  #services.syncthing = { 
+  #  enable = true;
+  #  dataDir = "/home/bloodwolfe/documents/syncthing";
+  #  configDir = "/home/bloodwofle/documents/syncthing/.config";
+  #  overrideDevices = true;
+  #  overrideFolders = true;
+  #  settings = {
+  #    devices = { 
+  #      "device1" = { id = "" ; };
+  #      #"device1" = { id = "" ; };
+  #    };
+  #    folders = {
+  #      path = "/home/bloodwolfe/syncthingtest";
+  #      devices = [ "device1" ];
+  #      ignorePerms = true;
+  #    };
+  #  };   
+  #};
+	#fileSystems."/persist".neededForBoot = true;
+	#environment.persistence."/persist/system" = {
+  #  directores = [
+  #    "/ 
+  #
 }
