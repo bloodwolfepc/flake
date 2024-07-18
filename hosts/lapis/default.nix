@@ -20,6 +20,7 @@
 
     ../modules/option/theme/stylix.nix
   ];
+  programs.kdeconnect.enable = true;
 
   
   monitors = [

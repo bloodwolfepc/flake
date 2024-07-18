@@ -20,5 +20,6 @@
 
 
     ./modules/option/gui/communitcation/kdeconnect.nix
+    ./modules/option/style/stylix.nix
   ];
 }
