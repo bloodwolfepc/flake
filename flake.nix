@@ -147,6 +147,10 @@
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+    };
     
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:

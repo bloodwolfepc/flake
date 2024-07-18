@@ -17,7 +17,10 @@
 
     ../modules/option/gui/wine.nix
     ../modules/option/virtualization/docker.nix
+
+    ../modules/option/theme/stylix.nix
   ];
+
   
   monitors = [
     #( 
