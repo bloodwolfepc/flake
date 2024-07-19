@@ -21,10 +21,10 @@
     overrideFolders = true;
     key = config.sops.secrets."syncthing-key".path;
     cert = config.sops.secrets."syncthing-cert".path;
-    guiAddress = "0.0.0.0:8384";
+    #guiAddress = "0.0.0.0:8384";
     settings = {
       devices = { 
-        "navi" = { id = "IOZE6I7-TPMOBII-WVPA62C-ZWJEHAO-HSDYXS3-SYBX6OI-NXBLSI3-2YQUJA4" ; };
+        #"navi" = { id = "IOZE6I7-TPMOBII-WVPA62C-ZWJEHAO-HSDYXS3-SYBX6OI-NXBLSI3-2YQUJA4" ; };
       #  #"lapis" = { id = "" ; };
       #  #"android" = { id = "" ; };
       };
