@@ -19,10 +19,9 @@
     ../modules/option/virtualization/docker.nix
 
     ../modules/option/theme/stylix.nix
+    ../modules/option/services/syncthing.nix
   ];
   programs.kdeconnect.enable = true;
-
-  
   monitors = [
     #( 
     #  import ../../hardware/msi-g241.nix { 

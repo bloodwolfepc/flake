@@ -1,8 +1,10 @@
-{
-  virtualisation.docker.enable = true;
-	environment.persistence."/persist/system" = {
-		directories = [
-      "/var/lib/docker"
-    ];
-  };
+{ ... }: { 
+  virtualisation.docker = {  
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+    daemon.settings.data-root = "/data/docker";
+  };  
 }
