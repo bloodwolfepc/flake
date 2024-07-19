@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, config, ... }: {
   #Must use MBR
   imports =
     [       
@@ -29,26 +29,37 @@
   #boot.loader.grub.device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
   networking.useDHCP = true;
 
-  #networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-  #networking.firewall.allowedUDPPorts = [ 22000 21027 ];
-  #services.syncthing = { 
-  #  enable = true;
-  #  dataDir = "/home/bloodwolfe/documents/syncthing";
-  #  configDir = "/home/bloodwofle/documents/syncthing/.config";
-  #  overrideDevices = true;
-  #  overrideFolders = true;
-  #  settings = {
-  #    devices = { 
-  #      "device1" = { id = "" ; };
-  #      #"device1" = { id = "" ; };
-  #    };
-  #    folders = {
-  #      path = "/home/bloodwolfe/syncthingtest";
-  #      devices = [ "device1" ];
-  #      ignorePerms = true;
-  #    };
-  #  };   
-  #};
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+  services.syncthing = { 
+    enable = true;
+    environment.STNODEFAULTFOLDER = "true"; 
+    dataDir = "/syncthing/data";
+    configDir = "/syncthing/.config";
+    overrideDevices = true;
+    overrideFolders = true;
+    key = config.sops.secrets."syncthing-key".path;
+    cert = config.sops.secrets."syncthing-cert".path;
+    guiAddress = "0.0.0.0:8384";
+    settings = {
+      #devices = { 
+      #  "navi" = { id = "" ; };
+      #  #"lapis" = { id = "" ; };
+      #  #"phone1" = { id = "" ; };
+      #};
+      #folders = {
+      #  path = "/syncthingtest";
+      #  devices = [ "navi" ];
+      #  ignorePerms = true;
+      #};
+
+      gui = {
+        user = "bloodwolfe";
+        password = config.sops.secrets."syncthing-password";
+      };
+    };   
+  };
+  
 	#fileSystems."/persist".neededForBoot = true;
 	#environment.persistence."/persist/system" = {
   #  directores = [
