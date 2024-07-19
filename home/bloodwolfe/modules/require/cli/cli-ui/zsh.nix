@@ -48,6 +48,7 @@
   		cd = "z";
       dirty = "watch grep -e Dirty: -e Writeback: /proc/meminfo";
       rsync = "rsync -r --info=progress2 --info=name0";
+      #slowcat = "perl -pe "system 'sleep .025'"";
   	};
     #TODO change zsh readkey engine
     initExtraFirst = ''
