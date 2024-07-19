@@ -28,18 +28,18 @@
       #  #"lapis" = { id = "" ; };
       #  #"android" = { id = "" ; };
       };
-      folders = {
-        "test" = {
-          path = "/syncthingtest";
-          devices = [ "navi" "lapis" ];
-          ignorePerms = false;
-        };
-        "test-home" = {
-          path = "/home/bloodwolfe/syncthingtest";
-          devices = [ "navi" "lapis" ];
-          ignorePerms = false;
-        };
-      };
+      #folders = {
+      #  "test" = {
+      #    path = "/syncthingtest";
+      #    devices = [ "navi" "lapis" ];
+      #    ignorePerms = false;
+      #  };
+      #  "test-home" = {
+      #    path = "/home/bloodwolfe/syncthingtest";
+      #    devices = [ "navi" "lapis" ];
+      #    ignorePerms = false;
+      #  };
+      #};
     };
   };
 }
