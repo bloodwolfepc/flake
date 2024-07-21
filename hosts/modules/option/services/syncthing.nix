@@ -1,4 +1,6 @@
 { config, ... }: {
+#each device needs its own key, cert, and id
+#nix-shell -p syncthing --run "syncthing -generate=myconfig"
   sops.secrets = {
     "syncthing-key" = {
       owner = "syncthing";
@@ -28,6 +30,8 @@
       #  #"lapis" = { id = "" ; };
       #  #"android" = { id = "" ; };
       };
+      #folders will need to be set up differently for each machine
+      #however if the target is to mirror the other system this should work
       #folders = {
       #  "test" = {
       #    path = "/syncthingtest";
