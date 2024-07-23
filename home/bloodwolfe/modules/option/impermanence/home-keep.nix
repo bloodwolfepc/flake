@@ -13,14 +13,11 @@
       ".local/share/krita" 
       ".local/share/bottles"
       ".config/spotify"
-      ".config/falkTX" 
       ".config/GIMP"
       ".config/obs-studio" 
       ".config/REAPER"
-      ".config/ardour8"
       ".config/vesktop"
       ".cache/spotify-player" #TODO replace with EOF shell scirpt 
-      ".cache/ardour8"
       
       ".local/state/wireplumber"
 

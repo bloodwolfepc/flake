@@ -75,6 +75,8 @@
     tap-plugins
     zynaddsubfx
     helm
+    x42-gmsynth
+    yoshimi
 
     #sound over network
     sonobus
@@ -86,4 +88,12 @@
     
     #zrythm
   ];
+	home.persistence."/persist/home/bloodwolfe" = {
+		directories = [
+      ".local/share/vital"
+      ".config/falkTX" 
+      ".config/ardour8"
+      ".cache/ardour8"
+    ];
+  };
 }
