@@ -1,3 +1,6 @@
+
+#use sig
+
 #project send, nextcloud, or filebrowser
 #TODO 
 #screenshots are weird
@@ -129,6 +132,9 @@
 
     neovim = {
       url = "github:bloodwolfepc/dead";
+    };
+    nixvim = {
+      url = "github:bloodwolfepc/nixvim";
     };
     
     hyprland = {
