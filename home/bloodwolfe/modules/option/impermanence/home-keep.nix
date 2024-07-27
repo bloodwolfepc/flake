@@ -2,6 +2,10 @@
 {
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
+      "syncthingtest"
+
+
+      
 			#".nixops"
 			".local/share/keyrings"
 			".local/share/direnv"

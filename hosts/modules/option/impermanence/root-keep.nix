@@ -3,6 +3,7 @@
 	environment.persistence."/persist/system" = {
 		hideMounts = true;
 		directories = [
+    "/syncthingtest"
     #"/data"
 		"/etc/nixos"
 		"/var/log"
