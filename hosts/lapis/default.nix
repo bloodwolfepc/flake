@@ -7,7 +7,11 @@
     ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
     ../modules/option/impermanence/impermanence-btrfs.nix
     ../modules/option/spec/openrgb.nix
-    ../modules/option/spec/focusrite-low-latency-audio.nix
+
+    ../../hardware/behringer-404-hd.nix
+    ../modules/option/audio/musnix.nix
+    ../modules/option/audio/low-latency-audio.nix
+    
     ../modules/require
 
     ../modules/preset/full-system.nix
@@ -101,10 +105,23 @@
   #services.xserver.videoDrivers = [ "amdgpu" ];
   #hardware.amdgpu.initrd.enable = true; #UPDATE
   boot.initrd.kernelModules = [ "amdgpu" ];
- # programs.corectrl = {
- #   enable = true;
- #   gpuOverclock.enable = true;
- # };
+  # programs.corectrl = {
+  #   enable = true;
+  #   gpuOverclock.enable = true;
+  # };
   programs.thunar.enable = true;
   services.tumbler.enable = true;
+  
+  sops.secrets = {
+    "syncthing-key-lapis" = {
+      owner = "syncthing";
+    };
+    "syncthing-cert-lapis" = {
+      owner = "syncthing";
+    };
+  };
+  services.syncthing = { 
+    key = config.sops.secrets."syncthing-key-lapis".path;
+    cert = config.sops.secrets."syncthing-cert-lapis".path;
+  };
 }

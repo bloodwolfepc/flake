@@ -29,4 +29,16 @@
   }; 
   #boot.loader.grub.device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
   networking.useDHCP = true;
+  sops.secrets = {
+    "syncthing-key-navi" = {
+      owner = "syncthing";
+    };
+    "syncthing-cert-navi" = {
+      owner = "syncthing";
+    };
+  };
+  services.syncthing = { 
+    key = config.sops.secrets."syncthing-key-navi".path;
+    cert = config.sops.secrets."syncthing-cert-navi".path;
+  };
 }

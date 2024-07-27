@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   services.pipewire.extraConfig.pipewire."92-low-latency" = {
     context.properties = {
       default.clock.rate = 48000;
@@ -39,14 +39,15 @@
           "audio.position"   = "FL,FR";
         };
       }
-    ]; 
+    ];  
   };
   services.pipewire.extraConfig.jack = {
     "20-low-latency" = {
       "jack.properties" = {
-        "rt.prio" = 88;
+        "rt.prio" = 20;
         "node.latency" = "256/48000";
-        "node.lock-quantum" = true;
+        "jack.show-monitor" = "true";
+        "node.lock-quantum" = "true";
         "node.force.quantum" = 256;
       };
     };
@@ -69,4 +70,22 @@
       resample.quality = 1;
     };
   };
+  services.pipewire.wireplumber.configPackages = [
+    (pkgs.writeTextDir "share/wireplumber/main.lua.d/99-alsa-lowlatency.lua" ''
+      alsa_monitor.rules = {
+        {
+          matches = {{{ "node.name", "matches", "alsa_output.*" }}};
+          apply_properties = {
+            ["audio.format"] = "S32LE",
+            ["audio.rate"] = "96000", -- for USB soundcards it should be twice your desired rate
+            ["api.alsa.period-size"] = 2, -- defaults to 1024, tweak by trial-and-error
+            -- ["api.alsa.disable-batch"] = true, -- generally, USB soundcards use the batch mode
+          },
+        },
+      }
+    '')
+  ];
+  boot.extraModprobeConfig = ''
+    options snd slots=snd-usb-audio
+  '';
 }

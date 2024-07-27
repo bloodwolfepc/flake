@@ -69,6 +69,9 @@
     #soundux #removed due to being unmaintained
 
 
+    distrho #includes vitalium and juce
+    
+    
     #TBE
     supercollider
     airwindows-lv2
@@ -86,12 +89,14 @@
     
     
     
+    #UNPACKAGED
+    #wolf-spectrum
     #zrythm
   ];
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
       ".local/share/vital"
-      ".config/falkTX" 
+      #".config/falkTX" 
       ".config/ardour8"
       ".cache/ardour8"
     ];

@@ -5,7 +5,7 @@
   };
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
-      "~/.config/kdeconnect"
+      ".config/kdeconnect"
     ];
   };
 }
