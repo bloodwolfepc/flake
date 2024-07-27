@@ -20,7 +20,7 @@
 
 
     ../modules/option/gui/wine.nix
-    ../modules/option/virtualization/docker.nix
+    #../modules/option/virtualization/docker.nix
 
     ../modules/option/theme/stylix.nix
     ../modules/option/services/syncthing.nix
