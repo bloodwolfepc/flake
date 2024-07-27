@@ -11,6 +11,7 @@
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; 
   services.syncthing = { 
     enable = true;
+    group = "users";
     configDir = "/var/lib/syncthing";
     overrideDevices = true;
     overrideFolders = true;
