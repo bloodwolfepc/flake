@@ -25,12 +25,12 @@
       #however if the target is to mirror the other system this should work
       folders = {
         "test" = {
-          path = "/syncthingtest";
+          path = "/persist/system/syncthingtest";
           devices = [ "navi" "lapis" ];
           ignorePerms = false;
         };
         "test-home" = {
-          path = "/home/bloodwolfe/syncthingtest";
+          path = "/persist/home/bloodwolfe/syncthingtest";
           devices = [ "navi" "lapis" ];
           ignorePerms = false;
         };
