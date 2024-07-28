@@ -39,7 +39,7 @@
     };
   };
   services.syncthing = { 
-    guiAddress = "0.0.0.0:8383";
+    #guiAddress = "0.0.0.0:8383";
     key = config.sops.secrets."syncthing-key-navi".path;
     cert = config.sops.secrets."syncthing-cert-navi".path;
   };
