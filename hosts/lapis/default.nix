@@ -24,6 +24,8 @@
 
     ../modules/option/theme/stylix.nix
     ../modules/option/services/syncthing.nix
+
+    ../../home/bloodwolfe/modules/option/gui/editors/sound-syncthing.nix
   ];
   programs.kdeconnect.enable = true;
   monitors = [
