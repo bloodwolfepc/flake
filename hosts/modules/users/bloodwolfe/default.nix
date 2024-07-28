@@ -22,8 +22,7 @@
       "data"
     ];
     openssh.authorizedKeys.keys = [
-      (builtins.readFile ./keys/ssh-lapis.pub)
-      (builtins.readFile ./keys/ssh-angel.pub)
+      (builtins.readFile ./keys/id_angel.pub)
     ];
   };
 
