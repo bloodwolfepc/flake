@@ -2,6 +2,9 @@
 {
   sops.secrets.bloodwolfe-pass.neededForUsers = true;
   users.mutableUsers = false;
+  users.groups.data = {
+    name = "data";
+  };
 
   users.users.bloodwolfe = {
     isNormalUser = true;
@@ -16,6 +19,7 @@
       "libvirtd"
       "docker"
       "keys"
+      "data"
     ];
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/ssh-lapis.pub)

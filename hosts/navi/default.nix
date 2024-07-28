@@ -18,6 +18,7 @@
       #../modules/option/server/nixarr.nix
       ../modules/option/virtualization/docker.nix
       ../modules/option/services/syncthing.nix
+      ./syncthing-server.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 
@@ -38,6 +39,7 @@
     };
   };
   services.syncthing = { 
+    guiAddress = "0.0.0.0:8383";
     key = config.sops.secrets."syncthing-key-navi".path;
     cert = config.sops.secrets."syncthing-cert-navi".path;
   };

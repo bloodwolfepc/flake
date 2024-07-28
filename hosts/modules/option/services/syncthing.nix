@@ -11,7 +11,7 @@
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; 
   services.syncthing = { 
     enable = true;
-    group = "users";
+    group = "data";
     configDir = "/var/lib/syncthing";
     overrideDevices = true;
     overrideFolders = true;
@@ -21,20 +21,6 @@
         "navi" = { id = "IOZE6I7-TPMOBII-WVPA62C-ZWJEHAO-HSDYXS3-SYBX6OI-NXBLSI3-2YQUJA4" ; };
         "lapis" = { id = "KKJZICE-YNDNRKY-2IFRHWP-76JK2D2-C27NC3V-OYYPDQY-BZ5SBNP-3CZ3DQD" ; };
         "android" = { id = "YKJBYMX-G4CSQXM-5UFX3SU-FM4A3MA-UYNW4QM-446NP74-NVNSCZZ-VQEK4QS" ; };
-      };
-      #folders will need to be set up differently for each machine
-      #however if the target is to mirror the other system this should work
-      folders = {
-        "test" = {
-          path = "/persist/system/syncthingtest";
-          devices = [ "navi" "lapis" ];
-          ignorePerms = false;
-        };
-        "test-home" = {
-          path = "/persist/home/bloodwolfe/syncthingtest";
-          devices = [ "navi" "lapis" ];
-          ignorePerms = false;
-        };
       };
     };
   };
