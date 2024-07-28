@@ -19,7 +19,7 @@
   #};
   powerManagement.powertop.enable = true;
   services.auto-cpufreq = {
-    enable = true;
+    enable = false; #conflicts services.power-profiles-daemon
     settings = {
       battery = {
         governor = "powersave";

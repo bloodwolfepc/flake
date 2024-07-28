@@ -19,7 +19,12 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
-
+  fileSystems."/data" =
+    { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
+      fsType = "btrfs";
+      options = [ "subvol=data" ];
+    };
+    
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
