@@ -2,7 +2,6 @@
 {
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
-      "syncthingtest"
 
 
       

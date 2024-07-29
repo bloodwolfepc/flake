@@ -1,27 +1,27 @@
 {
   services.syncthing.settings.folders = {
-    "/data/sound/ardour" = {
-      path = "/data/home/bloodwolfe/ardour";
+    "/sync/home/bloodwolfe/ardour" = {
+      path = "/sync/home/bloodwolfe/ardour";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    "/data/sound/vital" = {
-      path = "/data/home/bloodwolfe/vital";
+    "/sync/home/bloodwolfe/vital" = {
+      path = "/sync/home/bloodwolfe/vital";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    "/data/sound/sfz" = {
-      path = "/data/home/bloodwolfe/sfz";
+    "/sync/home/bloodwolfe/sfz" = {
+      path = "/sync/home/bloodwolfe/sfz";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    "/data/sound/carla" = {
-      path = "/data/home/bloodwolfe/carla";
+    "/sync/home/bloodwolfe/carla" = {
+      path = "/sync/home/bloodwolfe/carla";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    "/data/sound/orca" = {
-      path = "/data/home/bloodwolfe/orca";
+    "/sync/home/bloodwolfe/orca" = {
+      path = "/sync/home/bloodwolfe/orca";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };

@@ -1,4 +1,4 @@
-{ config, inputs, pkgs, ... }: {
+{ config, inputs, pkgs, lib, ... }: {
   imports =
     [       
       inputs.hardware.nixosModules.asus-zephyrus-ga402
@@ -6,8 +6,8 @@
       inputs.disko.nixosModules.default
       ( import ../modules/option/disc/impermanence-btrfs.nix { device = "/dev/nvme0n1"; })
       ../modules/option/impermanence/impermanence-btrfs.nix
-      ../modules/option/spec/powersave.nix
-      ../modules/option/spec/asus.nix
+      #../modules/option/spec/powersave.nix
+      #../modules/option/spec/asus.nix
 
       ../modules/require
       #../modules/preset/laptop.nix
@@ -29,14 +29,15 @@
       ../modules/option/theme/stylix.nix
       ../modules/option/services/syncthing.nix
 
-      ../../home/bloodwolfe/modules/option/gui/editors/sound-syncthing.nix     #../modules/option/gui/gaming/jovian-software.nix
+      #../../home/bloodwolfe/modules/option/gui/editors/sound-syncthing.nix     #../modules/option/gui/gaming/jovian-software.nix
+      ../../home/bloodwolfe/modules/daw/syncthing.nix
+
+      ../../hardware/rog-zypherus-g14-powersave.nix
     ];
+  
+  programs.rog-control-center.enable = true;
+  programs.light.enable = true;
   monitors = [
-    #( 
-    #  import ../../hardware/msi-g241.nix { 
-    #    primary = true;
-    #    x = 0;
-    #)
     {
       primary = true;
       port = "DP-3";

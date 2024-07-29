@@ -1,4 +1,7 @@
 { pkgs, ... }: {
+  imports = [
+    ./hyprland.nix
+  ];
   home.packages = with pkgs; [
     reaper
     ardour
@@ -50,6 +53,7 @@
     
     #UNPACKAGED
     #wolf-spectrum
+    
     #zrythm
   ];
 	home.persistence."/data/home/bloodwolfe" = {

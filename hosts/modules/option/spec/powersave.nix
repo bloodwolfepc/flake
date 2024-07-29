@@ -18,19 +18,19 @@
   #  };
   #};
   powerManagement.powertop.enable = true;
-  services.auto-cpufreq = {
-    enable = false; #conflicts services.power-profiles-daemon
-    settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-    };
-  };
+  #services.auto-cpufreq = {
+  #  enable = false; #conflicts services.power-profiles-daemon
+  #  settings = {
+  #    battery = {
+  #      governor = "powersave";
+  #      turbo = "never";
+  #    };
+  #    charger = {
+  #      governor = "performance";
+  #      turbo = "auto";
+  #    };
+  #  };
+  #};
   environment.systemPackages = with pkgs; [
     powertop
   ];

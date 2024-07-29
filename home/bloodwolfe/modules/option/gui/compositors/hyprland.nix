@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, lib, ... }: {
 
 
 
@@ -7,9 +7,6 @@
 #things like waybar should be depended on this module
 #open with steam, spotify, firefox, alacritty, and carla
 
-  #programs.zsh.shellAliases = {
-  #  pc = 
-  #  "
   
   home.packages = [
     pkgs.wayvnc
@@ -123,8 +120,13 @@ wayland.windowManager.hyprland = {
     #  "swaync --inhibitor-add Alacritty" #block spotify_player 
     #];
   };
-  extraConfig = '' 	
+  extraConfig = lib.mkAfter '' 	
     
+      #submap = EXEC
+        #bindi = , d, workspace, name:ardour
+        #bindi = , d, exec, ardour8
+        #bindi = , s, exec, firefox
+      #submap = escape
     #windowrulev2 = nofocus,title:(Ardour)
     
     #windowrulev2 = float, class:^(jetbrains-.*),title:^(win.*)

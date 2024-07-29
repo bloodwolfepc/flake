@@ -1,21 +1,15 @@
-{ config, lib, pkgs, ... }:
-let
+{ config, lib, pkgs, ... }: let
 inherit (config.lib.formats.rasi) mkLiteral;
-in
-{
+in {
 programs.rofi = {
 	enable = true;
   package = pkgs.rofi-wayland-unwrapped;
-	#package = pkgs.rofi.override { plugins = with pkgs; [
-	#rofi
-	#]; };
-	#plugins = with pkgs; [
-	#rofi-emoji
-	#rofi-calc
-	#rofi-systemd
-	#];
-	#terminal = "alacritty";
-	#font = "Unscii 12";
+	plugins = with pkgs; [
+	  rofi-emoji
+	  rofi-calc
+	  rofi-systemd
+	];
+	terminal = "${pkgs.alacritty}/bin/alacritty";
 	location = "top";
 	theme = {	
 		"*" = {

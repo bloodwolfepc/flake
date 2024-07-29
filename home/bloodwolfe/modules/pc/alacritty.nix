@@ -1,11 +1,11 @@
-{
+{ lib, ... }: {
   programs.alacritty = {
   	enable = true;
   	settings = {
-  		#font = {
-  		#	normal.family = "unscii";
-  		#	normal.style = "16-full";
-  		#};
+  		font = {
+  			normal.family = lib.mkForce "unscii";
+  			normal.style = lib.mkForce "16-full";
+  		};
   		#window = {
   		#	opacity = 0.0;
   		#	blur = false;
