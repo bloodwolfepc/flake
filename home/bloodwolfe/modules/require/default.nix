@@ -14,9 +14,33 @@
     ./util/thefuck.nix
     ./util/hyfetch.nix
     ./util/miscellaneous-utils.nix
+    ./impermanence.nix
+
+    ./security/gpg.nix
+    ./security/bitwarden.nix
+    ./security/sops.nix
 
   ] ++ (builtins.attrValues outputs.customHomeManagerModules);
 
+  programs.nix-index = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  
+	home.persistence."/persist/home/bloodwolfe" = {
+    directores = [ 
+      ".cache/nix-index"
+    ];
+  };
+  
+  services.nix-serv = {
+    enable = true;
+    secretkeyFile = "";
+    nginx = {
+      enable = true;
+    };
+  };
+  
   programs.home-manager.enable = true;
   #systemd.user.startServices = "sd-switch";
 

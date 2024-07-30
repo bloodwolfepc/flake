@@ -11,6 +11,17 @@
     };
   };
   
+  monitors = [
+    {
+      enabled = true;
+      name = "eDP-2";
+      width = 2560;
+      height = 1600;
+      refreshRate = 60;
+      x = 1920;
+      y = 0;
+    }
+  ];
 # powersave = powerprofilesctl set power-saver / performance 
 # 
 # asusctl set to quiet will also set power-saver

@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, pkgs, ... }: {
   programs.alacritty = {
   	enable = true;
   	settings = {
@@ -21,5 +21,19 @@
       #  white = "0xFFFFFF";
   		#};
   	};
+  };
+  wayland.windowManager.hyprland = {
+    extraconfig = lib.mkBefore ''
+	    submap = EXEC
+	      bindi = , h, layoutmsg, preselect r
+	      bindi = , j, layoutmsg, preselect d
+	      bindi = , k, layoutmsg, preselect u
+	      bindi = , l, layoutmsg, preselect l
+	      bindi = , h, exec, ${pkgs.alacirtty}/bin/alacritty --command tmux
+	      bindi = , j, exec, ${pkgs.alacritty}/bin/alacritty --command tmux
+	      bindi = , k, exec, ${pkgs.alacritty}/bin/alacritty --command tmux
+	      bindi = , l, exec, ${pkgs.alacritty}/bin/alacritty --command tmux
+	    submap = escape
+    '';
   };
 }

@@ -7,4 +7,9 @@
       "--cmd cd"
     ];
   };
+	home.persistence."/persist/home/bloodwolfe" = {
+    direcotres = [
+      ".local/share/zoxide"
+    ];
+  };
 }

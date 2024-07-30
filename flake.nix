@@ -180,10 +180,10 @@
 	in
 	{
     inherit lib;
-    customNixosModules = import ./custom-modules/nixos;
-    customHomeManagerModules = import ./custom-modules/home-manager;
+    customNixosModules = import ./modules/nixos;
+    customHomeManagerModules = import ./modules/home-manager;
     overlays = import ./overlays {inherit inputs outputs; };
-    customPackages = forEachSystem (pkgs: import ./custom-packages { inherit pkgs; });
+    customPackages = forEachSystem (pkgs: import ./packages { inherit pkgs; });
     devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
     #formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
 

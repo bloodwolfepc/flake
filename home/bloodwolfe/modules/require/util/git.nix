@@ -21,5 +21,11 @@
 #      oauth_token = "cat ${config.sops.secrets."git-auth".path}";
 #    };
 #  };
+  
+	home.persistence."/persist/home/bloodwolfe" = {
+    directores = [ 
+      ".config/gh/hosts.yml"
+    ];
+  };
 }
 
