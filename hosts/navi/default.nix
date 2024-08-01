@@ -18,7 +18,7 @@
       #../modules/option/server/nixarr.nix
       ../modules/option/virtualization/docker.nix
       ../modules/option/services/syncthing.nix
-      ./syncthing-server.nix
+      ../modules/option/theme/stylix.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 

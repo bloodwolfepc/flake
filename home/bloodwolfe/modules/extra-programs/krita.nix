@@ -4,7 +4,7 @@
     krita
   ];
 	home.persistence."/sync/home/bloodwolfe" = {
-    directores = [
+    directories = [
       ".local/share/krita" 
     ];
     files = [

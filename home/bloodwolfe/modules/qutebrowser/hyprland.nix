@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }: let
-  name = "vesktop";
-  program = "${pkgs.vesktop}/bin/vesktop";
-  bind = "d";
+  name = "qutebrowser";
+  program = "${pkgs.qutebrowser}/bin/qutebrowser";
+  bind = "q";
 in {
   wayland.windowManager.hyprland = {
     extraConfig = lib.mkBefore ''

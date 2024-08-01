@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
+  imports = [ ./hyprland.nix ];
   home.packages = with pkgs; [
    obs-studio
    obs-cli
@@ -8,7 +8,7 @@
    obs-studio-plugins.obs-tuna
   ];
 	home.persistence."/sync/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".conifg/obs-studio"
     ];
   };

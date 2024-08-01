@@ -7,7 +7,7 @@
     age = {
       keyFile = "/persist/home/bloodwolfe/.config/sops/age/key.txt";
     }; 
-  defaultSopsFile = ../../../../../secrets/secrets.yaml;
+  defaultSopsFile = ../../../../secrets/secrets.yaml;
   validateSopsFiles = false; 
     secrets = {
       #"ssh-lapis" = {

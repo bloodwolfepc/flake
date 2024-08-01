@@ -2,6 +2,7 @@
 	imports = [
 		inputs.impermanence.nixosModules.home-manager.impermanence
 	];
+	home.persistence."/sync/home/bloodwolfe" = { allowOther = true; };
 	home.persistence."/persist/home/bloodwolfe" = {
 		allowOther = true;
 		directories = [

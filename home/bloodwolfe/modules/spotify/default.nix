@@ -1,10 +1,11 @@
 { pkgs, ... }:
 {
+  imports = [ ./hyprland.nix ];
   home.packages = with pkgs; [
-   spotify
+    spotify
   ];
 	home.persistence."/persist/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".config/spotify"
     ];
   };

@@ -23,7 +23,7 @@
 #  };
   
 	home.persistence."/persist/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".config/gh/hosts.yml"
     ];
   };

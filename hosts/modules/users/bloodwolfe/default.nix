@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{ pkgs, config, ... }: {
   sops.secrets.bloodwolfe-pass.neededForUsers = true;
   users.mutableUsers = false;
   users.groups.data = {
@@ -12,6 +11,7 @@
     #useDefaultShell = true;
     shell = pkgs.zsh;
     extraGroups = [
+      "syncthing"
       "wheel"
       "audio"
       "video"

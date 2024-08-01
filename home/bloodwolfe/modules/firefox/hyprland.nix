@@ -1,17 +1,32 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, config, ... }: let
+  name = "firefox";
+  program = "${pkgs.firefox}/bin/firefox";
+  bind = "f";
+in {
   wayland.windowManager.hyprland = {
-    #TODO possibly replace alacritty integration with the drop down terminal thing
-    extraconfig = lib.mkBefore ''
-      submap = EXEC_WS
-        bindi = , j, workspace, name:termfox
-        bindi = , j, exec ${pkgs.firefox}/bin/firefox
-        bindi = , j, exec ${pkgs.alacritty}/bin/alacritty --command tmux
+    extraConfig = lib.mkBefore ''
+	    submap = EXEC
+        bindi = , ${bind}, submap ,EXEC_${name}
+	    submap = escape
+      submap = EXEC_${name}
+	      bindi = , ${config.kb_RIGHT}, layoutmsg, preselect r
+	      bindi = , ${config.kb_DOWN}, layoutmsg, preselect d
+	      bindi = , ${config.kb_UP}, layoutmsg, preselect u
+	      bindi = , ${config.kb_LEFT}, layoutmsg, preselect l
+	      bindi = , ${config.kb_RIGHT}, exec, ${program}
+	      bindi = , ${config.kb_DOWN}, exec, ${program}
+	      bindi = , ${config.kb_UP}, exec, ${program}
+	      bindi = , ${config.kb_LEFT}, exec, ${program}
+        bindi = , ${config.kb_INS}, submap, INS
+        bindi = , ${config.kb_NML}, submap, NML
+        source = $pass-oneshots
       submap = escape
-      submap = EXEC
-        bindi = , j, exec, ${pkgs.firefox}/bin/firefox
+      submap = EXEC_WS
+        bindi = , ${bind}, workspace, name:${name}
+        bindi = , ${bind}, exec, ${program}
       submap = escape
       submap = WS
-        bindi = , j, workspace, name:termfox
+        bindi = , ${bind}, workspace, name:${name}
       submap = escape
     '';
   };

@@ -3,17 +3,17 @@
     ../pc
     ../daw
     ../obs
-    ../wine
-    ../steam
+    #../wine
     ../require
     ../gaming
     ../stylix
     ../discord
+    ../spotify
     ../firefox
+    ../qutebrowser
     ../extra-programs/gimp.nix
     ../extra-programs/thunar.nix
     ../extra-programs/krita.nix
-    ../extra-programs/spotify.nix
     ../extra-programs/spotify-player.nix
     ../extra-programs/mpv.nix
     ../extra-programs/zathura.nix

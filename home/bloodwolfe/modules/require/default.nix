@@ -1,26 +1,26 @@
-{ lib, pkgs, outputs, ... }:
+{ lib, pkgs, outputs, config, ... }:
 {
   imports = [
-    ./cli/cli-ui/zsh.nix
-    ./cli/cli-ui/tmux.nix
-    ./cli/editors/lf.nix
-    ./cli/editors/neovim.nix
-    ./cli/resource-monitoring/btop.nix
-    ./cli/resource-monitoring/htop.nix
-    ./util/git.nix
-    ./util/ssh.nix
-    ./util/zoxide.nix
-    ./util/ripgrep.nix
-    ./util/thefuck.nix
-    ./util/hyfetch.nix
-    ./util/miscellaneous-utils.nix
+    ./zsh.nix
+    ./tmux.nix
+    ./lf.nix
+    ./neovim.nix
+    ./btop.nix
+    ./htop.nix
+    ./git.nix
+    ./ssh.nix
+    ./zoxide.nix
+    ./ripgrep.nix
+    ./thefuck.nix
+    ./hyfetch.nix
     ./impermanence.nix
-
-    ./security/gpg.nix
-    ./security/bitwarden.nix
-    ./security/sops.nix
+    ./sgpt.nix
+    ./gpg
+    ./bitwarden.nix
+    ./sops.nix
 
   ] ++ (builtins.attrValues outputs.customHomeManagerModules);
+    
 
   programs.nix-index = {
     enable = true;
@@ -28,18 +28,18 @@
   };
   
 	home.persistence."/persist/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".cache/nix-index"
     ];
   };
   
-  services.nix-serv = {
-    enable = true;
-    secretkeyFile = "";
-    nginx = {
-      enable = true;
-    };
-  };
+  #services.nix-serv = {
+  #  enable = true;
+  #  secretkeyFile = "";
+  #  nginx = {
+  #    enable = true;
+  #  };
+  #};
   
   programs.home-manager.enable = true;
   #systemd.user.startServices = "sd-switch";
@@ -63,13 +63,26 @@
     username = lib.mkDefault "bloodwolfe";
     stateVersion = lib.mkDefault "23.11";
     homeDirectory = "/home/bloodwolfe";
+    #programs.fd.enable = true;
+    #programs.feh.enable = true;
 
     sessionVariables = {
       FLAKE = "$HOME/projects/flake";
     };
+
     packages = with pkgs; [
       home-manager
+      tree
+      ctags
+      fzf
+      sops
+      tldr
+      lolcat
+      gay
+      neofetch
+      #soundfont-arachno
+      nix-visualize
+      nix-tree
     ];
-
   };
 } 

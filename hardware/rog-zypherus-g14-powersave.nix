@@ -1,27 +1,18 @@
 # opts . poversave govornor, igpu, power-saver profile, 60Hz, on battery. goal is 5W idle
 # screen brightness, core/thread restriction, undervolt
 
-{ lib, pkgs, ... }: {
+{ lib, pkgs, config, ... }: {
 
-
-  wayland.winodowManager.hyprland.settings = {
-    input.touchpad = { 
-      natural_scroll = false;
-      disable_while_typing = false;
-    };
-  };
+  #homeConfigurations = { "bloodwolfe@angel" = lib.homeManagerConfiguration {
+  #  home-manager.users.bloodwolfe.home.wayland.winodowManager.hyprland.settings = {
+  #    input.touchpad = { 
+  #      natural_scroll = false;
+  #      disable_while_typing = false;
+  #    };
+  #  };
+  #};
+  #};
   
-  monitors = [
-    {
-      enabled = true;
-      name = "eDP-2";
-      width = 2560;
-      height = 1600;
-      refreshRate = 60;
-      x = 1920;
-      y = 0;
-    }
-  ];
 # powersave = powerprofilesctl set power-saver / performance 
 # 
 # asusctl set to quiet will also set power-saver
@@ -72,4 +63,6 @@
     };
   };
   services.power-profiles-daemon.enable = true;
+  services.supergfxd.enable = true;
+  services.asusd.enable = true;
 }

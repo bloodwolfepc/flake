@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }: {
+{ pkgs, inputs, lib, config, ... }: {
   imports = [ inputs.stylix.nixosModules.stylix ];
   
   #stylix.base16Scheme = {
@@ -22,7 +22,7 @@
   #};
   
   stylix = {
-    image = ../../../../assets/wallpapers/Black.png;
+    image = config.wallpaper;
     enable = true;
     base16Scheme = "${ pkgs.base16-schemes }/share/themes/windows-95.yaml";
     cursor = {

@@ -3,7 +3,7 @@
     gimp
   ];
 	home.persistence."/persist/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".config/GIMP"
     ];
   };  

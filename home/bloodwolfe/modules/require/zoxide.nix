@@ -8,7 +8,7 @@
     ];
   };
 	home.persistence."/persist/home/bloodwolfe" = {
-    direcotres = [
+    directories = [
       ".local/share/zoxide"
     ];
   };

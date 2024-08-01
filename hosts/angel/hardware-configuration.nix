@@ -20,10 +20,15 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
   
-  fileSystems."/data" =
+  fileSystems."/sync" =
     { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
       fsType = "btrfs";
-      options = [ "subvol=data" ];
+      options = [ "subvol=sync" ];
+    };
+  fileSystems."/docker" =
+    { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
+      fsType = "btrfs";
+      options = [ "subvol=docker" ];
     };
     
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

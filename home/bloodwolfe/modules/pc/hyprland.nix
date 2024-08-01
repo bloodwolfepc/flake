@@ -2,6 +2,7 @@
 # bind that:
 #moves firefox to a position of the aftive workspace and another to return it
 { pkgs, lib, config, ... }: {
+  
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -32,9 +33,9 @@
       ];
       general = {
         allow_tearing = true;
-        border_size = "0";
-        gaps_in = "0";
-        gaps_out = "0";
+        #border_size = "0";
+        #gaps_in = "0";
+        #gaps_out = "0";
       };
 	    dwindle = {
 	      pseudotile = true;
@@ -57,17 +58,17 @@
         #  hide_on_touch = true;
         #};
 	    };
+      monitor = map
+        (m:
+          let 
+            resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
+            position = "${toString m.x}x${toString m.y}";
+          in
+          "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
+        )
+        (config.monitors);
     };
-    extraconfig = lib.mkBefore ''
-      submap = EXEC
-        bindi = , j, workspace, name:termfox
-        bindi = , j, exec ${pkgs.firefox}/bin/firefox
-        bindi = , j, exec ${pkgs.alacritty}/bin/alacritty --command tmux
-      submap = escape
-      submap = WS
-        bindi = , k, workspace, name:main
-        bindi = , j, workspace, name:termfox
-      submap = escape
+    extraConfig = lib.mkBefore ''
       submap = INS
         bind = , ${config.kb_NML}, submap, NML
       submap = escape
@@ -85,47 +86,33 @@
         
 	      bindm = , mouse:272, movewindow
 	      bindm = , mouse:273, resizewindow
-	      bindi = , h, movefocus, r
-	      bindi = , j, movefocus, d
-	      bindi = , k, movefocus, u
-	      bindi = , l, movefocus, l
+	      bindi = , ${config.kb_RIGHT}, movefocus, r
+	      bindi = , ${config.kb_DOWN}, movefocus, d
+	      bindi = , ${config.kb_UP}, movefocus, u
+	      bindi = , ${config.kb_LEFT}, movefocus, l
 	      bindi = , SPACE, togglefloating
 	      bindi = , v, fullscreen
 	      bindi = , x, killactive
       submap = escape
       submap = POSITION
-	      bindi = , h, movewindow, preselect r
-	      bindi = , j, movewindow, preselect d
-	      bindi = , k, movewindow, preselect u
-	      bindi = , l, movewindow, preselect l
+	      bindi = , ${config.kb_RIGHT}, movewindow, r
+	      bindi = , ${config.kb_DOWN}, movewindow, d
+	      bindi = , ${config.kb_UP}, movewindow, u
+	      bindi = , ${config.kb_LEFT}, movewindow, l
 	      bindi = , SPACE, centerwindow
       submap = escape
       submap = RESIZE
 	      bindm = ,mouse:272, movewindow
 	      bindm = ,mouse:273, resizewindow
-	      bindi = ,h, resizeactive, -20 0
-	      bindi = ,j, resizeactive, 0 20
-	      bindi = ,k, resizeactive, 0 -20
-	      bindi = ,l, resizeactive, 20 0
+	      bindi = ,${config.kb_LEFT}, resizeactive, -20 0
+	      bindi = ,${config.kb_DOWN}, resizeactive, 0 20
+	      bindi = ,${config.kb_UP}, resizeactive, 0 -20
+	      bindi = ,${config.kb_RIGHT}, resizeactive, 20 0
       submap = escape
       submap = MONITOR
-        bindi = f, focusmonitor, HDMI-0-1
-        bindi = d, focusmonitor, eDP-3
+        bindi = ,f, focusmonitor, DP-3
+        bindi = ,d, focusmonitor, eDP-2
       submap = escape
-    '';
-    
-    #extraconfig = lib.mkAfter ''
-    #  submap = NML
-    #   bindi , ${config.kb_INS}, submap INS
-    #    source $pass-onceshots
-    #  submap = escape
-      #FOR EACH MODE
-    # submap = EXEC
-    #   bindi , ${config.kb_INS}, submap INS
-    #   bindi , ${config.kb_NML}, submap NML
-    #   source $pass-onceshots
-    # submap = escape
-    #'';
-      
+    '';      
   };
 }

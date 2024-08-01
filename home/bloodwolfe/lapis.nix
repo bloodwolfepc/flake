@@ -1,25 +1,25 @@
 {
-  wayland.windowManager.hyprland.settings = {
-    "monitor" = [
-      "DP-3, 1920x1080@144, 0x0, 1" # vrr, 1"
-      #"HDMI-A-1, 1920x1080@75, -1920x0, 1"
-    ];
-    #"monitor" = ",preferred,auto,1";
-  };
-  imports = [
-    ./modules/option/impermanence/impermanence-home.nix #require, maybe
-    ./modules/option/security/sops.nix #require
-    ./modules/option/cli/security/gpg.nix #require
-    ./modules/option/util/miscellaneous-utils.nix #TODO move xdg with hyprland stuff
-
-    ./modules/require
-
-    ./modules/preset/full-system.nix
-
-    ./modules/option/gui/compatability/wine.nix
-
-
-    ./modules/option/gui/communitcation/kdeconnect.nix
-    ./modules/option/style/stylix.nix
+  imports = [ 
+    ./modules/preset/main.nix
+  ];
+  monitors = [
+    {
+      enabled = true;
+      name = "HDMI-A-1";
+      width = 1920;
+      height = 1080;
+      refreshRate = 60;
+      x = 0;
+      y = 0;
+    }
+    {
+      enabled = true;
+      name = "eDP-2";
+      width = 2560;
+      height = 1600;
+      refreshRate = 60;
+      x = 1920;
+      y = 0;
+    }
   ];
 }

@@ -1,25 +1,27 @@
-{ config, ... }: {
-  wayland.windowManager.hyprland.settings = {
-    monitor = map
-      (m:
-        let 
-          resolution = "${toString m.width}x${toString m.height}@${toString m.refreshRate}";
-          position = "${toString m.x}x${toString m.y}";
-        in
-        "${m.name},${if m.enabled then "${resolution},${position},1" else "disable"}"
-      )
-      (config.monitors);
-  };
-  
-    #"monitor" = [
-    #  "eDP-2, 2560x1600@60, 0x0, 1"
-    # #"HDMI-A-1, 1920x1080@60, -2560x0, 1" # vrr, 1"
-    #  #"eDP-2, 1920x1080@60, 0x0, 1"
-    #  #"HDMI-A-1, 1920x180@75, -1920x0, 1"
-    #  ",preferred,auto,1"
-    #];
+{ config, ... }: { 
+  monitors = [
+    {
+      enabled = true;
+      name = "HDMI-A-1";
+      width = 1920;
+      height = 1080;
+      refreshRate = 60;
+      x = 0;
+      y = 0;
+    }
+    {
+      enabled = true;
+      name = "eDP-2";
+      width = 2560;
+      height = 1600;
+      refreshRate = 60;
+      x = 1920;
+      y = 0;
+    }
+  ];
   imports = [
     ./modules/preset/main.nix
     ../../hardware/home/wacom-intuos-pro.nix
+    ../../hardware/home/rog-zypherus-g14.nix
   ];
 }

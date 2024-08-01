@@ -22,7 +22,7 @@
     };
   };
 	home.persistence."/persist/home/bloodwolfe" = {
-    directores = [ 
+    directories = [ 
       ".cache/spotify-player"
     ];
   };

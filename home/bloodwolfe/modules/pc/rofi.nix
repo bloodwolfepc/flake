@@ -1,5 +1,8 @@
 { config, lib, pkgs, ... }: let
 inherit (config.lib.formats.rasi) mkLiteral;
+name = "rofi";
+program = "${pkgs.rofi}/bin/rofi -show run";
+bind = "e";
 in {
   home.packages = with pkgs; [
     sptlrx
@@ -7,11 +10,11 @@ in {
   programs.rofi = {
   	enable = true;
     package = pkgs.rofi-wayland-unwrapped;
-  	plugins = with pkgs; [
-  	  rofi-emoji
-  	  rofi-calc
-  	  rofi-systemd
-  	];
+  	#plugins = [
+  	#  pkgs.rofi-emoji
+  	#  pkgs.rofi-calc
+  	#  pkgs.rofi-systemd
+  	#];
   	terminal = "${pkgs.alacritty}/bin/alacritty";
   	location = "top";
     theme = {	
@@ -67,22 +70,32 @@ in {
     	};
     };
   };
+
   wayland.windowManager.hyprland = {
-    extraconfig = lib.mkBefore ''
+    extraConfig = lib.mkBefore ''
 	    submap = EXEC
-	      bindi = , h, layoutmsg, preselect r
-	      bindi = , j, layoutmsg, preselect d
-	      bindi = , k, layoutmsg, preselect u
-	      bindi = , l, layoutmsg, preselect l
-	      bindi = , h, exec, ${pkgs.rofi}/bin/rofi
-	      bindi = , j, exec, ${pkgs.rofi}/bin/rofi
-	      bindi = , k, exec, ${pkgs.rofi}/bin/rofi
-	      bindi = , l, exec, ${pkgs.rofi}/bin/rofi
-        
-        bindi = , e, exec, ${pkgs.rofi}/bin/rofi emoji
-        bindi = , EQUALS, exec, ${pkgs.rofi}/bin/rofi calc
-        bindi = , GRAVE, exec, ${pkgs.rofi}/bin/rofi systemd
+        bindi = , ${bind}, submap ,EXEC_${name}
 	    submap = escape
+      submap = EXEC_${name}
+        bindi = , ${config.kb_INS}, submap, INS
+        bindi = , ${config.kb_NML}, submap, NML
+	      bindi = , ${config.kb_RIGHT}, layoutmsg, preselect r
+	      bindi = , ${config.kb_DOWN}, layoutmsg, preselect d
+	      bindi = , ${config.kb_UP}, layoutmsg, preselect u
+	      bindi = , ${config.kb_LEFT}, layoutmsg, preselect l
+	      bindi = , ${config.kb_RIGHT}, exec, ${program}
+	      bindi = , ${config.kb_DOWN}, exec, ${program}
+	      bindi = , ${config.kb_UP}, exec, ${program}
+	      bindi = , ${config.kb_LEFT}, exec, ${program}
+        source = $pass-oneshots
+      submap = escape
+      submap = EXEC_WS
+        bindi = , ${bind}, workspace, name:${name}
+        bindi = , ${bind}, exec, ${program}
+      submap = escape
+      submap = WS
+        bindi = , ${bind}, workspace, name:${name}
+      submap = escape
     '';
   };
 }

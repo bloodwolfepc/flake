@@ -1,13 +1,13 @@
 { pkgs, lib, ... }: {
   services.swaync = {
     enable = true;
-    settings = { };
-    style = { };
+    #settings = { };
+    #style = { };
   };
   wayland.windowManager.hyprland = {
-    extraconfig = lib.mkBefore ''
+    extraConfig = lib.mkBefore ''
       submap = NML 
-        bindi = n, exec, swaync-client -t
+        bindi = , n, exec, swaync-client -t
       submap = escape
     '';
   };

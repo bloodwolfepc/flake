@@ -1,5 +1,5 @@
 {
-  #monitors = import ./monitors.nix;
+  monitors = import ./monitors.nix;
   keybinds = import ./keybinds.nix;
-  options = import ./options.nix;
+  extra-options = import ./extra-options.nix;
 }

@@ -1,17 +1,33 @@
-{ pkgs, ... }: {
+{ lib, pkgs, config, ... }: let
+  name = "ardour";
+  program = "${pkgs.ardour}/bin/ardour8";
+  bind = "u";
+in {
   wayland.windowManager.hyprland = {
-    extraConfig = ''
-      submap = EXEC
-        bindi = , d, workspace, name:ardour
-        bindi = , d, exec, ${pkgs.ardour}/bin/ardour8
+    extraConfig = lib.mkBefore ''
+	    submap = EXEC
+        bindi = , ${bind}, submap ,EXEC_${name}
+	    submap = escape
+      submap = EXEC_${name}
+	      bindi = , ${config.kb_RIGHT}, layoutmsg, preselect r
+	      bindi = , ${config.kb_DOWN}, layoutmsg, preselect d
+	      bindi = , ${config.kb_UP}, layoutmsg, preselect u
+	      bindi = , ${config.kb_LEFT}, layoutmsg, preselect l
+	      bindi = , ${config.kb_RIGHT}, exec, ${program}
+	      bindi = , ${config.kb_DOWN}, exec, ${program}
+	      bindi = , ${config.kb_UP}, exec, ${program}
+	      bindi = , ${config.kb_LEFT}, exec, ${program}
+        bindi = , ${config.kb_INS}, submap, INS
+        bindi = , ${config.kb_NML}, submap, NML
+        source = $pass-oneshots
       submap = escape
-      submap = GLOBAL
-        bindi = , d, workspace, name:ardour
+      submap = EXEC_WS
+        bindi = , ${bind}, workspace, name:${name}
+        bindi = , ${bind}, exec, ${program}
       submap = escape
-      '';
-    settings.windowrulev2 = [ 
-      #fixes a bug for dragging objects in mixers for ardour
-      "noinitialfocus, xwayland:1"
-    ];
+      submap = WS
+        bindi = , ${bind}, workspace, name:${name}
+      submap = escape
+    '';
   };
 }

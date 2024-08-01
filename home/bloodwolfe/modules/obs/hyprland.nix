@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }: let
-  name = "vesktop";
-  program = "${pkgs.vesktop}/bin/vesktop";
-  bind = "d";
+  name = "obs";
+  program = "${pkgs.obs-studio}/bin/obs";
+  bind = "o";
 in {
   wayland.windowManager.hyprland = {
     extraConfig = lib.mkBefore ''
@@ -17,8 +17,6 @@ in {
 	      bindi = , ${config.kb_DOWN}, exec, ${program}
 	      bindi = , ${config.kb_UP}, exec, ${program}
 	      bindi = , ${config.kb_LEFT}, exec, ${program}
-        bindi = , ${config.kb_INS}, submap, INS
-        bindi = , ${config.kb_NML}, submap, NML
         source = $pass-oneshots
       submap = escape
       submap = EXEC_WS

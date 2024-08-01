@@ -157,6 +157,11 @@
     stylix = {
       url = "github:danth/stylix";
     };
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
@@ -189,20 +194,20 @@
 
 		nixosConfigurations = {
 
-      lapis = lib.nixosSystem {
-        modules = [ ./hosts/lapis ];
-        specialArgs = { inherit inputs outputs; };
-      };
+      #lapis = lib.nixosSystem {
+      #  modules = [ ./hosts/lapis ];
+      #  specialArgs = { inherit inputs outputs; };
+      #};
 
       angel = lib.nixosSystem {
         modules = [ ./hosts/angel ];
         specialArgs = { inherit inputs outputs; };
       };
 
-      waterdreamer = lib.nixosSystem {
-        modules = [ ./hosts/waterdreamer ];
-        specialArgs = { inherit inputs outputs; };
-      };
+      #waterdreamer = lib.nixosSystem {
+      #  modules = [ ./hosts/waterdreamer ];
+      #  specialArgs = { inherit inputs outputs; };
+      #};
       
       navi = lib.nixosSystem {
         modules = [ ./hosts/navi ];
@@ -211,11 +216,11 @@
     };
 
     homeConfigurations = {
-      "bloodwolfe@lapis" = lib.homeManagerConfiguration {
-        modules = [ ./home/bloodwolfe/lapis.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
+      #"bloodwolfe@lapis" = lib.homeManagerConfiguration {
+      #  modules = [ ./home/bloodwolfe/lapis.nix ];
+      #  pkgs = pkgsFor.x86_64-linux;
+      #  extraSpecialArgs = { inherit inputs outputs; };
+      #};
 
       "bloodwolfe@angel" = lib.homeManagerConfiguration {
         modules = [ ./home/bloodwolfe/angel.nix ];
@@ -223,11 +228,11 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      "bloodwolfe@waterdreamer" = lib.homeManagerConfiguration {
-        modules = [ ./home/bloodwolfe/waterdreamer.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
+      #"bloodwolfe@waterdreamer" = lib.homeManagerConfiguration {
+      #  modules = [ ./home/bloodwolfe/waterdreamer.nix ];
+      #  pkgs = pkgsFor.x86_64-linux;
+      #  extraSpecialArgs = { inherit inputs outputs; };
+      #};
       
       "bloodwolfe@navi" = lib.homeManagerConfiguration {
         modules = [ ./home/bloodwolfe/waterdreamer.nix ];

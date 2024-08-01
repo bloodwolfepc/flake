@@ -1,6 +1,7 @@
 { pkgs, lib, config, ... }: {
   imports = [
     ./hyprland.nix
+    ./hyprland-pass-oneshots.nix
     ./swaync.nix
     ./rofi.nix
     ./waybar.nix

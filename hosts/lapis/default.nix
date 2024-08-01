@@ -23,35 +23,8 @@
     #../modules/option/virtualization/docker.nix
 
     ../modules/option/theme/stylix.nix
-    ../modules/option/services/syncthing.nix
-
-    ../../home/bloodwolfe/modules/option/gui/editors/sound-syncthing.nix
   ];
   programs.kdeconnect.enable = true;
-  monitors = [
-    #( 
-    #  import ../../hardware/msi-g241.nix { 
-    #    primary = true;
-    #    x = 0;
-    #)
-    {
-      primary = true;
-      port = "DP-3";
-      width = 1920;
-      height = 1080;
-      refreshRate = 144;
-      x = 0;
-      workspace = "1";
-    }
-    {
-      port = "HDMI-A-1";
-      width = 1920;
-      height = 1080;
-      refreshRate = 70;
-      x = -1920;
-      workspace = "2";
-    }
-  ];
   powerManagement = {
     enable = true;
     cpuFreqGovernor = "performance";

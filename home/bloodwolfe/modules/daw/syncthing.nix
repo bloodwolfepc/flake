@@ -27,13 +27,13 @@
     };
     
     #dotfiles
-    "/data/home/bloodwolfe/.config/ardour8" = {
-      path = "/data/home/bloodwolfe/.config/ardour8";
+    "/sync/home/bloodwolfe/.config/ardour8" = {
+      path = "/sync/home/bloodwolfe/.config/ardour8";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    "/data/home/bloodwolfe/.local/share/vital" = {
-      path = "/data/home/bloodwolfe/.local/share/vital";
+    "/sync/home/bloodwolfe/.local/share/vital" = {
+      path = "/sync/home/bloodwolfe/.local/share/vital";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };

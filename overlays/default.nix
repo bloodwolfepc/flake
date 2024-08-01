@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-  additions = final: _prev: import ../custom-packages { pkgs = final; };
+  additions = final: _prev: import ../packages { pkgs = final; };
 
   modifications = final: prev: {
     neovim = prev.neovim // {

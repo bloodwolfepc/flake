@@ -29,7 +29,7 @@
     freepats
     mda_lv2
     airwindows-lv2
-    lsp-plugins
+    #lsp-plugins
     zam-plugins
     x42-plugins
     calf
@@ -55,8 +55,9 @@
     #wolf-spectrum
     
     #zrythm
+    soundfont-fluid
   ];
-	home.persistence."/data/home/bloodwolfe" = {
+	home.persistence."/sync/home/bloodwolfe" = {
 		directories = [
       ".local/share/vital" #~/.local/share/vital/User/{Wavetables,Presets}
       ".config/falkTX" 

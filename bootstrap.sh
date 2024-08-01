@@ -1,4 +1,6 @@
+#nix why-depends .\#nixosConfigurations.framework-laptop.config.system.build.toplevel .\#nixosConfigurations.framework-laptop.pkgs.inkscape
 #nmcli device wifi list
+
 #nmcli device wifi connect X password Y
 #manual add
 #nmcli connection add type wifi con-name "cobblestone" ifname "wlp5s0" ssid "Cobblestone_Guest"
