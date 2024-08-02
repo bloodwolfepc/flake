@@ -4,7 +4,7 @@ keys:
   - &hosts:
     - &lapis age13xnylc88zkscls5xyvryg3t8uarc7tezcr6xhmmpwgm2clhns3nqfhpsas
     - &angel age15nju2qyyen8clwxsr0jgnnjxv9z8c0gyqdngcl2aj65r5xt5cpequxu86j    
-    - &navi age158w8q8fkupa948qq5ppkmyejm8zmzmkg4rfehkspr0qwgzd8lcmslejh0r
+    - &navi age1d8y0wzmgjefcwgd904xnc4fx09uxz3rwp6tlvrpqy57jtaf45pzs5tkran
 creation_rules:
   - path_regex: secrets/.*
     key_groups:
