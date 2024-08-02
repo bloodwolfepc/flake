@@ -42,11 +42,6 @@
         bindi = , ${config.kb_NML}, submap, NML
         source = $pass-oneshots
       submap = escape
-      submap = RESIZE
-        bindi = , ${config.kb_INS}, submap, INS
-        bindi = , ${config.kb_NML}, submap, NML
-        source = $pass-oneshots
-      submap = escape
       submap = REC
         bindi = , ${config.kb_INS}, submap, INS
         bindi = , ${config.kb_NML}, submap, NML
@@ -56,6 +51,11 @@
         bindi = , ${config.kb_INS}, submap, INS
         bindi = , ${config.kb_NML}, submap, NML
         source = $pass-oneshots
+      submap = escape
+      
+      submap = RESIZE
+        bindi = , ${config.kb_INS}, submap, INS
+        bindi = , ${config.kb_NML}, submap, NML
       submap = escape
     '';
   };
