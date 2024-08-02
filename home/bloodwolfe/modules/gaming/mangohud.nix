@@ -1,7 +1,7 @@
 { lib, ... }: {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = false;
+    enableSessionWide = true;
     settings = { #the final result is alphabetized
       #fps_limit = "0";
       #fps_limit_method = "";

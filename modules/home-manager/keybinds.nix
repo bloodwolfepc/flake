@@ -1,7 +1,7 @@
 { lib, ... }: {
   options = {
     kb_RIGHT = lib.mkOption {
-      default = "h";
+      default = "l";
       type = lib.types.str;
     };
     kb_DOWN = lib.mkOption {
@@ -13,7 +13,7 @@
       type = lib.types.str;
     };
     kb_LEFT = lib.mkOption {
-      default = "l";
+      default = "h";
       type = lib.types.str;
     };
     kb_INS = lib.mkOption {

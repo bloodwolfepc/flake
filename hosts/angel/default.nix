@@ -52,6 +52,7 @@
       y = 0;
     }
   ];
+  boot.loader.systemd-boot.enable = true;
   programs.rog-control-center.enable = true;
   programs.light.enable = true;
   networking.hostName = "angel";

@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./mangohud.nix
+    ./hyprland.nix
   ];
   home.packages = with pkgs; [
     vkbasalt

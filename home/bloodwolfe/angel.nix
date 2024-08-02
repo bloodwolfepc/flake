@@ -2,10 +2,10 @@
   monitors = [
     {
       enabled = true;
-      name = "HDMI-A-1";
+      name = "DP-3";
       width = 1920;
       height = 1080;
-      refreshRate = 60;
+      refreshRate = 144;
       x = 0;
       y = 0;
     }

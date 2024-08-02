@@ -1,6 +1,5 @@
 {
   imports = [
-    ../option/boot/systemdboot.nix
     ../option/kernal/zen.nix
     ../option/systemd/systemd.nix
 

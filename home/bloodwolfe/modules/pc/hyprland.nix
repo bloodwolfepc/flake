@@ -16,6 +16,7 @@
         "${pkgs.swww}/bin/swww img = ${config.wallpaper}"
         "swaync --inhibitor-add Alacritty" #block spotify_player
         "wl-paste -t text -w xclip -selection clipboard" #patch for wine
+        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       ];
       env = [
 	      "XCURSOR_SIZE,24"

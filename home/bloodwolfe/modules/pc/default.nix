@@ -27,6 +27,15 @@
       ${pkgs.hyprland}/bin/Hyprland
     '')
   ];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ 
+      xdg-desktop-portal-hyprland
+	    xdg-desktop-portal-wlr
+	    xdg-desktop-portal-gtk
+    ];
+  };
+  
   xdg.userDirs = {
     enable = true;
     createDirectories = false;

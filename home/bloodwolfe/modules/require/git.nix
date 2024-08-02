@@ -1,6 +1,5 @@
 {config, ...}:
 {
-  sops.secrets."git-auth" = { };
 
   programs.git = {
     enable = true;
@@ -22,10 +21,17 @@
 #    };
 #  };
   
-	home.persistence."/persist/home/bloodwolfe" = {
-    directories = [ 
-      ".config/gh/hosts.yml"
-    ];
+	#home.persistence."/persist/home/bloodwolfe" = {
+  #  files = [ 
+  #    ".config/gh/hosts.yml"
+  #  ];
+  #};
+  sops.secrets."gh-hosts" = {
+    path = "/home/bloodwolfe/.config/gh/hosts.yml";
   };
+  #sops.secrets."git-auth" = { };
+  #home.sessionVariablesExtra = ''
+  #  export GH_TOKEN=''$(cat ${config.sops.secrets."git-auth".path})
+  #'';
 }
 

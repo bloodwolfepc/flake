@@ -17,20 +17,20 @@ in {
         bold.family = lib.mkForce "unscii";
         bold.style = lib.mkForce "16-full";
   		};
-  		#window = {
-  		#	opacity = 0.0;
-  		#	blur = false;
-      #};
-      #colors.normal = {
-      #  black = "0x181818";
-      #  red = "0xFF0000";
-      #  green = "0x00FF00";
-      #  yellow = "0xFFFF00";
-      #  blue = "0x0000FF";
-      #  magenta ="0xFF00FF";
-      #  cyan = "0x00FFFF";
-      #  white = "0xFFFFFF";
-  		#};
+  		window = {
+  			opacity = lib.mkForce 0.0;
+  			blur = lib.mkForce false;
+      };
+      colors.normal = {
+        black = lib.mkForce "0x181818";
+        red = lib.mkForce "0xFF0000";
+        green = lib.mkForce "0x00FF00";
+        yellow = lib.mkForce "0xFFFF00";
+        blue = lib.mkForce "0x0000FF";
+        magenta = lib.mkForce "0xFF00FF";
+        cyan = lib.mkForce "0x00FFFF";
+        white = lib.mkForce "0xFFFFFF";
+  		};
   	};
   };
   wayland.windowManager.hyprland = {
