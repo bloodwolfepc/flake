@@ -26,11 +26,11 @@
     #../modules/option/virtualization/docker.nix
 
     ../modules/option/theme/stylix.nix
+    
     ../modules/option/services/syncthing.nix
-
-    #../../home/bloodwolfe/modules/option/gui/editors/sound-syncthing.nix     #../modules/option/gui/gaming/jovian-software.nix
     ../../home/bloodwolfe/modules/daw/syncthing.nix
-
+    ../../home/bloodwolfe/modules/art/syncthing.nix
+    ../../home/bloodwolfe/modules/obs/syncthing.nix
   ];
   monitors = [
     {

@@ -2,6 +2,7 @@
   imports = [
     ../pc
     ../daw
+    ../art
     ../obs
     #../wine
     ../require
@@ -10,10 +11,8 @@
     ../discord
     ../spotify
     ../firefox
-    ../qutebrowser
-    ../extra-programs/gimp.nix
+    ../qutebrowser 
     ../extra-programs/thunar.nix
-    ../extra-programs/krita.nix
     ../extra-programs/spotify-player.nix
     ../extra-programs/mpv.nix
     ../extra-programs/zathura.nix

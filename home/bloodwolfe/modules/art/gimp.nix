@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     gimp
   ];
-	home.persistence."/persist/home/bloodwolfe" = {
+	home.persistence."/sync/home/bloodwolfe" = {
     directories = [ 
       ".config/GIMP"
     ];

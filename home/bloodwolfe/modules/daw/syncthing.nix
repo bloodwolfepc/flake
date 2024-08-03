@@ -37,5 +37,10 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
+    "/sync/home/bloodwolfe/.cache/ardour8" = {
+      path = "/sync/home/bloodwolfe/.cache/ardour8";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = false;
+    };
   };
 }

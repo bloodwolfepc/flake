@@ -62,13 +62,13 @@
       ".local/share/vital" #~/.local/share/vital/User/{Wavetables,Presets}
       ".config/falkTX" 
       ".config/ardour8"
-      ".cache/ardour8" #local
+      ".cache/ardour8"
 
-      "data/ardour"
-      "data/vital"
-      "data/sfz"
-      "data/carla"
-      "data/orca"
+      "ardour"
+      "vital"
+      "sfz"
+      "carla"
+      "orca"
     ];
   };
 }

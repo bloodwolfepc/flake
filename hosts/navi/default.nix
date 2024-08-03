@@ -12,10 +12,12 @@
       ../modules/users/bloodwolfe
 
       ../modules/option/virtualization/docker.nix
-      ../modules/option/services/syncthing.nix
       ../modules/option/theme/stylix.nix
 
+      ../modules/option/services/syncthing.nix
       ../../home/bloodwolfe/modules/daw/syncthing.nix
+      ../../home/bloodwolfe/modules/art/syncthing.nix
+      ../../home/bloodwolfe/modules/obs/syncthing.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 
