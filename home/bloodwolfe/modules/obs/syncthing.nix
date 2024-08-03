@@ -3,7 +3,7 @@
     "/sync/home/bloodwolfe/.config/obs-studio" = {
       path = "/sync/home/bloodwolfe/.config/obs-studio";
       devices = [ "navi" "lapis" "angel" ];
-      ignorePerms = false;
+      ignorePerms = true;
     };
   };
 }
