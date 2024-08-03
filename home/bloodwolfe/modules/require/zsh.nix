@@ -40,6 +40,10 @@
   		vi-git = "nix run github:evilcatlawyer/dead"; 
       vi-bin = "nvim";
       vi = "nvim";
+      sync-permissions = "
+        sudo chown -R bloodwolfe:syncthing /sync/home/bloodwolfe &&
+        sudo chmod -R 770 /sync/home/bloodwolfe
+      ";
   
   		#cat-og = "${pkgs.cat}/bin/cat";
   		cat = "lolcat";
