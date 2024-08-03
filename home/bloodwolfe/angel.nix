@@ -23,5 +23,6 @@
     ./modules/preset/main.nix
     ../../hardware/home/wacom-intuos-pro.nix
     ../../hardware/home/rog-zypherus-g14.nix
+    ../../hardware/android-home.nix
   ];
 }

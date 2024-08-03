@@ -1,11 +1,20 @@
 {
   services.syncthing.settings.folders = {
+    "/sync/home/bloodwolfe/krita" = {
+      path = "/sync/home/bloodwolfe/krita";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = false;
+    };
+    "/sync/home/bloodwolfe/gimp" = {
+      path = "/sync/home/bloodwolfe/gimp";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = false;
+    }; 
     "/sync/home/bloodwolfe/.config/GIMP" = {
       path = "/sync/home/bloodwolfe/.config/GIMP";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = false;
     };
-    
     "/sync/home/bloodwolfe/.local/share/krita" = {
       path = "/sync/home/bloodwolfe/.local/share/krita";
       devices = [ "navi" "lapis" "angel" ];

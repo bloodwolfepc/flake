@@ -31,6 +31,8 @@
     ../../home/bloodwolfe/modules/daw/syncthing.nix
     ../../home/bloodwolfe/modules/art/syncthing.nix
     ../../home/bloodwolfe/modules/obs/syncthing.nix
+    ../../home/bloodwolfe/modules/gaming/syncthing.nix
+    ../../hardware/android-syncthing.nix
   ];
   monitors = [
     {

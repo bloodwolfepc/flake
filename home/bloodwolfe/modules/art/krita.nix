@@ -12,6 +12,7 @@
     
 	home.persistence."/sync/home/bloodwolfe" = {
     directories = [
+      "krita"
       ".local/share/krita" 
       ".config/DIR-kritarc"
       ".config/DIR-kritadisplayrc"

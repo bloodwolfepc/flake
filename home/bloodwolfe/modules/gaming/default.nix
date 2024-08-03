@@ -15,10 +15,21 @@
     itch
     #ryujinx
   ];
+  home.persistence."/sync/home/bloodwolfe" = {
+    directories = [
+      "rpgmaker"
+      ".config/retroarch"
+      ".local/share/PrismLauncher/instances"
+    ];
+  };
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
-      ".local/share/PrismLauncher"
       ".local/share/Steam"
+    ];
+    files = [
+      ".local/share/PrismLauncher/prismlauncher.cfg"
+      ".local/share/PrismLauncher/accounts.json"
+      ".local/share/PrismLauncher/metacache"
     ];
   };
 }
