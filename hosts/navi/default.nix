@@ -14,14 +14,13 @@
       ../modules/option/virtualization/docker.nix
       ../modules/option/services/syncthing.nix
       ../modules/option/theme/stylix.nix
+
+      ../../home/bloodwolfe/modules/daw/syncthing.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 
     enable = true;
     device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
-    #efiSupport = true;
-    #efiInstallAsRemovable = true;
-    #gfxmodeBios = "text"; 
   }; 
   networking.useDHCP = true;
   sops.secrets = {

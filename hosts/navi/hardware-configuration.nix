@@ -47,6 +47,16 @@
       fsType = "btrfs";
       options = [ "subvol=data" ];
     };
+  fileSystems."/sync" =
+    { device = "/dev/disk/by-uuid/4e2e932f-e058-4e88-89ca-780492779206";
+      fsType = "btrfs";
+      options = [ "subvol=sync" ];
+    };
+  fileSystems."/docker" =
+    { device = "/dev/disk/by-uuid/4e2e932f-e058-4e88-89ca-780492779206";
+      fsType = "btrfs";
+      options = [ "subvol=docker" ];
+    };
 
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
