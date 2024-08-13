@@ -20,6 +20,7 @@
       "docker"
       "keys"
       "data"
+      "libvirtd"
     ];
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/id_angel.pub)

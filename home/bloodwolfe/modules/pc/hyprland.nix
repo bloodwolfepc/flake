@@ -110,10 +110,6 @@
 	      bindi = ,${config.kb_UP}, resizeactive, 0 -20
 	      bindi = ,${config.kb_RIGHT}, resizeactive, 20 0
       submap = escape
-      submap = MONITOR
-        bindi = ,f, focusmonitor, DP-3
-        bindi = ,d, focusmonitor, eDP-2
-      submap = escape
     '';      
   };
 }

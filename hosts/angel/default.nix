@@ -33,6 +33,8 @@
     ../../home/bloodwolfe/modules/obs/syncthing.nix
     ../../home/bloodwolfe/modules/gaming/syncthing.nix
     ../../hardware/android-syncthing.nix
+    #../../hardware/rog-zypherus-g14-powersave.nix
+    ../modules/option/virtualization/gpu-passthough-angel.nix
   ];
   monitors = [
     {
@@ -72,7 +74,7 @@
   services.syncthing = { 
     key = config.sops.secrets."syncthing-key-angel".path;
     cert = config.sops.secrets."syncthing-cert-angel".path;
-  }; #TODO undervolt
+  };
   services.power-profiles-daemon.enable = true;
   services.supergfxd.enable = true;
   services.asusd.enable = true;

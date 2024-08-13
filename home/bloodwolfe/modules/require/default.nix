@@ -80,7 +80,7 @@
       lolcat
       gay
       neofetch
-      #soundfont-arachno
+      jq
       nix-visualize
       nix-tree
     ];
