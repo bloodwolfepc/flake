@@ -1,0 +1,64 @@
+use sig
+
+project send, nextcloud, or filebrowser
+screenshots are weird
+mailmutt
+callendar, todo
+firefox extension, local host webpage
+spt player login
+cacheix 
+bin-cache
+depersist Downloads but ensure creation, alias the downloads folder/ other stuff too.
+quick terminal pop up
+reorg/clear archives, archiving automation, reorg emulators
+reorg hyprland, swww, swaync
+waydroid
+wayvnc
+wine solutions, read docs
+pipewire read docs
+gimp, krita, reaper sftp or nix solution
+discord solutions, likely with arrpc + browser, discordo
+nvim fixes
+tmux fixes, ssh solutions
+lf solutions
+gtk, qt theme changes, theme chagnes general
+VM usage
+
+nixarr:
+ffmpeg commands
+vpn remote access
+borg backup .state dir
+fine grain perm setting
+location migration
+
+angel:
+passthough
+ignore lid state when external monitor is plugged in
+perform a minimal hyperland launch if not plugged in 
+target 7watts idle
+
+vps for vpn, syncthing, mailserver possbily
+hydra, forge server
+deploy-rs, nixops, nixos anywhere
+switch to mkOption usage, nixutilsplus
+
+navi:
+migrate hosting
+
+is it possible to user home manager configurations on the root user?
+hyprland should switch from using a key for every workspace to to having dedicated workspaces for some keys
+
+package:
+ynodesktop
+crossover
+neocities cli
+
+other:
+color callibration with colord & displaycal
+monitor configuraiton
+snipe-it or glpi
+piknik clipboard share
+zsh hostname color coding
+
+netdata
+wireshark
