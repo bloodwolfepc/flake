@@ -17,6 +17,9 @@
         "swaync --inhibitor-add Alacritty" #block spotify_player
         "wl-paste -t text -w xclip -selection clipboard" #patch for wine
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        #set wireplumber default sink
+        #"wpctl set-default `wpctl status | grep playback.UMC_Headphones | egrep '^ │( )*[0-9]*' -o | cut -c6-55 | egrep -o '[0-9]*'`"
+        
       ];
       env = [
 	      "XCURSOR_SIZE,24"

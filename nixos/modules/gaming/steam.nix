@@ -1,8 +1,4 @@
-{ inputs,  pkgs, config, lib, ... }: #let
-    #monitor = lib.head (lib.filter (m: m.primary) config.monitors); #i wonder how this works
-    #gamescopeArgs = [ ];
-#in {
-  {
+{ inputs,  pkgs, config, lib, ... }: {
   imports = [ inputs.nix-gaming.nixosModules.platformOptimizations ];
   hardware.steam-hardware.enable = true;
   programs.steam = {
@@ -11,7 +7,7 @@
   	remotePlay.openFirewall = true;
   	dedicatedServer.openFirewall = true;
   	gamescopeSession = { 
-      enable = false;
+      enable = true;
       args = [ ]; 
     };
   	extraCompatPackages = with pkgs; [
@@ -28,6 +24,8 @@
       stdenv.cc.cc.lib
       libkrb5
       keyutils
+      mangohud
+      gamescope
     ];
   };
   environment.systemPackages = with pkgs; [

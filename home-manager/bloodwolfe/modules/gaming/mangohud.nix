@@ -1,12 +1,12 @@
 { lib, ... }: {
   programs.mangohud = {
     enable = true;
-    enableSessionWide = true;
+    enableSessionWide = false;
     settings = { #the final result is alphabetized
       #fps_limit = "0";
       #fps_limit_method = "";
       toggle_hud = "Control_L+F12";
-      custom_text_center = lib.mkOrder 1 "never knows best";
+      custom_text_center = lib.mkBefore "never knows best";
       legacy_layout = 0;
       time = 1;
       time_no_label = 1;
@@ -16,7 +16,7 @@
       vram = 1;
       ram = 1;
       fps = 1;
-      frametime = 1;
+      frametime = lib.mkAfter 1;
       frame_timing = 1; #graph
       gpu_name = 1;
       vulkan_driver = 1;

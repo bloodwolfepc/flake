@@ -14,6 +14,8 @@
 			"videos"
       "projects"
       "git"
+      "docker"
+      "qemu"
       "wine"
       "pictures"
 		];

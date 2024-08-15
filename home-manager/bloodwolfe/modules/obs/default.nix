@@ -9,7 +9,7 @@
   ];
 	home.persistence."/sync/home/bloodwolfe" = {
     directories = [ 
-      ".conifg/obs-studio"
+      ".config/obs-studio"
     ];
   };
 }

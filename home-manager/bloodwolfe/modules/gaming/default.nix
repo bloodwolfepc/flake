@@ -14,6 +14,10 @@
     easyrpg-player
     itch
     #ryujinx
+
+    #GRAPHICS UTILS
+    vulkan-tools
+    vrrtest
   ];
   home.persistence."/sync/home/bloodwolfe" = {
     directories = [
