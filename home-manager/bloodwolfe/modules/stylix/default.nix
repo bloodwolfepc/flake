@@ -1,4 +1,7 @@
 { pkgs, inputs, lib, config, ... }: {
+  #home-manager.sharedModules = [{
+  #  stylix.targets.xyz.enable = false;
+  #}];
   #imports = [ inputs.stylix.homeManagerModules.stylix ]; #the system level input handles this
   stylix = {
     image = config.wallpaper;

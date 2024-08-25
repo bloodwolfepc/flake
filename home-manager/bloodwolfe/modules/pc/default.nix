@@ -17,10 +17,10 @@
 
     pkgs.playerctl
 
-	  pkgs.xdg-desktop-portal
-	  pkgs.xdg-desktop-portal-wlr
-	  pkgs.xdg-desktop-portal-gtk
-	  pkgs.xdg-desktop-portal-hyprland
+	  #pkgs.xdg-desktop-portal
+	  #pkgs.xdg-desktop-portal-wlr
+	  #pkgs.xdg-desktop-portal-gtk
+	  #pkgs.xdg-desktop-portal-hyprland
     
     pkgs.lxqt.lxqt-policykit
 
@@ -31,8 +31,12 @@
       ${pkgs.hyprland}/bin/Hyprland
     '')
   ];
-  xdg.portal = {
+  xdg.enable = true;
+  xdg.portal = let
+    hyprland = config.wayland.windowManager.hyprland.package;
+  in {
     enable = true;
+    configPackages = [hyprland];
     extraPortals = with pkgs; [ 
       xdg-desktop-portal-hyprland
 	    xdg-desktop-portal-wlr

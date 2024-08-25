@@ -69,13 +69,13 @@
   #  passwordFile = config.sops.secrets."noip-pass".path;
   #  interval = "300";
   #};
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      vaapiVdpau
-      #libvdpau-va-gl 
-    ];   
-  }; 
+  #hardware.graphics = {
+  #  enable = true;
+  #  extraPackages = with pkgs; [
+  #    vaapiVdpau
+  #    #libvdpau-va-gl 
+  #  ];   
+  #}; 
   #services.xserver.enable = true;
   #services.xserver.videoDrivers = [ "amdgpu" ];
   #hardware.amdgpu.initrd.enable = true; #UPDATE

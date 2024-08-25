@@ -18,6 +18,7 @@
     ../extra-modules/display-calibration.nix
     ../extra-modules/kde-connect.nix
     ../extra-modules/wine.nix
+    ../extra-modules/flatpak.nix
   ];
 }
   

@@ -93,7 +93,7 @@ qemu-system-x86_64 -enable-kvm -smp cores=4 -m 8G \
 -device nvme,drive=drive0,serial=badbeef \
 -drive if=none,id=drive0,file=steamos.qcow2
 
-qemu-system-x86_64 -enable-kvm -smp cores=4 -m 8G \
+qemu-system-x86_64 -enable-kvm -smp cores=4 -m 16G \
 -device usb-ehci -device usb-tablet \
 -device intel-hda -device hda-duplex \
 -device VGA,xres=1280,yres=800 \

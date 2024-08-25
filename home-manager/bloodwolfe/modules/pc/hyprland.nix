@@ -113,6 +113,9 @@
 	      bindi = ,${config.kb_UP}, resizeactive, 0 -20
 	      bindi = ,${config.kb_RIGHT}, resizeactive, 20 0
       submap = escape
+      submap = REC
+        bindi = , c, exec, ${pkgs.grimblast}/bin/grimblast copy area
+      submap = escape
     '';      
   };
 }

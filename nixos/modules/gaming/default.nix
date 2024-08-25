@@ -4,7 +4,7 @@
     ./gamemode.nix
     ./gamescope.nix
   ];
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
       libvdpau-va-gl

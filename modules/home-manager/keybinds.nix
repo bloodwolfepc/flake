@@ -54,7 +54,7 @@
       type = lib.types.str;
     };
     kb_REC = lib.mkOption {
-      default = "s";
+      default = "c";
       type = lib.types.str;
     };
     kb_MONITOR = lib.mkOption {
