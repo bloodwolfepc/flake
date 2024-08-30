@@ -71,7 +71,7 @@
     };
 
     packages = with pkgs; [
-      home-manager
+      #home-manager
       tree
       ctags
       fzf
@@ -81,8 +81,11 @@
       gay
       neofetch
       jq
+      fd
       nix-visualize
       nix-tree
+      wget
+      unzip
     ];
   };
 } 

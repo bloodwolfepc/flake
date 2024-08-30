@@ -8,6 +8,9 @@ in {
       "float, class:^([Ss]team)$, title:^((?![Ss]team).*)$"
       "workspace name:${name} silent, class:^([Ss]team)$, title:^([Ss]team)$"
       "tile, class:^([Ss]team)$, title:^([Ss]team)$"
+      "workspace name:${name} silent, class:^([Ss]special [Oo]ffers)$, title:^([Ss]special [Oo]ffers)$"
+      #"Special Offers"
+      #"Sign in to Steam"
     ];
     extraConfig = lib.mkBefore ''
 	    submap = EXEC

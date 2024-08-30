@@ -1,16 +1,15 @@
 { pkgs, inputs, lib, config, ... }: {
-  #home-manager.sharedModules = [{
-  #  stylix.targets.xyz.enable = false;
-  #}];
-  #imports = [ inputs.stylix.homeManagerModules.stylix ]; #the system level input handles this
+  #imports = [ inputs.stylix.homeManagerModules.stylix ];
+  #this is needed for the standalone home-manager command but the system will not build if its imported
   stylix = {
     image = config.wallpaper;
     enable = true;
     base16Scheme = "${ pkgs.base16-schemes }/share/themes/windows-95.yaml";
-    #cursor = {
-    #  package = pkgs.x;
-    #  name = "";
-    #};
+    cursor = {
+      package = pkgs.xorg.xcursorthemes; #/share/icons/handhelds
+      name = "handhelds";
+      size = 23;
+    };
     fonts = {
       monospace = {
         package = pkgs.unscii;
@@ -30,22 +29,6 @@
       };
     };
     polarity = "dark";   
-
-    #enable = true;
-    #image = ../../../../assets/wallpapers/Black.png;
-    ##base16Scheme = lib.mkForce "${ pkgs.base16-schemes }/share/themes/windows-95.yaml";
-    ##cursor = {
-    ##  package
-    ##  name
-    ##  size
-    ##};
-    #fonts = {
-    #  packages = with pkgs; [ unscii ];
-    #  emoji = {
-    #    package = pkgs.noto-fonts-monochrome-emoji;
-    #    name = "Noto Monochrome Emoji";
-    #  };
-    #};
     targets = {
       alacritty = {
         enable = true;
@@ -72,8 +55,4 @@
       waybar.enable = true;
     };
   };
-    
-
-    
-  
 }

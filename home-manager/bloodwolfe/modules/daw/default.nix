@@ -3,7 +3,7 @@
     ./hyprland.nix
   ];
   home.packages = with pkgs; [
-    reaper
+    #reaper
     ardour
     musescore
     yabridge

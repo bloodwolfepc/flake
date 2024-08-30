@@ -1,26 +1,8 @@
 { pkgs, inputs, lib, config, ... }: {
-  imports = [ inputs.stylix.nixosModules.stylix ];
-  
-  #stylix.base16Scheme = {
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
-  #  base = "";
+  #home-manager.users."bloodwolfe" = {
+  #  stylix.targets.xyz.enable = false;
   #};
-  
+  imports = [ inputs.stylix.nixosModules.stylix ];
   stylix = {
     image = config.wallpaper;
     enable = true;
@@ -29,25 +11,18 @@
       package = pkgs.xorg.xcursorthemes; #/share/icons/handhelds
       name = "handhelds";
       size = 23;
-      
     };
     fonts = {
       monospace = {
         package = pkgs.unscii;
-        #package = "${ pkgs.unscii }/share/fonts/opentype/unscii-16-full.otf" ;
-        #name = "unscii-16-full";
         name = "Unscii 16 Full";
       };
       sansSerif = {
         package = pkgs.unscii;
-        #package = "${ pkgs.unscii }/share/fonts/opentype/unscii-16-full.otf" ;
-        #name = "unscii-16-full";
         name = "Unscii 16 Full";
       };
       serif = {
         package = pkgs.unscii;
-        #package = "${ pkgs.unscii }/share/fonts/opentype/unscii-16-full.otf" ;
-        #name = "unscii-16-full";
         name = "Unscii 16 Full";
       }; 
       emoji = {
@@ -56,7 +31,6 @@
       };
     };
     polarity = "dark";   
-
     targets.plymouth = {
       enable = true;
       #logo =

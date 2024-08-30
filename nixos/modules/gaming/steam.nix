@@ -13,6 +13,7 @@
   	extraCompatPackages = with pkgs; [
       proton-ge-bin    
     ];
+      
     extraPackages = with pkgs; [
       xorg.libXcursor
       xorg.libXi
@@ -31,6 +32,8 @@
   environment.systemPackages = with pkgs; [
     steamPackages.steamcmd
     steam-run
+    protonup-ng
+    protontricks
     #vkbasalt
     #vkbasalt-cli
     #steamtinkerlaunch #BROKEN https://github.com/NixOS/nixpkgs/issues/210018

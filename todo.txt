@@ -1,7 +1,7 @@
 use sig
+kanata
 
 project send, nextcloud, or filebrowser
-screenshots are weird
 mailmutt
 callendar, todo
 firefox extension, local host webpage
