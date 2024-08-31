@@ -19,4 +19,12 @@
     ../../home-manager/bloodwolfe/modules/gaming/syncthing.nix
     ../modules/extra-modules/android-syncthing.nix
   ];
+  # special large data sync
+  services.syncthing.settings.folders = {
+    "/data/games" = {
+      path = "/sync/games";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
+  };
 }

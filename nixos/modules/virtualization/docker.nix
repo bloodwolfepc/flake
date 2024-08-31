@@ -1,7 +1,7 @@
 { pkgs, ... }: { 
   virtualisation = {
     docker = {  
-      enable = false;
+      enable = true;
       storageDriver = "btrfs";
       #rootless = {
       #  enable = true;
@@ -17,7 +17,7 @@
       };
     };
     podman = {
-      enable = true;
+      enable = false;
       dockerCompat = true;
     };  
   };

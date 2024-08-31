@@ -9,6 +9,7 @@
   networking.firewall.allowedTCPPorts = [ 8384 22000 ];
   networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; 
+  users.users."syncthing".extraGroups = [ "data" ];
   services.syncthing = { 
     enable = true;
     group = "syncthing";
