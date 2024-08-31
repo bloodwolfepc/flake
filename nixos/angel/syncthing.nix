@@ -22,7 +22,7 @@
   # special large data sync
   services.syncthing.settings.folders = {
     "/data/games" = {
-      path = "/sync/games";
+      path = "/data/games";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
