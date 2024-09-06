@@ -4,9 +4,9 @@
       #TODO nixos hardware modules
       ./hardware-configuration.nix
       ./syncthing.nix
+      ./borg.nix
       ../modules/preset/server.nix
       ../modules/users/bloodwolfe
-      ../borg.nix
     ];
   networking.hostName = "navi";
   boot.loader.grub = { 
