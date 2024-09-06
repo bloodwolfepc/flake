@@ -30,10 +30,7 @@
     ferium
     packwiz
     #TODO
-    #borg backup
     #create hoted xyz with UUID whitelist
-    #ferium with nix integration in /sync
-    #worry about lattest version first
 
     
     
