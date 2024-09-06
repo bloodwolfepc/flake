@@ -6,7 +6,8 @@
   home.packages = with pkgs; [
     vkbasalt
     vkbasalt-cli
-    prismlauncher
+    #glfw-wayland-minecraft
+    
     #lutris
     retroarch
     retroarch-assets
@@ -18,12 +19,32 @@
     #GRAPHICS UTILS
     vulkan-tools
     vrrtest
+
+    #minecraft
+    (prismlauncher.override {
+      jdks = [ jdk jdk17 jdk8 ];
+      gamemodeSupport = true;
+    })
+    vlc
+    #modrinth-app
+    ferium
+    packwiz
+    #TODO
+    #borg backup
+    #create hoted xyz with UUID whitelist
+    #ferium with nix integration in /sync
+    #worry about lattest version first
+
+    
+    
   ];
   home.persistence."/sync/home/bloodwolfe" = {
     directories = [
       "rpgmaker"
       ".config/retroarch"
       ".local/share/PrismLauncher/instances"
+      ".config/ferium"
+      ".local/share/packwiz"
     ];
   };
 	home.persistence."/persist/home/bloodwolfe" = {

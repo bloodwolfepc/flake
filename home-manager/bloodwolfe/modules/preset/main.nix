@@ -18,5 +18,9 @@
     ../extra-modules/zathura.nix
     ../extra-modules/kdenlive.nix
     ../extra-modules/android-home.nix
+
+    #system level persistence
+    ../extra-modules/kdeconnect.nix
+    ../extra-modules/flatpak.nix
   ];
 }

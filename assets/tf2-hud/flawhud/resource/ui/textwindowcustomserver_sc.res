@@ -1,1 +1,0 @@
-#base "textwindowcustomserver.res"

@@ -47,6 +47,7 @@
 	      permanent_direction_override = true;
 	    };
       decoration = {
+        fullscreen_opacity = "1";
         blur.enabled = false;
         drop_shadow = false;
       };

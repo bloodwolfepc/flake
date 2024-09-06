@@ -2,5 +2,6 @@
 {
   hello = pkgs.callPackage ./hello.nix { };
   icat = pkgs.callPackage ./icat.nix { };
+  crossover = pkgs.callPackage ./crossover.nix { };
 
 }

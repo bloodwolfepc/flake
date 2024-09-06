@@ -1,3 +1,0 @@
-must be in path
-~/.local/share/Steam/steamapps/common/Team Fortress 2/tf/custom/
-
