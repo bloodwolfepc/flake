@@ -5,7 +5,7 @@
       paths = "/docker";
       repo = "/backup/docker";
       compression = "auto,lzma";
-      startAt = "4h";
+      startAt = "0/4:00:00";
       encryption = {
         mode = "repokey";
         passCommand = "cat ${config.sops.secrets.borg-pass.path}";
