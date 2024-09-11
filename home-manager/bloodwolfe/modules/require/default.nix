@@ -30,6 +30,7 @@
 	home.persistence."/persist/home/bloodwolfe" = {
     directories = [ 
       ".cache/nix-index"
+      ".local/share/flatpak" #TODO give me a home
     ];
   };
   
