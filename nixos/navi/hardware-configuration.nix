@@ -13,6 +13,10 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  boot.loader.grub = { 
+    enable = true;
+    device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
+  }; 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/cd873114-378d-4cfd-ae08-7a2eaaa242b4";
       fsType = "btrfs";

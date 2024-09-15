@@ -7,11 +7,17 @@
       ./borg.nix
       ../modules/preset/server.nix
       ../modules/users/bloodwolfe
+      
+      ../modules/server/minecraft
     ];
-  networking.hostName = "navi";
-  boot.loader.grub = { 
-    enable = true;
-    device = "/dev/disk/by-id/ata-T-FORCE_240GB_TPBF2312190010101467";
-  }; 
-  networking.useDHCP = true;
+  networking = {
+    hostName = "navi";
+    useDHCP = true;
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ve-+" ];
+      externalInterface = "eno1";
+      enableIPv6 = true;
+    };
+  };
 }
