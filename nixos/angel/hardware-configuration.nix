@@ -20,22 +20,38 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp5s0.useDHCP = lib.mkDefault true;
   
+  fileSystems."/" =
+    { device = "/dev/root_vg/root";
+      fsType = "btrfs";
+      options = [ "subvol=root" ];
+    };
+  fileSystems."/persist" =
+    { device = "/dev/root_vg/root";
+      fsType = "btrfs";
+      options = [ "subvol=persist" ];
+    };
+  fileSystems."/nix" =
+    { device = "/dev/root_vg/root";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
   fileSystems."/sync" =
-    { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
+    { device = "/dev/root_vg/root";
       fsType = "btrfs";
       options = [ "subvol=sync" ];
     };
-  fileSystems."/docker" =
-    { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
-      fsType = "btrfs";
-      options = [ "subvol=docker" ];
+   
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/B043-58C2";
+      fsType = "vfat";
+      #options = [ "fmask=0022" "dmask=0022" ];
     };
-  fileSystems."/data" =
-    { device = "/dev/disk/by-uuid/492bc507-1a3a-4258-b33f-5ba1622ccd9a";
-      fsType = "btrfs";
-      options = [ "subvol=data" ];
-    };
-    
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/4f4c5255-b471-4fb4-a8c2-644e9d3cd121"; }
+    ];
+    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
+

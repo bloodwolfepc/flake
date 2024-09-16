@@ -37,11 +37,14 @@
   ];
   home.persistence."/sync/home/bloodwolfe" = {
     directories = [
+      "games"
       "rpgmaker"
       ".config/retroarch"
       ".local/share/PrismLauncher/instances"
       ".config/ferium"
       ".local/share/packwiz"
+      "library"
+      "notebook"
     ];
   };
 	home.persistence."/persist/home/bloodwolfe" = {

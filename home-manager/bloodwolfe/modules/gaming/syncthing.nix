@@ -25,5 +25,20 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
+    "/sync/home/bloodwolfe/.config/games" = {
+      path = "/sync/home/bloodwolfe/.config/games";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };  
+    "/sync/home/bloodwolfe/notebook" = {
+      path = "/sync/home/bloodwolfe/notebook";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
+    "/sync/home/bloodwolfe/library" = {
+      path = "/sync/home/bloodwolfe/library";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    }; 
   };
 }

@@ -1,7 +1,5 @@
 { config, inputs, pkgs, lib, ... }: {
   imports = [       
-    inputs.disko.nixosModules.default
-    ( import ../modules/disko/ephemeral-btrfs.nix { device = "/dev/nvme0n1"; })
     inputs.hardware.nixosModules.asus-zephyrus-ga402
     ./hardware-configuration.nix
     ./monitors.nix
