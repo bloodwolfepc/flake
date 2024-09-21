@@ -9,6 +9,7 @@
       ../modules/users/bloodwolfe
       
       ../modules/server/minecraft
+      ./ddns.nix
     ];
   networking = {
     hostName = "navi";

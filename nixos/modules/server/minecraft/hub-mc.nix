@@ -1,5 +1,5 @@
 { config, lib, inputs, ... }: {
-  containers.vanilla-mc = {
+  containers.hub-mc = {
     autoStart = true;
     ephemeral = true;
     privateNetwork = true;
@@ -27,7 +27,7 @@
         eula = true;
         openFirewall = true;
         servers = {
-          "vanilla-mc" = {
+          "hub-mc" = {
             enable = true;
             package = pkgs.papermc;
             serverProperties = {

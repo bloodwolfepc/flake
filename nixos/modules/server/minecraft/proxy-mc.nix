@@ -34,7 +34,7 @@
             symlinks = { 
               "forwarding.secret" = pkgs.writeTextFile {
                 name = "forwarding.secret";
-                text = "examplesecret";
+                text = "ExampleForwardingSecret";
               };
               "velocity.toml" = pkgs.writeTextFile {
               name = "velocity.toml";
@@ -53,10 +53,10 @@
                 ping-passthrough = "DISABLED"
                 enable-player-address-logging = true
                 [servers]
-                  hub-mc = "192.168.100.9:25579"
-                  vanilla-mc = "192.168.100.3:25571"
+                  vanilla-mc = "192.168.100.3:25590"
+                  xyx-mc = "192.168.100.4:25591"
                 try = [
-                    "vanilla-mc",
+                    "vanilla-mc"
                 ]
                 [forced-hosts]
                 "localhost" = [
