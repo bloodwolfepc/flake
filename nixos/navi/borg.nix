@@ -31,5 +31,15 @@
         passCommand = "cat ${config.sops.secrets.borg-pass.path}";
       };
     };
+    "minecraft-bu" = {
+      paths = "/data/minecraft";
+      repo = "/backup/persist";
+      compression = "auto,lzma";
+      startAt = "0/4:00:00";
+      encryption = {
+        mode = "repokey";
+        passCommand = "cat ${config.sops.secrets.borg-pass.path}";
+      };
+    };
   };
 }

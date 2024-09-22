@@ -4,6 +4,10 @@
   bind = "u";
 in {
   wayland.windowManager.hyprland = {
+    settings.windowrulev2 = [
+      #fix draggables in ardour
+      "noinitialfocus , xwayland:1"
+    ];
     extraConfig = lib.mkBefore ''
 	    submap = EXEC
         bindi = , ${bind}, submap ,EXEC_${name}

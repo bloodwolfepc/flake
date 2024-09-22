@@ -1,5 +1,6 @@
 use sig
 kanata
+keybind that opens vim
 
 project send, nextcloud, or filebrowser
 mailmutt

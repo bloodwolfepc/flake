@@ -11,6 +11,7 @@
     pkgs.wayvnc
     pkgs.swww
     pkgs.grimblast
+    pkgs.wl-mirror
     
     pkgs.wl-clipboard
     pkgs.cliphist
