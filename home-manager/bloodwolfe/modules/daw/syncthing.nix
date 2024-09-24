@@ -42,5 +42,15 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
+    "/sync/home/bloodwolfe/sheetmusic" = {
+      path = "/sync/home/bloodwolfe/sheetmusic";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
+    "/sync/home/bloodwolfe/soundfiles" = {
+      path = "/sync/home/bloodwolfe/soundfiles";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
   };
 }

@@ -1,10 +1,16 @@
 { pkgs, ... }: { 
   virtualisation = {
+    containers.enable = true;
     oci-containers.backend = "podman";
     podman = {
-      enable = false;
+      enable = true;
       dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
     };  
   };
-  environment.systemPackages = [ pkgs.distrobox ];
+  environment.systemPackages = with pkgs; [
+    distrobox 
+    podman-tui
+    dive
+  ];
 }

@@ -20,11 +20,11 @@
     ../modules/extra-modules/android-syncthing.nix
   ];
   # special large data sync
-  services.syncthing.settings.folders = {
-    "/data/games" = {
-      path = "/data/games";
-      devices = [ "navi" "lapis" "angel" ];
-      ignorePerms = true;
-    };
-  };
+  #services.syncthing.settings.folders = {
+  #  "/data/games" = {
+  #    path = "/data/games";
+  #    devices = [ "navi" "lapis" "angel" ];
+  #    ignorePerms = true;
+  #  };
+  #};
 }

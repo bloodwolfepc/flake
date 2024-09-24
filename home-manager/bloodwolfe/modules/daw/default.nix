@@ -69,6 +69,8 @@
       "sfz"
       "carla"
       "orca"
+      "sheetmusic"
+      "soundfiles"
     ];
   };
 }

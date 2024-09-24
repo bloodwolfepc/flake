@@ -8,7 +8,7 @@
     ../kernel/zen.nix
     ../audio/low-latency-audio
     ../virtualization/libvirt.nix
-    ../virtualization/docker.nix
+    ../virtualization/podman.nix
     ../virtualization/waydroid.nix
     ../networking/printing.nix
     ../networking/bluetooth.nix

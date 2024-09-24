@@ -1,3 +1,4 @@
+#TODO certain systems should have the option to use sync or local
 { lib, pkgs, outputs, config, ... }:
 {
   imports = [
@@ -29,8 +30,9 @@
   
 	home.persistence."/persist/home/bloodwolfe" = {
     directories = [ 
-      ".cache/nix-index"
+      ".cache/nix-index" #put in a devtools section
       ".local/share/flatpak" #TODO give me a home
+      "appimages"
     ];
   };
   

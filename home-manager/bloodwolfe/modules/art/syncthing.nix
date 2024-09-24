@@ -30,5 +30,15 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
+    "/sync/home/bloodwolfe/.config/BeeRef" = {
+      path = "/sync/home/bloodwolfe/.config/BeeRef";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
+    "/sync/home/bloodwolfe/beeref" = {
+      path = "/sync/home/bloodwolfe/beeref";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
   };
 }

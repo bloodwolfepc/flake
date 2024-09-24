@@ -25,8 +25,8 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
-    "/sync/home/bloodwolfe/.config/games" = {
-      path = "/sync/home/bloodwolfe/.config/games";
+    "/sync/home/bloodwolfe/games" = {
+      path = "/sync/home/bloodwolfe/games";
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };  

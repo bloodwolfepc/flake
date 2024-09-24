@@ -5,5 +5,15 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
+    "/sync/home/bloodwolfe/screenshots" = {
+      path = "/sync/home/bloodwolfe/screenshots";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
+    "/sync/home/bloodwolfe/screenrecordings" = {
+      path = "/sync/home/bloodwolfe/screenrecordings";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
   };
 }

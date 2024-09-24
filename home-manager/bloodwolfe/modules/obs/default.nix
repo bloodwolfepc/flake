@@ -10,6 +10,8 @@
 	home.persistence."/sync/home/bloodwolfe" = {
     directories = [ 
       ".config/obs-studio"
+      "screenshots"
+      "screenrecordings"
     ];
   };
 }
