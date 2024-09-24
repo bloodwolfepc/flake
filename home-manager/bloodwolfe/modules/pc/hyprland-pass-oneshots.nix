@@ -2,7 +2,7 @@
   wayland.windowManager.hyprland = { 
     settings = lib.mkBefore {
       "$submap-reset" = "submap, INS";
-      "$pass-oneshots" = "$FLAKE/home-manager/bloodwolfe/modules/pc/pass-oneshots.conf";
+      "$pass-oneshots" = "/home/bloodwolfe/projects/flake/home-manager/bloodwolfe/modules/pc/pass-oneshots.conf"; #TODO add to nix store
     };
     extraConfig = lib.mkAfter ''
       
