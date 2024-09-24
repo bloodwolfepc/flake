@@ -4,7 +4,7 @@
 	];
 	home.persistence."/sync/home/bloodwolfe" = {  
     allowOther = true; 
-    directores = [ 
+    directories = [ 
 			"music"
 			"videos"
       "projects"
