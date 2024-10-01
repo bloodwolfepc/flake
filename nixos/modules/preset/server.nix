@@ -9,5 +9,6 @@
     ../networking/wireguard.nix
     ../extra-modules/ephemeral-btrfs.nix
     #../server/nixarr.nix
+    ../server/calibre
   ];
 }

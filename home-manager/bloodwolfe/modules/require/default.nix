@@ -89,6 +89,7 @@
       nix-tree
       wget
       unzip
+      taskwarrior-tui
     ];
   };
 } 

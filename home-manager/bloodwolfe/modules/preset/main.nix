@@ -11,7 +11,8 @@
     ../discord
     ../spotify
     ../firefox
-    ../qutebrowser 
+    ../qutebrowser  
+    ../taskwarrior
     ../extra-modules/thunar.nix
     ../extra-modules/spotify-player.nix
     ../extra-modules/mpv.nix

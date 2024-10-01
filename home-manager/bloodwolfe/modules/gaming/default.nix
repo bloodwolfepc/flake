@@ -39,7 +39,9 @@
     directories = [
       "games"
       "rpgmaker"
-      ".config/retroarch"
+      ".config/retroarch/saves"
+      ".config/retroarch/states"
+      ".config/retroarch/screenshots"
       ".local/share/PrismLauncher/instances"
       ".config/ferium"
       ".local/share/packwiz"
@@ -50,6 +52,8 @@
 	home.persistence."/persist/home/bloodwolfe" = {
 		directories = [
       ".local/share/Steam"
+      ".config/Moonlight Game Streaming Project"
+      ".config/sunshine"
     ];
     files = [
       ".local/share/PrismLauncher/prismlauncher.cfg"

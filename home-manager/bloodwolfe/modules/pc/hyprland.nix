@@ -51,18 +51,35 @@
         blur.enabled = false;
         drop_shadow = false;
       };
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_forever = true;
+        workspace_swipe_cancel_ratio = 0.15;
+        workspace_swipe_create_new = true;
+      };
+      xwayland.force_zero_scaling = true;
+      binds.allow_workspace_cycles = true; 
       animations.enabled = false;
-	    input = {
+      cursor = {
+        inactive_timeout = 0.5;
+        hide_on_key_press = true;
+        hide_on_touch = true;
+      };
+	    input = { #hyprctl devices
 	      kb_layout = "us";
 	      follow_mouse = "1";
 	      sensitivity = "0";
 	      accel_profile = "flat";
-        #cursor = {
-        #  inactive_timeout = 0.5;
-        #  hide_on_key_press = true;
-        #  hide_on_touch = true;
-        #};
-	    };
+        touchpad = {
+          natrual_scroll = true;
+          disable_while_typing = false;
+          scroll_factor = 0.5;
+        };
+        misc = {
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+        };
+      };
       monitor = map
         (m:
           let 

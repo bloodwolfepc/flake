@@ -5,6 +5,7 @@
 	home.persistence."/sync/home/bloodwolfe" = {
     directories = [ 
       ".config/GIMP"
+      "gimp"
     ];
   };  
 }

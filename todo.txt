@@ -1,3 +1,12 @@
+srv:
+gamevault, sunshune moonlight
+nextcloud
+calibre w/ calibre reader OR
+kavita
+extra readers: koreader, foliate
+
+
+
 use sig
 kanata
 keybind that opens vim

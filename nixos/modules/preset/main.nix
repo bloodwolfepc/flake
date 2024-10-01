@@ -13,12 +13,14 @@
     ../networking/printing.nix
     ../networking/bluetooth.nix
     ../networking/wireguard.nix
-    ../networking/networkmanager.nix
+    #../networking/networkmanager.nix
     ../extra-modules/ephemeral-btrfs.nix
     ../extra-modules/display-calibration.nix
     ../extra-modules/kde-connect.nix
     ../extra-modules/wine.nix
     ../extra-modules/flatpak.nix
+
+    ../server/sunshine.nix
   ];
 }
   

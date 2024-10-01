@@ -11,4 +11,17 @@
     ../modules/hardware/rog-zypherus-g14.nix
   ];
   networking.hostName = "angel";
+
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
+
+  #android
+  programs.adb.enable = true;
+  environment.systemPackages = [ 
+    pkgs.universal-android-debloater 
+  ];
+  users.users.bloodwolfe.extraGroups = ["adbusers"];
 }

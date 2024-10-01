@@ -39,6 +39,7 @@
   		vi-git = "nix run github:evilcatlawyer/dead"; 
       vi-bin = "nvim";
       vi = "nvim";
+      td = "task";
       sync-permissions = "
         sudo chown -R bloodwolfe:syncthing /sync/home/bloodwolfe &&
         sudo chmod -R 770 /sync/home/bloodwolfe
