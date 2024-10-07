@@ -3,8 +3,8 @@
     autoStart = true;
     ephemeral = true;
     privateNetwork = true;
-    hostBridge = "10.10.11.3";
-    localAddress = "10.10.10.3";
+    hostAddress = "10.10.11.4";
+    localAddress = "10.10.10.4";
     bindMounts."library" = {
       hostPath = "/data/library";
       mountPoint = "/library";

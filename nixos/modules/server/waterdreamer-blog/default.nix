@@ -25,7 +25,13 @@
           enableACME = true;
           forceSSL = true;
           root = "/var/www/blog";
-          proxyWebsockets = true;
+          locations."/" = {
+            return = "200 '<html><body>connection to blog</body></html>'";
+            extraConfig = ''
+              default_type text/html;
+            '';
+            #proxyWebsockets = true;
+          };
         };
       };
     };

@@ -57,24 +57,24 @@
         #'';
         ## Add any further config to match your needs, e.g.:
         virtualHosts = {
-          localhost = {
-            enableACME = true;
-            forceSSL = true;
-            locations."/" = {
-              proxyPass = "http://10.10.10.2:80";
-              proxyWebsockets = true;
-              extraConfig =
-                "proxy_ssl_server_name on;" +
-                "proxy_pass_header Authorization;"
-              ;
-            };
-          };
+          #localhost = {
+          #  enableACME = true;
+          #  forceSSL = true;
+          #  locations."/" = {
+          #    proxyPass = "http://10.10.10.2:80";
+          #    proxyWebsockets = true;
+          #    extraConfig =
+          #      "proxy_ssl_server_name on;" +
+          #      "proxy_pass_header Authorization;"
+          #    ;
+          #  };
+          #};
           "waterdreamer.net" = {
             enableACME = true;
             forceSSL = true;
             locations."/" = {
-              proxyPass = "http://10.10.10.2:80";
-              proxyWebsockets = true;
+              proxyPass = "https://10.10.10.2:443";
+              #proxyWebsockets = true;
               extraConfig =
                 "proxy_ssl_server_name on;" +
                 "proxy_pass_header Authorization;"
@@ -85,8 +85,8 @@
             enableACME = true;
             forceSSL = true;
             locations."/" = {
-              proxyPass = "http://10.10.10.3:80";
-              proxyWebsockets = true;
+              proxyPass = "https://10.10.10.3:443";
+              #proxyWebsockets = true;
               extraConfig =
                 "proxy_ssl_server_name on;" +
                 "proxy_pass_header Authorization;"

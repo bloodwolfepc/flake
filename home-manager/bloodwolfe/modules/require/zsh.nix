@@ -45,6 +45,13 @@
         sudo chmod -R 770 /sync/home/bloodwolfe
       ";
       remove-dangling-symlinks = "find . -xtype l -delete";
+      install-tf2-hud = "
+      cd ~/.local/share/Steam/steamapps/common/Team\ Fortress\ 2/tf/custom
+      wget https://github.com/CriticalFlaw/flawhud/releases/download/2024.0501/flawhud.zip
+      unzip ./flawhud.zip
+      rm ./flawhud.zip
+      cd
+      ";
   
   		#cat-og = "${pkgs.cat}/bin/cat";
   		cat = "lolcat";
