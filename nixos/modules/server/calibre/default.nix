@@ -1,16 +1,10 @@
-{ pkgs, config, lib, inputs, ... }: let
-  lib1 = pkgs.callPackage ./lib.nix { };
-in {
+{ pkgs, config, lib, inputs, ... }: {
   containers.calibre = {
     autoStart = true;
     ephemeral = true;
     privateNetwork = true;
-    hostBridge = "br0";
-    localAddress = "192.168.100.5/24";
-    forwardPorts = [
-      { containerPort = 8080; hostPort = 8080; }
-      { containerPort = 8083; hostPort = 8083; } 
-    ];
+    hostBridge = "10.10.11.3";
+    localAddress = "10.10.10.3";
     bindMounts."library" = {
       hostPath = "/data/library";
       mountPoint = "/library";

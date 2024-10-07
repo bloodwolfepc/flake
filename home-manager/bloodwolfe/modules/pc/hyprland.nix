@@ -17,6 +17,8 @@
         "swaync --inhibitor-add Alacritty" #block spotify_player
         "wl-paste -t text -w xclip -selection clipboard" #patch for wine
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "xrandr --output DP-1 --primary"
+        "carla /home/bloodwolfe/carla/default.carxp --no-gui"
         #set wireplumber default sink
         #"wpctl set-default `wpctl status | grep playback.UMC_Headphones | egrep '^ │( )*[0-9]*' -o | cut -c6-55 | egrep -o '[0-9]*'`"
         
@@ -70,15 +72,15 @@
 	      follow_mouse = "1";
 	      sensitivity = "0";
 	      accel_profile = "flat";
-        touchpad = {
-          natrual_scroll = true;
-          disable_while_typing = false;
-          scroll_factor = 0.5;
-        };
-        misc = {
-          disable_hyprland_logo = true;
-          disable_splash_rendering = true;
-        };
+        #touchpad = {
+        #  natrual_scroll = true;
+        #  disable_while_typing = false;
+        #  scroll_factor = 0.5;
+        #};
+        #misc = {
+        #  disable_hyprland_logo = true;
+        #  disable_splash_rendering = true;
+        #};
       };
       monitor = map
         (m:

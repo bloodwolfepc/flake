@@ -1,3 +1,5 @@
+linuxKernel.packages.linux_zen.zenpower for powersave boot
+sync mscore
 srv:
 gamevault, sunshune moonlight
 nextcloud

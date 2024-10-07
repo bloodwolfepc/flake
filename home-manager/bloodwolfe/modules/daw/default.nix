@@ -63,6 +63,9 @@
       ".config/falkTX" 
       ".config/ardour8"
       ".cache/ardour8"
+      ".config/MuseScore"
+      ".local/share/MuseScore"
+      ".cache/MuseScore"
 
       "ardour"
       "vital"

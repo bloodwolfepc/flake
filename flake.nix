@@ -76,6 +76,10 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    wl-crosshair = {
+      url = "github:lelgenio/wl-crosshair";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
 	let 

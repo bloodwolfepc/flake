@@ -21,6 +21,7 @@
       "keys"
       "data"
       "libvirtd"
+      "realtime"
     ];
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/id_angel.pub)

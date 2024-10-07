@@ -6,14 +6,15 @@
     platformOptimizations.enable = true;
   	remotePlay.openFirewall = true;
   	dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers = true;
   	gamescopeSession = { 
       enable = true;
       args = [ ]; 
     };
-  	extraCompatPackages = with pkgs; [
-      proton-ge-bin    
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+      steamtinkerlaunch
     ];
-      
     extraPackages = with pkgs; [
       xorg.libXcursor
       xorg.libXi

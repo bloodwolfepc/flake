@@ -22,6 +22,7 @@
 			".local/share/keyrings"
 			".local/share/direnv"
       ".local/state/wireplumber"
+      ".local/share/containers"
 		];
 		files = [
 			".screenrc" 

@@ -40,6 +40,23 @@
           };
         };
       }
+      {
+        name = "libpipewire-module-loopback";
+        args = {
+          "node.name" = "UMC_Mic";
+          "node.description" = "UMC Microphone";
+          "capture.props" = {
+            "audio.position" = [ "AUX0" ];
+            "stream.dont-remix" = true;
+            "node.target" = "alsa_input.usb-BEHRINGER_UMC404HD_192k-00.pro-input-0";
+            "node.passive" = true;
+          };
+          "playback.props" = {
+            "media.class" = "Audio/Source";
+            "audio.position" = [ "MONO" ];
+          };
+        };
+      }
     ];
   };
 }

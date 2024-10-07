@@ -2,6 +2,7 @@
   imports = [
     ./mangohud.nix
     ./hyprland.nix
+    ./crossover.nix
   ];
   home.packages = with pkgs; [
     vkbasalt

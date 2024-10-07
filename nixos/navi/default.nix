@@ -24,6 +24,18 @@
         interfaces = [ "eno1" ];
       };
     };
+    #firewall = {
+    #  enable = true;
+    #  interfaces."br0" = {
+    #    allowedTCPPorts = [ 80 ];
+    #  };
+    #};
+    nat = {
+      enable = true;
+      enableIPv6 = true;
+      internalInterfaces = [ "ve-+" ];
+      externalInterface = "br0";
+    };
   };
 }
   #networking = {
