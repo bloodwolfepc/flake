@@ -22,6 +22,7 @@
       "data"
       "libvirtd"
       "realtime"
+      "ydotool"
     ];
     openssh.authorizedKeys.keys = [
       (builtins.readFile ./keys/id_angel.pub)

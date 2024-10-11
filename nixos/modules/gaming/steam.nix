@@ -6,7 +6,7 @@
     platformOptimizations.enable = true;
   	remotePlay.openFirewall = true;
   	dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers = true;
+    #localNetworkGameTransfers = true;
   	gamescopeSession = { 
       enable = true;
       args = [ ]; 

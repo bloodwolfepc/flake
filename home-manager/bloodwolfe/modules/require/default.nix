@@ -90,6 +90,7 @@
       wget
       unzip
       taskwarrior-tui
+      alsa-utils
     ];
   };
 } 

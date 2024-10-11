@@ -14,9 +14,8 @@
       networking = {
         firewall = { enable = true; allowedTCPPorts = [
           80 443
-        ];
-      };
-      useHostResolvConf = lib.mkForce false;
+        ];};
+        useHostResolvConf = lib.mkForce false;
       };
       services.resolved.enable = true;
       security.acme = {
@@ -57,24 +56,11 @@
         #'';
         ## Add any further config to match your needs, e.g.:
         virtualHosts = {
-          #localhost = {
-          #  enableACME = true;
-          #  forceSSL = true;
-          #  locations."/" = {
-          #    proxyPass = "http://10.10.10.2:80";
-          #    proxyWebsockets = true;
-          #    extraConfig =
-          #      "proxy_ssl_server_name on;" +
-          #      "proxy_pass_header Authorization;"
-          #    ;
-          #  };
-          #};
           "waterdreamer.net" = {
             enableACME = true;
             forceSSL = true;
             locations."/" = {
               proxyPass = "https://10.10.10.2:443";
-              #proxyWebsockets = true;
               extraConfig =
                 "proxy_ssl_server_name on;" +
                 "proxy_pass_header Authorization;"
@@ -86,7 +72,28 @@
             forceSSL = true;
             locations."/" = {
               proxyPass = "https://10.10.10.3:443";
-              #proxyWebsockets = true;
+              extraConfig =
+                "proxy_ssl_server_name on;" +
+                "proxy_pass_header Authorization;"
+              ;
+            };
+          };
+          "read.waterdreamer.net" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "https://10.10.10.5:8083";
+              extraConfig =
+                "proxy_ssl_server_name on;" +
+                "proxy_pass_header Authorization;"
+              ;
+            };
+          };
+          "media.waterdreamer.net" = {
+            enableACME = true;
+            forceSSL = true;
+            locations."/" = {
+              proxyPass = "https://10.10.10.5:443";
               extraConfig =
                 "proxy_ssl_server_name on;" +
                 "proxy_pass_header Authorization;"

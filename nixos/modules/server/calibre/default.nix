@@ -10,6 +10,10 @@
       mountPoint = "/library";
       isReadOnly = false;
     };
+    forwardPorts = [
+      { containerPort = 8083; hostPort = 8083; } #via proxy
+      { containerPort = 8080; hostPort = 8080; }
+    ];
     config = { pkgs, ... }: {
       system.stateVersion = "24.05";
       networking = {
@@ -27,6 +31,11 @@
       };
       services.calibre-web = {
         enable = true;
+        #options = {
+        #  reverseProxyAuth = {
+        #    enable = true;
+        #  };
+        #};
       };
     };
   };

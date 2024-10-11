@@ -20,7 +20,7 @@
     ../extra-modules/wine.nix
     ../extra-modules/flatpak.nix
 
-    ../server/sunshine.nix
+    ../server/sunshine
   ];
 }
   

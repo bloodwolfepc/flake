@@ -12,4 +12,5 @@
     };
   };
   programs.light.enable = true;
+  programs.ydotool.enable = true;
 }
