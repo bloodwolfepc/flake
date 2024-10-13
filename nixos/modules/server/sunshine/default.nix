@@ -1,5 +1,7 @@
+#47990
 { pkgs, lib, config, ... }: let
-  hypr-dispatch = lib.getExe' config.programs.hyprland.package "hyprctl" + " dispatch exec";
+  hypr-dispatch-exec = lib.getExe' config.programs.hyprland.package "hyprctl" + " dispatch exec";
+  hypr-dispatch = lib.getExe' config.programs.hyprland.package "hyprctl";
   sh = lib.getExe pkgs.bash;
   steam = lib.getExe config.programs.steam.package + " --";
   prep = let
@@ -17,11 +19,10 @@
       text = ''
         HYPRLAND_INSTANCE_SIGNATURE=$(find /run/user/1000/hypr/ -mindepth 1 -printf '%P\n' -prune)
         export HYPRLAND_INSTANCE_SIGNATURE
-        width=''${1:-1920}
-        height=''${2:-1080}
-        refresh_rate=''${3:-60}
-        mon_string="DP-1,''${width}x''${height}@''${refresh_rate},0x0,1"
+        mon_string="DP-1,1920x1080@144,0x0,1"
         hyprctl keyword monitor "$mon_string"
+        hyprctl dispatch focusmonitor DP-1
+        hyprctl dispatch dpms off eDP-1
         hyprctl dispatch workspace name:firefox
       '';
     };
@@ -33,6 +34,9 @@
         export HYPRLAND_INSTANCE_SIGNATURE
         mon_string="DP-1,1920x1080@144,0x0,1"
         hyprctl keyword monitor "$mon_string"
+        hyprctl dispatch focusmonitor DP-1
+        hyprctl dispatch dpms on eDP-1
+        hyprctl dispatch workspace name:firefox
       '';
     };
     in {
@@ -76,22 +80,24 @@ in {
         }
         {
           name = "steam-big-picture";
-          cmd = "${hypr-dispatch} \"${steam} -gamepadui\"";
-          prep-cmd = [prep steam-kill];
+          cmd = "${hypr-dispatch-exec} \"${steam} -gamepadui\"";
+          prep-cmd = [
+          prep 
+          steam-kill];
         }
         {
           name = "steam";
-          cmd = "${hypr-dispatch} \"${steam}\"";
+          cmd = "${hypr-dispatch-exec} \"${steam}\"";
           prep-cmd = [prep steam-kill];
         }
         {
           name = "prism-launcher";
           prep-cmd = [prep];
-          cmd = "${hypr-dispatch} ${pkgs.prismlauncher}";
+          cmd = "${hypr-dispatch-exec} ${pkgs.prismlauncher}";
         }
         {
-          name = "pc-bin";
-          prep-cmd = ["${pkgs.hyprland}/bin/Hyprland"];
+          name = "pc-2";
+          cmd = "Hyprland";
         }
       ];
     };

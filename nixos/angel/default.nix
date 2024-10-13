@@ -11,9 +11,10 @@
     ../modules/hardware/rog-zypherus-g14.nix
   ];
   networking.hostName = "angel";
+  services.resolved.enable = true;
 
-  hardware.opengl.enable = true;
-  hardware.opengl.extraPackages = with pkgs; [
+  hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
     vaapiVdpau
     libvdpau-va-gl
   ];
@@ -23,16 +24,10 @@
   environment.systemPackages = [ 
     pkgs.universal-android-debloater 
   ];
-  users.users.bloodwolfe.extraGroups = ["adbusers"];
-  services.nginx = {
-    enable = true; 
-        virtualHosts.localhost = {
-          locations."/" = {
-            return = "200 '<html><body>It works</body></html>'";
-            extraConfig = ''
-              default_type text/html;
-            '';
-          };
-        };
-      };
+  users.users.bloodwolfe.extraGroups = ["adbusers"];      
+  #environment.sessionVariables = {
+  #  GTK_IM_MODULE = "fcitx";
+  #  QT_IM_MODULE = "fcitx";
+  #  XMODIFIES = "@im=fcitx";
+  #};
 }

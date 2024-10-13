@@ -6,7 +6,6 @@
     platformOptimizations.enable = true;
   	remotePlay.openFirewall = true;
   	dedicatedServer.openFirewall = true;
-    #localNetworkGameTransfers = true;
   	gamescopeSession = { 
       enable = true;
       args = [ ]; 
@@ -15,20 +14,20 @@
       proton-ge-bin
       steamtinkerlaunch
     ];
-    extraPackages = with pkgs; [
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXinerama
-      xorg.libXScrnSaver
-      libpng
-      libpulseaudio
-      libvorbis
-      stdenv.cc.cc.lib
-      libkrb5
-      keyutils
-      mangohud
-      gamescope
-    ];
+    #extraPackages = with pkgs; [
+      #xorg.libXcursor
+      #xorg.libXi
+      #xorg.libXinerama
+      #xorg.libXScrnSaver
+      #libpng
+      #libpulseaudio
+      #libvorbis
+      #stdenv.cc.cc.lib
+      #libkrb5
+      #keyutils
+      #mangohud
+      #gamescope
+    #];
   };
   environment.systemPackages = with pkgs; [
     steamPackages.steamcmd

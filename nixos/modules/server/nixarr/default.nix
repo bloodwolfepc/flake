@@ -14,9 +14,9 @@
       { containerPort = 8989; hostPort = 8989; }
       { containerPort = 7878; hostPort = 7878; }
       { containerPort = 9696; hostPort = 9696; }
-      { containerPort = 8080; hostPort = 8080; }
-      #{ containerPort = 8383; hostPort = 8383; }
       { containerPort = 28960; hostPort = 28960; }
+      { containerPort = 8080; hostPort = 8080; }
+      #{ containerPort = 8083; hostPort = 8083; }
     ];
     bindMounts."media" = {
       hostPath = "/data/media";
@@ -52,6 +52,31 @@
         acceptTerms = true;
         defaults.email = "bloodwolfepc@gmail.com";
       };
+      services.nginx = {
+        enable = true;
+        virtualHosts."media.waterdreamer.net" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/jellyfin" = {
+            proxyPass = "https://localhost:8096";
+            extraConfig =
+              "proxy_ssl_server_name on;" +
+              "proxy_pass_header Authorication;"
+            ;
+          };
+        };
+        virtualHosts."read.waterdreamer.net" = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/calibre" = {
+            proxyPass = "https://localhost:8083";
+            extraConfig =
+              "proxy_ssl_server_name on;" +
+              "proxy_pass_header Authorication;"
+            ;
+          };
+        };
+      };
       #sops.secrets."wg.conf" = {
       #  format = "binary";
       #  sopsFile = ../../../../../secrets/wg.conf;
@@ -84,32 +109,20 @@
         radarr.enable = true; #7878
         prowlarr.enable = true; #9696
       };
-      services.nginx = {
-        enable = true;
-        virtualHosts.localhost = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/jellyfin" = {
-            proxyPass = "https://localhost:8096";
-            extraConfig =
-              "proxy_ssl_server_name on;" +
-              "proxy_pass_header Authorication;"
-            ;
-          };
-        };
+      
+      services.calibre-server = {
+        enable = true; #8080
+        libraries = [ "/data/media/library/books/main" ];
+        dataDir = "/data/media/.state/calibre";
       };
-      #services.calibre-server = {
-      #  enable = true; #8080
-      #  libraries = [ "/data/media/library" ];
-      #};
-      #services.calibre-web = {
-      #  enable = true; #8383
-      #  #options = {
-      #  #  reverseProxyAuth = {
-      #  #    enable = true;
-      #  #  };
-      #  #};
-      #};
+      services.calibre-web = {
+        enable = true; #8083
+        #options = {
+        #  reverseProxyAuth = {
+        #    enable = true;
+        #  };
+        #};
+      };
     };
   };
 }

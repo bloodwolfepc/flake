@@ -72,7 +72,9 @@ in {
   };
 
   wayland.windowManager.hyprland = {
+    #settings.windowrulev2 = [ "stayfocused,class:(Rofi)" ];
     extraConfig = lib.mkBefore ''
+      $focusRofi = & while [ "$(hyprctl clients | grep "class: Rofi")x" == "x" ]; do continue; done; hyprctl dispatch focuswindow "^(Rofi)"
 	    submap = EXEC
         bindi = , ${bind}, submap ,EXEC_${name}
 	    submap = escape
@@ -83,10 +85,10 @@ in {
 	      bindi = , ${config.kb_DOWN}, layoutmsg, preselect d
 	      bindi = , ${config.kb_UP}, layoutmsg, preselect u
 	      bindi = , ${config.kb_LEFT}, layoutmsg, preselect l
-	      bindi = , ${config.kb_RIGHT}, exec, ${program}
-	      bindi = , ${config.kb_DOWN}, exec, ${program}
-	      bindi = , ${config.kb_UP}, exec, ${program}
-	      bindi = , ${config.kb_LEFT}, exec, ${program}
+	      bindi = , ${config.kb_RIGHT}, exec, ${program} $focusRofi
+	      bindi = , ${config.kb_DOWN}, exec, ${program} $focusRofi
+	      bindi = , ${config.kb_UP}, exec, ${program} $focusRofi
+	      bindi = , ${config.kb_LEFT}, exec, ${program} $focusRofi
         source = $pass-oneshots
       submap = escape
       submap = EXEC_WS

@@ -1,6 +1,7 @@
 #TODO clipboard history management, screenshots
 # bind that:
 #moves firefox to a position of the aftive workspace and another to return it
+#wvkbd-mobintl -L 400 -fn Unscii -bg 000000 -fg 000000 -fg-sp 000000 -press 000000|00 -press-sp 000000|00
 { pkgs, lib, config, ... }: {
   
   wayland.windowManager.hyprland = {
@@ -8,6 +9,9 @@
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
+      windowrule = [
+        "pseudo, fcitx"
+      ];
       exec-once = [
         "hyprctl dispatch workspace name:main"
         "hyprctl dispatch submap INS"
@@ -21,7 +25,8 @@
         "carla /home/bloodwolfe/carla/default.carxp --no-gui"
         #set wireplumber default sink
         #"wpctl set-default `wpctl status | grep playback.UMC_Headphones | egrep '^ │( )*[0-9]*' -o | cut -c6-55 | egrep -o '[0-9]*'`"
-        
+        "fcitx5 -d -r"
+        "fcitx5-remote -r"
       ];
       env = [
 	      "XCURSOR_SIZE,24"

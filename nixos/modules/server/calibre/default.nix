@@ -7,7 +7,7 @@
     localAddress = "10.10.10.4";
     bindMounts."library" = {
       hostPath = "/data/library";
-      mountPoint = "/library";
+      mountPoint = "/data/library";
       isReadOnly = false;
     };
     forwardPorts = [
@@ -17,7 +17,6 @@
     config = { pkgs, ... }: {
       system.stateVersion = "24.05";
       networking = {
-        #useDHCP = lib.mkForce true;
         firewall = { enable = true; allowedTCPPorts = [
           8080
           8083
@@ -26,11 +25,30 @@
       useHostResolvConf = lib.mkForce false;
       };
       services.resolved.enable = true;
-      services.calibre-server = {
+      security.acme = {
+        acceptTerms = true;
+        defaults.email = "bloodwolfepc@gmail.com";
+      };
+      services.nginx = {
         enable = true;
+        virtualHosts.localhost = {
+          enableACME = true;
+          forceSSL = true;
+          locations."/calibre-web" = {
+            proxyPass = "https://localhost:8083";
+            extraConfig =
+              "proxy_ssl_server_name on;" +
+              "proxy_pass_header Authorication;"
+            ;
+          };
+        };
+      };
+      services.calibre-server = {
+        enable = true; #8080
+        libraries = [ "/data/library" ];
       };
       services.calibre-web = {
-        enable = true;
+        enable = true; #8083
         #options = {
         #  reverseProxyAuth = {
         #    enable = true;

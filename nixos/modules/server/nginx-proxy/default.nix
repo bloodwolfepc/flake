@@ -82,7 +82,7 @@
             enableACME = true;
             forceSSL = true;
             locations."/" = {
-              proxyPass = "https://10.10.10.5:8083";
+              proxyPass = "https://10.10.10.5:443";
               extraConfig =
                 "proxy_ssl_server_name on;" +
                 "proxy_pass_header Authorization;"

@@ -36,7 +36,8 @@
       internalInterfaces = [ "ve-+" ];
       externalInterface = "br0";
     };
-  };
+  }; 
+  services.resolved.enable = true;
 }
   #networking = {
   #  hostName = "navi";

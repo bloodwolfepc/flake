@@ -55,12 +55,12 @@
       ".local/share/Steam"
       ".config/Moonlight Game Streaming Project"
       ".config/sunshine"
+      ".local/share/PrismLauncher/libraries"
     ];
     files = [
       ".local/share/PrismLauncher/prismlauncher.cfg"
       ".local/share/PrismLauncher/accounts.json"
       ".local/share/PrismLauncher/metacache"
-      ".local/share/PrismLauncher/libraries"
     ];
   };
 }
