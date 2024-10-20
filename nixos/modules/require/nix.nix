@@ -5,7 +5,7 @@
       trusted-users = [ "root" "@wheel" ];
 
       auto-optimise-store = lib.mkDefault true;
-      experimental-features = [ "flakes" "nix-command" "repl-flake" ];
+      experimental-features = [ "flakes" "nix-command"];
       warn-dirty = false;
       system-features = [ "kvm" "big-parallel" "nixos-test" ];
       flake-registry = "";

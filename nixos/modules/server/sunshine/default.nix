@@ -1,7 +1,7 @@
 #47990
 { pkgs, lib, config, ... }: let
   hypr-dispatch-exec = lib.getExe' config.programs.hyprland.package "hyprctl" + " dispatch exec";
-  hypr-dispatch = lib.getExe' config.programs.hyprland.package "hyprctl";
+  hypr-dispatch = lib.getExe' config.programs.hyprland.package "hyprctl" + " dispatch";
   sh = lib.getExe pkgs.bash;
   steam = lib.getExe config.programs.steam.package + " --";
   prep = let
@@ -19,11 +19,14 @@
       text = ''
         HYPRLAND_INSTANCE_SIGNATURE=$(find /run/user/1000/hypr/ -mindepth 1 -printf '%P\n' -prune)
         export HYPRLAND_INSTANCE_SIGNATURE
-        mon_string="DP-1,1920x1080@144,0x0,1"
+        width=''${1:1920}
+        height=''${2:1080}
+        refresh_rate=''${3:144}
+        mon_string="DP-1,''${width}x''${height}@''${refresh_rate},0x0,1"
         hyprctl keyword monitor "$mon_string"
         hyprctl dispatch focusmonitor DP-1
         hyprctl dispatch dpms off eDP-1
-        hyprctl dispatch workspace name:firefox
+        hyprctl dispatch workspace name:steam
       '';
     };
     undo-command = pkgs.writeShellApplication {
@@ -36,7 +39,6 @@
         hyprctl keyword monitor "$mon_string"
         hyprctl dispatch focusmonitor DP-1
         hyprctl dispatch dpms on eDP-1
-        hyprctl dispatch workspace name:firefox
       '';
     };
     in {
@@ -80,24 +82,26 @@ in {
         }
         {
           name = "steam-big-picture";
-          cmd = "${hypr-dispatch-exec} \"${steam} -gamepadui\"";
-          prep-cmd = [
-          prep 
-          steam-kill];
+          cmd = pkgs.writeShellScriptBin "steam-big-picture" ''
+            hyprctl dispatch exec steam -- -gamepadui
+          '';
+          prep-cmd = [prep steam-kill];
+          
+            #"${hypr-dispatch-exec} \"${steam} -gamepadui\"";
         }
         {
           name = "steam";
-          cmd = "${hypr-dispatch-exec} \"${steam}\"";
+          cmd = ''
+            ${hypr-dispatch-exec} \"${steam}\"
+          '';
           prep-cmd = [prep steam-kill];
         }
         {
           name = "prism-launcher";
           prep-cmd = [prep];
-          cmd = "${hypr-dispatch-exec} ${pkgs.prismlauncher}";
-        }
-        {
-          name = "pc-2";
-          cmd = "Hyprland";
+          cmd = ''
+            ${hypr-dispatch-exec} \"${pkgs.prismlauncher}\"";
+          '';
         }
       ];
     };
@@ -109,12 +113,6 @@ in {
     { from = 47998; to = 48000; }
     { from = 8000; to = 8010; }
   ];};
-  #security.wrappers.sunshine = {
-  #  owner = "root";
-  #  group = "root";
-  #  capabilities = "cap_sys_admin+p";
-  #  source = "${pkgs.sunshine}/bin/sunshine";
-  #};
   services.avahi.enable = true;
   services.avahi.publish.enable = true;
   services.avahi.publish.userServices = true;  

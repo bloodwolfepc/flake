@@ -40,6 +40,11 @@
       fsType = "btrfs";
       options = [ "subvol=sync" ];
     };
+  fileSystems."/home/bloodwolfe/.var/app" =
+    { device = "/dev/root_vg/root";
+      fsType = "btrfs";
+      options = [ "subvol=flatpak" ];
+    };
    
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/B043-58C2";

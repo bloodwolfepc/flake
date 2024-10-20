@@ -15,7 +15,7 @@
       };
     };
   };
-	home.persistence."${config.home.homeDirecoty}" = {
+	home.persistence."/sync/home/bloodowlfe" = {
     directories = [
       ".config/fcitx5"
     ];

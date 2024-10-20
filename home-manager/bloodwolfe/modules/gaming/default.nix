@@ -10,7 +10,19 @@
     #glfw-wayland-minecraft
     
     #lutris
-    retroarch
+    (retroarchFull.override {
+      cores = with libretro; [
+        play
+        swanstation
+        pcsx-rearmed
+        beetle-psx
+        snes9x
+        pcsx2
+        dolphin
+        desmume
+        bsnes
+      ];
+    })
     retroarch-assets
     retroarch-joypad-autoconfig
     easyrpg-player
@@ -56,6 +68,7 @@
       ".config/Moonlight Game Streaming Project"
       ".config/sunshine"
       ".local/share/PrismLauncher/libraries"
+      ".local/share/PrismLauncher/assets"
     ];
     files = [
       ".local/share/PrismLauncher/prismlauncher.cfg"

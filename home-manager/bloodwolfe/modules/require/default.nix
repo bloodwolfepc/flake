@@ -30,8 +30,7 @@
   
 	home.persistence."/persist/home/bloodwolfe" = {
     directories = [ 
-      ".cache/nix-index" #put in a devtools section
-      ".local/share/flatpak" #TODO give me a home
+      ".cache/nix-index" 
       "appimages"
     ];
   };
@@ -57,7 +56,7 @@
   nix = { 
     package = lib.mkDefault pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" ];
       warn-dirty = false;
     };
   };

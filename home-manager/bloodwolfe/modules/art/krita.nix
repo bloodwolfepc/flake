@@ -4,7 +4,6 @@
   ];
   
   #syncthing will not sync single files and krita cannot change rc location (i dont think)
-  #this will need to be a symlink
   home.file.".config/kritarc".source = config.lib.file.mkOutOfStoreSymlink
     "/sync${config.home.homeDirectory}/.config/DIR-kritarc/kritarc";
   home.file.".config/kritadisplayrc".source = config.lib.file.mkOutOfStoreSymlink

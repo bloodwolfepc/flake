@@ -12,5 +12,10 @@
     distrobox 
     podman-tui
     dive
-  ];
+  ]; 
+	environment.persistence."/persist/system" = {
+		directories = [
+      "/var/lib/containers"
+    ];
+  };
 }

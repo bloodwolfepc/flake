@@ -40,16 +40,17 @@
     gxplugins-lv2
     guitarix
     #soundux #removed due to being unmaintained
-    distrho #includes vitalium and juce
+    #distrho #includes vitalium and juce #broke
     supercollider
     airwindows-lv2
     tap-plugins
     zynaddsubfx
-    helm
+    #helm #broke
     x42-gmsynth
     yoshimi
     sonobus
     coppwr
+    neothesia
     
     #UNPACKAGED
     #wolf-spectrum

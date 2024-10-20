@@ -109,14 +109,13 @@
         radarr.enable = true; #7878
         prowlarr.enable = true; #9696
       };
-      
       services.calibre-server = {
         enable = true; #8080
         libraries = [ "/data/media/library/books/main" ];
-        dataDir = "/data/media/.state/calibre";
       };
       services.calibre-web = {
         enable = true; #8083
+        dataDir = "/data/media/.state/calibre-web";
         #options = {
         #  reverseProxyAuth = {
         #    enable = true;

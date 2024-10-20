@@ -30,4 +30,6 @@
   #  QT_IM_MODULE = "fcitx";
   #  XMODIFIES = "@im=fcitx";
   #};
+  programs.nix-ld.enable = true;
+  #boot.binfmt.preferStaticEmulators = true;
 }

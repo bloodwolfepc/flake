@@ -50,6 +50,7 @@
                 <body5 style="color: #594b80;">
                   <a href="https://github.com/bloodwolfepc">git</a> - 
                   <a href="https://x.com/bloodwolfepc">twitter</a> - 
+                  <a href="https://bsky.app/profile/bloodwolfepc.bsky.social">bluesky</a>
                   <a href="https://www.last.fm/user/bedwolfe">lfm</a> - 
                   <a href="https://rateyourmusic.com/~blueshellexodus">rym</a> - 
                   <a href="https://letterboxd.com/evilcatlawyer/">letterboxd</a>

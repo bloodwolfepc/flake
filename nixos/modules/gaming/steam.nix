@@ -12,22 +12,23 @@
     };
     extraCompatPackages = with pkgs; [
       proton-ge-bin
+      thcrap-steam-proton-wrapper
       steamtinkerlaunch
     ];
-    #extraPackages = with pkgs; [
-      #xorg.libXcursor
-      #xorg.libXi
-      #xorg.libXinerama
-      #xorg.libXScrnSaver
-      #libpng
-      #libpulseaudio
-      #libvorbis
-      #stdenv.cc.cc.lib
-      #libkrb5
-      #keyutils
-      #mangohud
-      #gamescope
-    #];
+    extraPackages = with pkgs; [
+      xorg.libXcursor
+      xorg.libXi
+      xorg.libXinerama
+      xorg.libXScrnSaver
+      libpng
+      libpulseaudio
+      libvorbis
+      stdenv.cc.cc.lib
+      libkrb5
+      keyutils
+      mangohud
+      gamescope
+    ];
   };
   environment.systemPackages = with pkgs; [
     steamPackages.steamcmd
