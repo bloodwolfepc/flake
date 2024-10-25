@@ -1,17 +1,9 @@
 { lib, pkgs, config, ... }: let
-  name = "steam";
-  program = "${pkgs.steam}/bin/steam";
+  name = "games";
+  program = "${pkgs.alacritty}/bin/alacritty";
   bind = "g";
 in {
   wayland.windowManager.hyprland = {
-    settings.windowrulev2 = [
-      "float, class:^([Ss]team)$, title:^((?![Ss]team).*)$"
-      "workspace name:${name} silent, class:^([Ss]team)$, title:^([Ss]team)$"
-      "tile, class:^([Ss]team)$, title:^([Ss]team)$"
-      "workspace name:${name} silent, class:^([Ss]special [Oo]ffers)$, title:^([Ss]special [Oo]ffers)$"
-      #"Special Offers"
-      #"Sign in to Steam"
-    ];
     extraConfig = lib.mkBefore ''
 	    submap = EXEC
         bindi = , ${bind}, submap ,EXEC_${name}

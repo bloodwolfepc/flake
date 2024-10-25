@@ -126,27 +126,3 @@
     };
 	};
 }
-#Eat breakfast
-#Eat lunch
-#Eat dinner
-#Go to bed
-#Go to the store
-#Apply for jobs
-#Go to a friend's
-#Go to bed
-#Eat breakfast
-#Eat lunch
-#Eat dinner
-#Go to bed
-#Go to the store
-#Apply for jobs
-#Go to a friend's
-#Go to bed
-#Eat breakfast
-#Eat lunch
-#Eat dinner
-#Go to bed
-#Go to the store
-#Apply for jobs
-#Go to a friend's
-#Go to bed

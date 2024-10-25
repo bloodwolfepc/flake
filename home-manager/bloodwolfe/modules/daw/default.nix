@@ -57,6 +57,7 @@
     
     #zrythm
     soundfont-fluid
+    openutau
   ];
 	home.persistence."/sync/home/bloodwolfe" = {
 		directories = [
@@ -67,6 +68,7 @@
       ".config/MuseScore"
       ".local/share/MuseScore"
       ".cache/MuseScore"
+      ".local/share/OpenUtau" #sync me
 
       "ardour"
       "vital"

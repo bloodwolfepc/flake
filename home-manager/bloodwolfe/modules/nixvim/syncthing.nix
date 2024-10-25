@@ -1,4 +1,4 @@
-{#stand in until syncthing is better supported by home manager 
+{ 
   services.syncthing.settings.folders = {
     "/sync/home/bloodwolfe/notebook" = {
       path = "/sync/home/bloodwolfe/notebook";

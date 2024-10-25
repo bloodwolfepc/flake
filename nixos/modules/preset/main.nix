@@ -21,6 +21,7 @@
     ../extra-modules/flatpak.nix
 
     ../server/sunshine
+    ../kanata
   ];
 }
   
