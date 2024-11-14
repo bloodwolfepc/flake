@@ -5,6 +5,11 @@
       devices = [ "navi" "lapis" "angel" ];
       ignorePerms = true;
     };
+    "/sync/home/bloodwolfe/.config/xournalpp" = {
+      path = "/sync/home/.config/xournalpp";
+      devices = [ "navi" "lapis" "angel" ];
+      ignorePerms = true;
+    };
   };
 }
 

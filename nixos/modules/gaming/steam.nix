@@ -31,7 +31,7 @@
     ];
   };
   environment.systemPackages = with pkgs; [
-    steamPackages.steamcmd
+    steamcmd
     steam-run
     protonup-ng
     protontricks

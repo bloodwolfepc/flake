@@ -21,7 +21,7 @@
           chk (chord jkesc k)
         )
 
-        (defchords jkesc 50
+        (defchords jkesc 75
           (j    ) j
           (   k ) k
           (j  k ) esc

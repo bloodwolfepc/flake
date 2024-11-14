@@ -35,9 +35,8 @@
   	'';
   
   	shellAliases = {
-  		vi-staging = "nix run /home/bloodwolfe/projects/dead";
-  		vi-git = "nix run github:evilcatlawyer/dead"; 
-      vi-bin = "nvim";
+  		gvi = "nix run github:evilcatlawyer/nixvim"; 
+      lvi = "nix run /home/bloodwolfe/projects/nixvim --";
       vi = "nvim";
       td = "task";
       sync-permissions = "

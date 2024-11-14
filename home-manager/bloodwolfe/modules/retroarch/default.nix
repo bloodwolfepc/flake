@@ -11,6 +11,8 @@
         dolphin
         desmume
         bsnes
+        nxengine #cave story
+        dosbox
       ];
     })
     retroarch-assets

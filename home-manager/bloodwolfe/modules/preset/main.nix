@@ -7,7 +7,7 @@
     #../wine
     ../require
     ../stylix
-    ../discord
+    ../vesktop
     ../spotify
     ../firefox
     ../qutebrowser  

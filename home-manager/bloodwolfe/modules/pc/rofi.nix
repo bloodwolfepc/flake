@@ -4,9 +4,6 @@ name = "rofi";
 program = "${pkgs.rofi}/bin/rofi -show run";
 bind = "e";
 in {
-  home.packages = with pkgs; [
-    sptlrx
-  ];
   programs.rofi = {
   	enable = true;
     package = pkgs.rofi-wayland-unwrapped;
@@ -100,4 +97,9 @@ in {
       submap = escape
     '';
   };
+
+    home.packages = let
+      inherit (config.programs.password-store) package enable;
+    in
+      lib.optional enable (pkgs.pass-rofi.override {pass = package;});
 }

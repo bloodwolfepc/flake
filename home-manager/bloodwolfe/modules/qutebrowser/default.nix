@@ -3,10 +3,7 @@
   pkgs,
   lib,
   ...
-}:
-{
-  #imports = [ ./hyprland.nix ];
-  
+}: {
   home.persistence = {
     "/sync${config.home.homeDirectory}".directories = [
       ".config/qutebrowser/bookmarks"
@@ -14,6 +11,11 @@
       ".local/share/qutebrowser"
     ];
   };
+  #programs.qutebrowser = { 
+  #  enable = true;
+  #  package = pkgs.qutebrowser-qt5;
+  #};
+
 
   xdg.mimeApps.defaultApplications = {
     "text/html" = ["org.qutebrowser.qutebrowser.desktop"];
@@ -24,7 +26,8 @@
   };
 
   programs.qutebrowser = {
-    enable = false;
+    enable = true;
+    package = pkgs.qutebrowser-qt5;
     loadAutoconfig = true;
     searchEngines = rec {
       kagi = "https://kagi.com/search?q={}";
@@ -47,17 +50,9 @@
         position = "left";
         indicator.width = 0;
       };
-     # fonts = {
-     #   default_family = config.fontProfiles.regular.family;
-     #   default_size = "12pt";
-     # };
     };
     extraConfig = ''
       c.tabs.padding = {"bottom": 10, "left": 10, "right": 10, "top": 10}
     '';
   };
-
-  xdg.configFile."qutebrowser/config.py".onChange = lib.mkForce ''
-    ${pkgs.procps}/bin/pkill -u $USER -HUP qutebrowser || true
-  '';
 }

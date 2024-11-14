@@ -23,4 +23,7 @@
 			{ file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
 		];
 	};
+  #https://github.com/NixOS/nixpkgs/pull/351151
+  boot.initrd.systemd.suppressedUnits = [ "systemd-machine-id-commit.service" ];
+  systemd.suppressedSystemUnits = [ "systemd-machine-id-commit.service" ];
 }

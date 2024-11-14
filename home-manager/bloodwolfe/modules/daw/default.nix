@@ -11,6 +11,8 @@
     carla
     sfizz
     orca-c
+    csound
+    glicol-cli
     puredata
     plugdata
     #zexy
@@ -29,7 +31,7 @@
     freepats
     mda_lv2
     airwindows-lv2
-    #lsp-plugins
+    lsp-plugins
     zam-plugins
     x42-plugins
     calf
@@ -48,6 +50,7 @@
     #helm #broke
     x42-gmsynth
     yoshimi
+    eq10q
     sonobus
     coppwr
     neothesia
@@ -55,9 +58,10 @@
     #UNPACKAGED
     #wolf-spectrum
     
-    #zrythm
+    zrythm
     soundfont-fluid
-    openutau
+    #openutau
+    wolf-shaper
   ];
 	home.persistence."/sync/home/bloodwolfe" = {
 		directories = [

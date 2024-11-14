@@ -52,7 +52,7 @@
                   <a href="https://x.com/bloodwolfepc">twitter</a> - 
                   <a href="https://bsky.app/profile/bloodwolfepc.bsky.social">bluesky</a>
                   <a href="https://www.last.fm/user/bedwolfe">lfm</a> - 
-                  <a href="https://rateyourmusic.com/~blueshellexodus">rym</a> - 
+                  <a href="https://rateyourmusic.com/~bloodwolfepc">rym</a> - 
                   <a href="https://letterboxd.com/evilcatlawyer/">letterboxd</a>
                 </body5>
               </html>

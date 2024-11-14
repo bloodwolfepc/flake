@@ -6,7 +6,6 @@
     hostAddress = "10.10.11.5";
     localAddress = "10.10.10.5";
     forwardPorts = [
-      #{ containerPort = 8096; hostPort = 8096; }
       { containerPort = 9091; hostPort = 9091; }
       { containerPort = 6767; hostPort = 6767; }
       { containerPort = 8686; hostPort = 8686; }
@@ -15,8 +14,9 @@
       { containerPort = 7878; hostPort = 7878; }
       { containerPort = 9696; hostPort = 9696; }
       { containerPort = 28960; hostPort = 28960; }
-      { containerPort = 8080; hostPort = 8080; }
+      #{ containerPort = 8080; hostPort = 8080; }
       #{ containerPort = 8083; hostPort = 8083; }
+      { containerPort = 8096; hostPort = 8096; }
     ];
     bindMounts."media" = {
       hostPath = "/data/media";
@@ -65,17 +65,17 @@
             ;
           };
         };
-        virtualHosts."read.waterdreamer.net" = {
-          enableACME = true;
-          forceSSL = true;
-          locations."/calibre" = {
-            proxyPass = "https://localhost:8083";
-            extraConfig =
-              "proxy_ssl_server_name on;" +
-              "proxy_pass_header Authorication;"
-            ;
-          };
-        };
+        #virtualHosts."read.waterdreamer.net" = {
+        #  enableACME = true;
+        #  forceSSL = true;
+        #  locations."/calibre" = {
+        #    proxyPass = "https://localhost:8083";
+        #    extraConfig =
+        #      "proxy_ssl_server_name on;" +
+        #      "proxy_pass_header Authorication;"
+        #    ;
+        #  };
+        #};
       };
       #sops.secrets."wg.conf" = {
       #  format = "binary";
@@ -109,19 +109,19 @@
         radarr.enable = true; #7878
         prowlarr.enable = true; #9696
       };
-      services.calibre-server = {
-        enable = true; #8080
-        libraries = [ "/data/media/library/books/main" ];
-      };
-      services.calibre-web = {
-        enable = true; #8083
-        dataDir = "/data/media/.state/calibre-web";
-        #options = {
-        #  reverseProxyAuth = {
-        #    enable = true;
-        #  };
-        #};
-      };
+      #services.calibre-server = {
+      #  enable = true; #8080
+      #  libraries = [ "/data/media/library/books" ];
+      #};
+      #services.calibre-web = {
+      #  enable = true; #8083
+      #  #dataDir = "/data/media/.state/calibre-web";
+      #  #options = {
+      #  #  reverseProxyAuth = {
+      #  #    enable = true;
+      #  #  };
+      #  #};
+      #};
     };
   };
 }
