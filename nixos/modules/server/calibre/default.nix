@@ -17,13 +17,11 @@
   };
 }
 
-  #{
-  #services.calibre-web.enable = true;
-  #services.calibre-web.openFirewall = true;
-  #services.calibre-web.listen.port = 8085;
 
-  #networking.firewall.allowedTCPPorts = [ 8085 ];
-  #}
+
+
+#for some reason I cant connect to this, using podman for now
+
 #{ pkgs, config, lib, inputs, ... }: {
 #  containers.calibre = {
 #    autoStart = true;
