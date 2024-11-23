@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   virtualisation = {
+    tmp.enable = true;
     spiceUSBRedirection.enable = true;
     libvirtd = {
       enable = true;

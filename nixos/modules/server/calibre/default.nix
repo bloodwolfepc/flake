@@ -4,7 +4,9 @@
     ports = [ "8083:8083" ];
     volumes = [
       "/data/media/library/books:/books"
-      "/data/media/.calibre-web:/config"
+      "/data/config/calibre-web:/config"
+
+      "/data/config/calibre:/calibre"
     ];
   };
   virtualisation.oci-containers.containers.calibre = {
@@ -12,7 +14,17 @@
     ports = [ "9532:8080" ];
     volumes = [
       "/data/media/library/books:/books"
-      "/data/media/.calibre:/config"
+      "/data/config/calibre:/config"
+    ];
+  };
+  virtualisation.oci-containers.containers.kavita = {
+    image = "docker.io/jvmilazz0/kavita:0.8.3";
+    ports = [ "5000:5000" ];
+    volumes = [
+      "/data/media/library/books:/books"
+      "/data/config/kavita:/config"
+
+      "/data/config/calibre:/calibre-server"
     ];
   };
 }

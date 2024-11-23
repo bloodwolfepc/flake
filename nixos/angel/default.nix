@@ -9,6 +9,7 @@
     ../modules/hardware/behringer-404-hd
     ../modules/hardware/gpu-passthrough.nix
     ../modules/hardware/rog-zypherus-g14.nix
+    ./passthough.nix
   ];
   networking.hostName = "angel";
   services.resolved.enable = true;

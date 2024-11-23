@@ -1,4 +1,8 @@
+gpu-screen-recorder
+
 linuxKernel.packages.linux_zen.zenpower for powersave boot
+
+
 sync mscore
 srv:
 gamevault, sunshune moonlight
@@ -74,3 +78,7 @@ zsh hostname color coding
 
 netdata
 wireshark
+      users.groups.nextcloud = {
+        gid = 999;
+        members = [ "kavita" ];
+      };
