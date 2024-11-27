@@ -58,6 +58,9 @@
         blur.enabled = false;
         drop_shadow = false;
       };
+      debug = {
+        suppress_errors = true; #hyprctl seterror diasable
+      };
       gestures = {
         workspace_swipe = true;
         workspace_swipe_forever = true;

@@ -9,7 +9,9 @@
     ../modules/hardware/behringer-404-hd
     ../modules/hardware/gpu-passthrough.nix
     ../modules/hardware/rog-zypherus-g14.nix
-    ./passthough.nix
+    ./passthough
+    ./powersave
+    ./nonspecial.nix
   ];
   networking.hostName = "angel";
   services.resolved.enable = true;
@@ -33,4 +35,12 @@
   #};
   programs.nix-ld.enable = true;
   #boot.binfmt.preferStaticEmulators = true;
+
+  specialisation.vfio-passthough.configuration = {
+    hardware.amdgpu.gpu-detatched.enable = true;
+    programs.qemu.vfio-passthough.enable = true;
+  };
+  specialisation.powersave.configuration = {
+    config.hardware.asus-zypherus-ga402.powersave = true;
+  };
 }
