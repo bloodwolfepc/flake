@@ -1,22 +1,39 @@
-{ config, lib, inputs, ... }: {
-  containers.hub-mc = {
+{ pkgs, config, lib, inputs, ... }: let
+  lib1 = pkgs.callPackage ./lib.nix { };
+in {
+  containers.vanilla-mc = {
     autoStart = true;
     ephemeral = true;
     privateNetwork = true;
     hostAddress = "192.168.100.3";
     localAddress = "192.168.100.13";
     forwardPorts = [
-      { containerPort = 25571; hostPort = 25571; }
-      { containerPort = 35581; hostPort = 25581; } 
+      { containerPort = 25590; hostPort = 25590; }
+      { containerPort = 35580; hostPort = 25580; } 
     ];
+    bindMounts."world" = {
+      hostPath = "/data/minecraft/vanilla-mc/world";
+      mountPoint = "/srv/minecraft/vanilla-mc/world";
+      isReadOnly = false;
+    };
+    bindMounts."world_nether" = {
+      hostPath = "/data/minecraft/vanilla-mc/world_nether";
+      mountPoint = "/srv/minecraft/vanilla-mc/world_nether";
+      isReadOnly = false;
+    };
+    bindMounts."world_the_end" = {
+      hostPath = "/data/minecraft/vanilla-mc/world_the_end";
+      mountPoint = "/srv/minecraft/vanilla-mc/world_the_end";
+      isReadOnly = false;
+    };
     config = { pkgs, ... }: {
       imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
       nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
       system.stateVersion = "24.05";
       networking = {
         firewall = { enable = true; allowedTCPPorts = [
-          25571
-          25581
+          25590
+          25580
         ];
       };
       useHostResolvConf = lib.mkForce false;
@@ -27,11 +44,11 @@
         eula = true;
         openFirewall = true;
         servers = {
-          "hub-mc" = {
+          "vanilla-mc" = {
             enable = true;
             package = pkgs.papermc;
             serverProperties = {
-              server-port = 25571;
+              server-port = 25590;
               gamemode = "survival";
               simulation-distance = 4;
               enable-rcon = true;
@@ -54,7 +71,8 @@
                   uuid = "2ea0c95d-1faf-4f7d-ba93-abe0462f5ec7";
                   level = 4;
                 }
-              ];
+              ]; 
+              "config/paper-global.yml" = ./refs/paper-global.yml;
             };
           };
         };

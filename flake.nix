@@ -1,4 +1,49 @@
 {
+	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
+	let 
+    inherit (self) outputs;
+		systems = [
+      "x86_64-linux"
+    ];
+		lib = nixpkgs.lib // home-manager.lib;
+    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
+		pkgsFor = lib.genAttrs systems (system: import nixpkgs {
+			inherit system;
+			config.allowUnfree = true;
+		});
+	in
+	{
+    inherit lib;
+      #lib' = import ./lib/lib2.nix (pkgs: { inherit pkgs; });
+    customNixosModules = import ./modules/nixos;
+    customHomeManagerModules = import ./modules/home-manager;
+    overlays = import ./overlays {inherit inputs outputs; };
+    customPackages = forEachSystem (pkgs: import ./packages { inherit pkgs; }); #outputs.customPackages.x86_64-linux.hello
+    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
+    #formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
+		nixosConfigurations = {
+      angel = lib.nixosSystem {
+        modules = [ ./nixos/angel ];
+        specialArgs = { inherit inputs outputs; };
+      };
+      navi = lib.nixosSystem {
+        modules = [ ./nixos/navi ];
+        specialArgs = { inherit inputs outputs; };
+      };
+    };
+    homeConfigurations = {
+      "bloodwolfe@angel" = lib.homeManagerConfiguration {
+        modules = [ ./home-manager/bloodwolfe/angel.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+      "bloodwolfe@navi" = lib.homeManagerConfiguration {
+        modules = [ ./home-manager/bloodwolfe/waterdreamer.nix ];
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+    };
+	};
   inputs = {
   	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hardware.url = "github:nixos/nixos-hardware";
@@ -81,48 +126,4 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-	outputs = inputs@{ self, nixpkgs, home-manager, ... }:
-	let 
-    inherit (self) outputs;
-		systems = [
-      "x86_64-linux"
-    ];
-		lib = nixpkgs.lib // home-manager.lib;
-    forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
-		pkgsFor = lib.genAttrs systems (system: import nixpkgs {
-			inherit system;
-			config.allowUnfree = true;
-		});
-	in
-	{
-    inherit lib;
-    customNixosModules = import ./modules/nixos;
-    customHomeManagerModules = import ./modules/home-manager;
-    overlays = import ./overlays {inherit inputs outputs; };
-    customPackages = forEachSystem (pkgs: import ./packages { inherit pkgs; });
-    devShells = forEachSystem (pkgs: import ./shell.nix { inherit pkgs; });
-    #formatter = forEachSystem (pkgs: pkgs.nixpkgs-fmt);
-		nixosConfigurations = {
-      angel = lib.nixosSystem {
-        modules = [ ./nixos/angel ];
-        specialArgs = { inherit inputs outputs; };
-      };
-      navi = lib.nixosSystem {
-        modules = [ ./nixos/navi ];
-        specialArgs = { inherit inputs outputs; };
-      };
-    };
-    homeConfigurations = {
-      "bloodwolfe@angel" = lib.homeManagerConfiguration {
-        modules = [ ./home-manager/bloodwolfe/angel.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-      "bloodwolfe@navi" = lib.homeManagerConfiguration {
-        modules = [ ./home-manager/bloodwolfe/waterdreamer.nix ];
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-    };
-	};
 }

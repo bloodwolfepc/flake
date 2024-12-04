@@ -3,6 +3,7 @@
     ../pc
     ../daw
     ../art
+    #../art2
     ../obs
     #../wine
     ../require

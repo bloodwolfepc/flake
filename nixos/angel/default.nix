@@ -43,4 +43,7 @@
   specialisation.powersave.configuration = {
     config.hardware.asus-zypherus-ga402.powersave = true;
   };
+  specialisation.networkmanager.configuration = {
+    services.networkmanager.enable = true;
+  };
 }
