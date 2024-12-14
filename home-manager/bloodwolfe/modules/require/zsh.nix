@@ -61,6 +61,8 @@
   
   		#cat-og = "${pkgs.cat}/bin/cat";
   		cat = "lolcat";
+      nia = "nix instantiate --eval";
+      nr = "nix repl";
   
   		#cd-og = "${pkgs.cd}/bin/cd";
   		cd = "z";

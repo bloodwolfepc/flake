@@ -5,7 +5,13 @@
 		systems = [
       "x86_64-linux"
     ];
-		lib = nixpkgs.lib // home-manager.lib;
+    #customLib = import ./lib { inherit (nixpkgs) lib; };
+    lib' = nixpkgs.lib // home-manager.lib;
+    lib = lib'.extend ( final: prev:
+      import ./lib {
+        lib = final;
+      }
+    );
     forEachSystem = f: lib.genAttrs systems (system: f pkgsFor.${system});
 		pkgsFor = lib.genAttrs systems (system: import nixpkgs {
 			inherit system;
@@ -13,8 +19,7 @@
 		});
 	in
 	{
-    inherit lib;
-      #lib' = import ./lib/lib2.nix (pkgs: { inherit pkgs; });
+    inherit lib; 
     customNixosModules = import ./modules/nixos;
     customHomeManagerModules = import ./modules/home-manager;
     overlays = import ./overlays {inherit inputs outputs; };
@@ -126,4 +131,5 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+  description = "bloodflake";
 }

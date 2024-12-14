@@ -2,8 +2,11 @@
   imports = [
     ../pc
     ../daw
-    ../art
+    #../art
     #../art2
+    ../krita
+    ../gimp
+    ../beeref
     ../obs
     #../wine
     ../require

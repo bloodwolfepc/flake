@@ -1,70 +1,68 @@
-{ pkgs, ... }: {
-  imports = [
-    ./hyprland.nix
-  ];
-  home.packages = with pkgs; [
-    #reaper
-    ardour
-    musescore
-    yabridge
-    yabridgectl
-    carla
-    sfizz
-    orca-c
-    csound
-    glicol-cli
-    puredata
-    plugdata
-    #zexy
-    #timbreid 
-    #maxlib 
-    #cyclone 
-    #faust
-    surge 
-    vital 
-    cardinal 
-    odin2
-    geonkick
-    x42-avldrums
-    freepats
-    drumgizmo
-    freepats
-    mda_lv2
-    airwindows-lv2
-    lsp-plugins
-    zam-plugins
-    x42-plugins
-    calf
-    CHOWTapeModel
-    ladspaPlugins
-    AMB-plugins
-    aether-lv2
-    gxplugins-lv2
-    guitarix
-    #soundux #removed due to being unmaintained
-    #distrho #includes vitalium and juce #broke
-    supercollider
-    airwindows-lv2
-    tap-plugins
-    zynaddsubfx
-    #helm #broke
-    x42-gmsynth
-    yoshimi
-    eq10q
-    sonobus
-    coppwr
-    neothesia
-    
-    #UNPACKAGED
-    #wolf-spectrum
-    
-    zrythm
-    soundfont-fluid
-    #openutau
-    wolf-shaper
-  ];
-	home.persistence."/sync/home/bloodwolfe" = {
-		directories = [
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "daw";
+    packages = with pkgs; [
+      ardour
+      musescore
+      yabridge
+      yabridgectl
+      carla
+      sfizz
+      orca-c
+      csound
+      glicol-cli
+      puredata
+      plugdata
+      #zexy
+      #timbreid 
+      #maxlib 
+      #cyclone 
+      #faust
+      surge 
+      vital 
+      cardinal 
+      odin2
+      geonkick
+      x42-avldrums
+      freepats
+      drumgizmo
+      freepats
+      mda_lv2
+      airwindows-lv2
+      lsp-plugins
+      zam-plugins
+      x42-plugins
+      calf
+      CHOWTapeModel
+      ladspaPlugins
+      AMB-plugins
+      aether-lv2
+      gxplugins-lv2
+      guitarix
+      #soundux #removed due to being unmaintained
+      #distrho #includes vitalium and juce #broke
+      supercollider
+      airwindows-lv2
+      tap-plugins
+      zynaddsubfx
+      #helm #broke
+      x42-gmsynth
+      yoshimi
+      eq10q
+      sonobus
+      coppwr
+      neothesia
+      
+      #UNPACKAGED
+      #wolf-spectrum
+      
+      zrythm
+      soundfont-fluid
+      #openutau
+      wolf-shaper
+
+    ];
+    syncDirs = [
       ".local/share/vital" #~/.local/share/vital/User/{Wavetables,Presets}
       ".config/falkTX" 
       ".config/ardour8"
@@ -72,7 +70,7 @@
       ".config/MuseScore"
       ".local/share/MuseScore"
       ".cache/MuseScore"
-      ".local/share/OpenUtau" #sync me
+      ".local/share/OpenUtau"
 
       "ardour"
       "vital"
@@ -82,5 +80,15 @@
       "sheetmusic"
       "soundfiles"
     ];
-  };
+    extraConfig = {
+      wayland.windowManager.hyprland = {
+        settings.windowrulev2 = [
+          "noinitialfocus , xwayland:1" #fixes draggables in ardour
+        ];
+      };
+    };
+    inherit config;
+  }; 
+in {
+  inherit (attrs) options config;
 }

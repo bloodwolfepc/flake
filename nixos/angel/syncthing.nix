@@ -13,8 +13,8 @@
   };
   imports = [
     ../modules/networking/syncthing.nix
-    ../../home-manager/bloodwolfe/modules/daw/syncthing.nix
-    ../../home-manager/bloodwolfe/modules/art/syncthing.nix
+    #../../home-manager/bloodwolfe/modules/daw/syncthing.nix
+    #../../home-manager/bloodwolfe/modules/art/syncthing.nix
     ../../home-manager/bloodwolfe/modules/obs/syncthing.nix
     ../../home-manager/bloodwolfe/modules/require/syncthing.nix
     ../modules/extra-modules/android-syncthing.nix 

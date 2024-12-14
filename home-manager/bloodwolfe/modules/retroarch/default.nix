@@ -1,20 +1,21 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    (retroarchFull.override {
-      cores = with libretro; [
-        play
-        swanstation
-        pcsx-rearmed
-        beetle-psx
-        snes9x
-        pcsx2
-        dolphin
-        desmume
-        bsnes
-        nxengine #cave story
-        dosbox
-      ];
-    })
+    retroarchFull
+    #(retroarchFull.override {
+    #  cores = with libretro; [
+    #    play
+    #    swanstation
+    #    pcsx-rearmed
+    #    beetle-psx
+    #    snes9x
+    #    pcsx2
+    #    dolphin
+    #    desmume
+    #    bsnes
+    #    nxengine #cave story
+    #    dosbox
+    #  ];
+    #})
     retroarch-assets
     retroarch-joypad-autoconfig
   ];

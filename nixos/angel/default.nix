@@ -40,10 +40,11 @@
     hardware.amdgpu.gpu-detatched.enable = true;
     programs.qemu.vfio-passthough.enable = true;
   };
-  specialisation.powersave.configuration = {
-    config.hardware.asus-zypherus-ga402.powersave = true;
-  };
-  specialisation.networkmanager.configuration = {
-    services.networkmanager.enable = true;
-  };
+  #specialisation.powersave.configuration = {
+  #  config.hardware.asus-zypherus-ga402.powersave = true;
+  #};
+  #specialisation.networkmanager.configuration = {
+  #  networking.networkmanager.enable = true;
+  #};
+  networking.networkmanager.enable = lib.mkForce false;
 }
