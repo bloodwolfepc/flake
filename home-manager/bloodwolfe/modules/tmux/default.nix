@@ -1,0 +1,70 @@
+#TODO extra configuration, start from 1
+
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "tmux";
+    inherit config;
+    inherit extraConfig;
+  }; 
+  extraConfig = {
+    programs.tmux = {
+      enable = true;
+      shell = "${pkgs.zsh}/bin/zsh";
+      terminal = "screen-256color";
+      historyLimit = 100000;
+      clock24 = true;
+      keyMode = "vi";
+      prefix = "C-Space";
+      disableConfirmationPrompt = true;
+      mouse = false;
+      tmuxinator.enable = true;
+      sensibleOnTop = true;
+      plugins = with pkgs.tmuxPlugins; [
+        vim-tmux-navigator
+        tmux-thumbs
+        tmux-fzf
+        fzf-tmux-url
+        fuzzback
+        extrakto
+        {
+          plugin = yank;
+          extraConfig = ''
+            set-window-option -g mode-keys vi
+
+            bind-key -T copy-mode-vi v send-keys -X begin-selection
+            bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+            bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+          '';
+        }
+        {
+          plugin = resurrect;
+          extraConfig = "set -g @resurrect-startegy-nvim 'session'";
+        }
+        {
+          plugin = continuum;
+          extraConfig = ''
+            set -g @continuum-restore 'on'
+            set -g @continuum-save-interval '30'
+          '';
+        }
+
+        ];
+      extraConfig = ''
+        unbind %
+        bind b split-window -h -c "{pane_current_path}"
+        unbind '"'
+        bind v split-window -v -c "{pane_current_path}"
+
+        bind -r j resize-pane -D 5
+        bind -r k resize-pane -U 5
+        bind -r l resize-pane -R 5
+        bind -r h resize-pane -L 5
+        bind -r m resize-pane -Z
+
+        set -g status off
+      '';
+    };
+  };
+in {
+  inherit (attrs) options config;
+}

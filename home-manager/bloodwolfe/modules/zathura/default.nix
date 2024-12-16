@@ -1,12 +1,14 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    zathura
-    xournalpp
-  ];
-  home.persistence."/sync/home/bloodwolfe" = {
-    directories = [
-      ".local/share/zathura"
-      ".config/xournalpp"
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "gimp";
+    packages = with pkgs; [
+      zathura
     ];
-  };
+    syncDirs = [
+      ".local/share/zathura"
+    ];
+    inherit config;
+  }; 
+in {
+  inherit (attrs) options config;
 }

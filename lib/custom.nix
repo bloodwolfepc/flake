@@ -30,8 +30,14 @@ rec {
   mkHomeApplication = args:
     mkApplication (args // {type = "home"; });
 
+  #use a command field, and use that commnad in a submapping, also pass the submap as an arg
+  #use a special key to launch programs
+  #add a colision safety check between sync and persist arrays
+  #allow persist and sync files, use the krita method to sync special files
   mkApplication = {
     name ? throw "No name given.",
+    command,
+    key,
     type ? "host",
     attrSpace ? "bwcfg",
     packages ? [ ],
@@ -39,8 +45,10 @@ rec {
     extraHomeConfig ? { },
     extraOpts ? { },
     peristDirs ? [ ],
+    persistFiles ? [ ],
     persistRootDir ? "/persist",
     syncDirs ? [ ],
+    syncFiles ? [ ],
     syncRootDir ? "/sync",
     syncDefaultDevices ? [ "navi" "angel" ],
     syncExtraDevices ? [ ],

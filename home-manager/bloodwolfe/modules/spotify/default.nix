@@ -1,11 +1,14 @@
-{ pkgs, ... }: {
-  imports = [ ./hyprland.nix ];
-  home.packages = with pkgs; [
-    spotify
-  ];
-	home.persistence."/persist/home/bloodwolfe" = {
-    directories = [ 
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "spotify";
+    packages = with pkgs; [
+      spotify
+    ];
+    persistDirs = [
       ".config/spotify"
     ];
-  };
+    inherit config;
+  }; 
+in {
+  inherit (attrs) options config;
 }

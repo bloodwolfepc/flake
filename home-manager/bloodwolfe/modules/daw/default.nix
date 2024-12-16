@@ -2,6 +2,12 @@
   attrs = lib.custom.mkHomeApplication {
     name = "daw";
     packages = with pkgs; [
+
+      cli-visualizer
+      playerctl
+      pavucontrol
+      qpwgraph
+
       ardour
       musescore
       yabridge

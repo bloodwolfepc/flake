@@ -1,3 +1,0 @@
-{
-  programs.htop.enable = true;
-}

@@ -1,8 +1,8 @@
 
-[header-image]: https://github.com/bloodwolfepc/config/assets/repo/2024-11-29T01:52:31,417312002-06:00.png
+[header-image] https://github.com/bloodwolfepc/config/blob/master/assets/repo/2024-11-29T01%3A52%3A31%2C417312002-06%3A00.png
 ![alt text][header-image]
 
-˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖ ˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖
+˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖ ˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧⁺˖˖⁺‧₊˚♡˚₊‧
 
 # Nixos Configurations
 
@@ -16,11 +16,9 @@
 
 ### Notes
 
-Roughly each Home Manager configuration has attributes to enable
-itself plus syncthing with a list of dirs for an applications directores.
+Each Home Manager configuration has attributes to enable
+itself plus syncthing with a list of dirs for an applications directores and some other stuff
 I use this in tandem with the impermanence module on a btrfs subvolume called sync which exists on each host.
-
-
 
 > This repo is based heavily on [the nix config by Misterio77](https://github.com/Misterio77/nix-config).
   

@@ -1,14 +1,21 @@
-{ pkgs, ... }: {
-  programs.taskwarrior = { 
-    enable = true; 
-    package = pkgs.taskwarrior3;
-    #config = { };
-    #extraconfig = { };
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "taskwarrior";
+    packages = with pkgs; [
+      taskwarrior-tui
+    ]; 
+    syncDirs = [
+      ".config/task" #TODO should only worry about taskrc
+    ];
+    inherit config;
+    inherit extraConfig;
+  }; 
+  extraConfig = {
+    programs.taskwarrior = { 
+      enable = true; 
+      package = pkgs.taskwarrior3;
+    };
   };
-  #sessionVariables = {
-  #  TASKRC = "${config.home.homeDirectory}/.config/taskwarrior/.taskrc";
-  #};
-  home.packages = with pkgs; [
-    taskwarrior-tui
-  ];
+in {
+  inherit (attrs) options config;
 }

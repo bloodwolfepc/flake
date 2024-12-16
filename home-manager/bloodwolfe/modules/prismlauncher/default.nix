@@ -1,28 +1,30 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    (prismlauncher.override {
-      jdks = [ jdk jdk17 jdk8 ];
-      gamemodeSupport = true;
-    })
-    ferium
-    packwiz
-  ];
-  home.persistence."/sync/home/bloodwolfe" = {
-    directories = [
-      ".local/share/PrismLauncher/instances"
+{ lib, config, pkgs, ... }: let 
+  attrs = lib.custom.mkHomeApplication {
+    name = "prismlauncher";
+    packages  = with pkgs; [
+      (prismlauncher.override {
+        jdks = [ jdk jdk17 jdk8 ];
+        gamemodeSupport = true;
+      })
+      ferium
+      packwiz
+    ];
+    syncDirs = [
+      ".local/share/PrismLauncher/instances" #TODO create a symlink for ease of access
       ".config/ferium"
       ".local/share/packwiz"
     ];
-  };
-	home.persistence."/persist/home/bloodwolfe" = {
-		directories = [
+    persistDirs = [
       ".local/share/PrismLauncher/libraries"
       ".local/share/PrismLauncher/assets"
     ];
-    files = [
+    persistFiles = [
       ".local/share/PrismLauncher/prismlauncher.cfg"
       ".local/share/PrismLauncher/accounts.json"
       ".local/share/PrismLauncher/metacache"
     ];
-  };
+    inherit config;
+  }; 
+in {
+  inherit (attrs) options config;
 }
