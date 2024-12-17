@@ -24,7 +24,6 @@
       bindi = , SPACE, togglefloating
       bindi = , v, fullscreen
       bindi = , x, killactive
-      ${builtins.toString config.globals.passOneshots}
     submap = escape
     submap = POSITION
       bindi = , ${config.kb_RIGHT}, movewindow, r

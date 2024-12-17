@@ -87,7 +87,7 @@ rec {
       wayland.windowManager.hyprland = mkIf (config.wayland.windowManager.hyprland.enable && cfg.enable) {#mkIf key != null {#(config.${attrSpace}.hyperland.enable && key != null) {
         extraConfig = lib.mkBefore ''
           submap = EXEC
-            bindi = , ${key} submap , EXEC_${name}
+            bindi = , ${key}, submap , EXEC_${name}
           submap = escape
           submap = EXEC_${name}    
 	          bindi = , ${config.kb_RIGHT}, layoutmsg, preselect r
@@ -98,7 +98,7 @@ rec {
 	          bindi = , ${config.kb_DOWN}, exec, ${command}
 	          bindi = , ${config.kb_UP}, exec, ${command}
 	          bindi = , ${config.kb_LEFT}, exec, ${command}
-            ${builtins.toString config.globals.passOneshots};
+            source = ${config.globals.passOneshots}
           submap = escape
           submap = EXEC_WS
             bindi = , ${key}, workspace, name:${name}

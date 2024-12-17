@@ -11,14 +11,14 @@
     lib.concatStringsSep "\n" (map (key: "bindi = , ${key}, submap, ${escape-to-mode}") keys);
   passOneshots = pkgs.writeText "passOneshots" mkOneShots;
   submaps = [
-    "EXEC" "WS" "EXEC_WS" "TERM" "MIGRATE"
+     "WS" "EXEC_WS" "TERM" "MIGRATE"
     "POSITION" "REC" "MONITOR" "RESIZE"
   ];
   mkSubmap = map: ''
     submap = ${map}
       bindi = ${config.kb_INS}, submap, INS
       bindi = ${config.kb_NML}, submap, NML
-      ${builtins.toString passOneshots}
+      source = ${passOneshots}
     submap = escape
   '';
 in {
@@ -31,6 +31,13 @@ in {
       settings = lib.mkBefore { };
       extraConfig = lib.mkAfter ''
         ${lib.concatStringsSep "\n" (map mkSubmap submaps)}
+        submap = NML
+          source = ${config.globals.passOneshots}
+        submap = escape
+        submap = EXEC
+          bindi = ${config.kb_INS}, submap, INS
+          bindi = ${config.kb_NML}, submap, NML
+        submap = escape
       '';
     };
   };

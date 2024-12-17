@@ -48,6 +48,7 @@
           "wireplumber"
           "fcitx5"
           "wezterm"
+          "alacritty"
           "xdg"
         ];
         srv-progs = [
@@ -93,7 +94,6 @@
           "bitwarden"
           "lf" 
           "qutebrowser"
-          "alacirtty"
           "freecad"
           "godot"
           "freecad"

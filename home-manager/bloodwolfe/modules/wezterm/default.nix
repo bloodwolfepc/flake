@@ -2,7 +2,7 @@
   attrs = lib.custom.mkHomeApplication {
     name = "wezterm";
     command = "${pkgs.wezterm}/bin/wezterm";
-    key = "t";
+    key = "w";
     inherit config;
     inherit extraConfig;
   }; 
