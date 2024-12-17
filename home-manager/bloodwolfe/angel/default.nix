@@ -44,7 +44,6 @@
         bindi = ,s, focusmonitor, desc:Sceptre Tech Inc Sceptre F24 0x00000001
       submap = escape
     '';
-      sops.defaultSopsFile = ../../../secrets/secrets.yaml;
     sops.secrets = {
       "syncthing-key-angel" = { };
       "syncthing-cert-angel" = { };
