@@ -5,8 +5,8 @@
 
   attrs = lib.custom.mkHomeApplication {
     name = "steam";
-    key = "s";
-    command = "${pkgs.wezterm}/bin/wezterm";
+    key = "g";
+    command = "${pkgs.alacritty}/bin/alacritty --command tmux";
     persistDirs = [
       ".local/share/Steam"
     ];

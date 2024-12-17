@@ -37,11 +37,6 @@
     }) enable.list );
   in {
     inherit bwcfg;
-    #bwcfg.appimages.enable = true;
-    #bwcfg.sops.enable = true;
-    #bwcfg.hyprland.enable = true;
-    #bwcfg.impermanence.enable = true;
-
     wayland.windowManager.hyprland.extraConfig = ''
       submap = MONITOR
         bindi = ,f, focusmonitor, desc:Microstep MSI G241 0x000005ED

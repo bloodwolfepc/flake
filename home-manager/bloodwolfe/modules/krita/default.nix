@@ -7,10 +7,11 @@
     syncDirs = [
       "krita"
       ".local/share/krita" 
-      ".config/DIR-kritarc"
-      ".config/DIR-kritadisplayrc"
     ];
-    #inherit extraHomeConfig;
+    syncFiles = [
+      ".config/kritarc"
+      ".config/kritadisplayrc"
+    ];
     inherit config;
   }; 
   #extraHomeConfig = cfg : {

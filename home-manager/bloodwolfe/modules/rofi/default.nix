@@ -4,6 +4,8 @@
 { lib, config, pkgs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
     name = "rofi";
+    key = "e";
+    command = "${pkgs.rofi}/bin/rofi -show run";
     inherit config;
     inherit extraConfig;
   }; 

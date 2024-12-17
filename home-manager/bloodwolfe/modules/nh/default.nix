@@ -15,7 +15,7 @@
   extraConfig = {
     programs.nh = {
       enable = true;
-      flake = "${config.home.homeDirectory}src/config";
+      flake = "${config.home.homeDirectory}/src/config";
       clean = {
         enable = true;
         extraArgs = "--keee-since 4d --keep 3";

@@ -69,7 +69,7 @@ rec {
         then extraHomeConfig cfg
         else extraHomeConfig
       );
-      allSyncDevices = syncDefaultDevices ++ syncExtraDevices;
+      #allSyncDevices = syncDefaultDevices; #++ syncExtraDevices;
       mkSyncthingAttrs' = mkSyncthingAttrs { inherit config; };
   in {
     inherit (applicationOptions) options;
@@ -79,9 +79,9 @@ rec {
         persist.enable = mkDefault false;
         sync.enable = mkDefault false;
       };
-      services.syncthing = { #mkIf (cfg.sync.enable && cfg.enable && syncDirs != [ ]) {
+      services.syncthing = mkIf (cfg.sync.enable && cfg.enable && syncDirs != [ ]) {
         settings.folders = mkSyncthingAttrs 
-          allSyncDevices 
+          syncDefaultDevices 
           (map (dir: "${config.home.homeDirectory}/${dir}") syncDirs);
       };
       wayland.windowManager.hyprland = mkIf (config.wayland.windowManager.hyprland.enable && cfg.enable) {#mkIf key != null {#(config.${attrSpace}.hyperland.enable && key != null) {
@@ -121,10 +121,11 @@ rec {
             files = syncFiles;
           };
         };
-        file = (#mkIf cfg.enable (
-          mkMerge (map (syncFile: {
-            "${syncFile}".source = config.lib.file.mkOutOfStoreSymlink
-              "${syncRootDir}${config.home.homeDirectory}/.extra-syncs/${syncFile}";
+        file = (
+          mkMerge (map (syncPath: {
+            "${syncPath}".source = mkForce (config.lib.file.mkOutOfStoreSymlink
+              "${syncRootDir}${config.home.homeDirectory}/.extra-syncs/DIR-${baseNameOf syncPath}/${syncPath}"
+            );
           }) syncFiles)
         );
       };

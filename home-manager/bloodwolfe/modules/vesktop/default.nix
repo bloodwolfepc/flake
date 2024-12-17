@@ -2,11 +2,11 @@
   attrs = lib.custom.mkHomeApplication {
     name = "vesktop";
     key = "d";
-    command = "${pkgs.vesktop}/bin/vesktop}";
+    command = "${pkgs.vesktop}/bin/vesktop";
     packages = with pkgs; [
       vesktop
     ];
-    syncDirs = [
+    persistDirs = [
       ".config/vesktop"
     ];
     inherit config;
