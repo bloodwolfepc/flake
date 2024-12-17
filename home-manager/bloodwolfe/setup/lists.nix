@@ -13,13 +13,13 @@
     globals = {
       list = {
         require-nixos = [
-          "impermance"
+          "impermanence"
           "ssh"
           "syncthing"
           "ripgrep"
           "src"
           "gpg"
-          "sops-nix"
+          "sops"
         ];
         require-hm = [
           "thefuck"
@@ -34,7 +34,7 @@
           "fd"
           "yazi"
           "nh"
-          "staging"
+          #"staging"
           "stylix"
         ];
         require-pc = [
@@ -58,7 +58,7 @@
           "kdeconnect"
           "sgpt"
           "feh"
-          "nix-serv"
+          #"nix-serv"
           "nix-index"
           "appimages"
           "flatpak"

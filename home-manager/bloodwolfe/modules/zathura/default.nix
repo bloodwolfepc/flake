@@ -1,6 +1,6 @@
 { lib, config, pkgs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
-    name = "gimp";
+    name = "zathura";
     packages = with pkgs; [
       zathura
     ];

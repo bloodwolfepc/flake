@@ -31,7 +31,7 @@
     };
     sops.secrets = {
       "syncthing-password" = {
-        owner = "syncthing";
+        #owner = "syncthing";
       };
     };
   };

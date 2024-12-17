@@ -22,7 +22,7 @@
     ./htop
     ./hyfetch
     ./hyprland
-    ./impermance
+    ./impermanence
     ./kdeconnect
     ./kdenlive
     ./khal

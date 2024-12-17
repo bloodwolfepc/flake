@@ -36,11 +36,11 @@
       inherit (enable) value;
     }) enable.list );
   in {
-    #inherit bwcfg;
-    bwcfg.appimages.enable = true;
-    bwcfg.sops.enable = true;
-    bwcfg.hyprland.enable = true;
-    bwcfg.impermanence.enable = true;
+    inherit bwcfg;
+    #bwcfg.appimages.enable = true;
+    #bwcfg.sops.enable = true;
+    #bwcfg.hyprland.enable = true;
+    #bwcfg.impermanence.enable = true;
 
     wayland.windowManager.hyprland.extraConfig = ''
       submap = MONITOR

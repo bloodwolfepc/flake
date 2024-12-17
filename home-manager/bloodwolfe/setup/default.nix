@@ -1,10 +1,6 @@
 { inputs, outputs, lib, pkgs, ... }: {
   imports = [ 
     ../modules
-    #../modules/appimages
-    #../modules/sops
-    #../modules/hyprland
-    #../modules/impermance
     ./lists.nix
   ] 
   ++ (builtins.attrValues outputs.customHomeManagerModules)

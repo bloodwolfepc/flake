@@ -92,7 +92,7 @@ rec {
 	          bindi = , ${config.kb_DOWN}, exec, ${command}
 	          bindi = , ${config.kb_UP}, exec, ${command}
 	          bindi = , ${config.kb_LEFT}, exec, ${command}
-            ${config.globals.passOneshots};
+            ${builtins.toString config.globals.passOneshots};
           submap = escape
           submap = EXEC_WS
             bindi = , ${key}, workspace, name:${name}
