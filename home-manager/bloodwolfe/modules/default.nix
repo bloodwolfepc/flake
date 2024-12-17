@@ -67,7 +67,7 @@
     ./vesktop
     ./virtual-manager
     ./waybar
-    ./westerm
+    ./wezterm
     ./wine
     ./wireplumber
     ./wl-crosshair

@@ -47,7 +47,7 @@
           "cliphist"
           "wireplumber"
           "fcitx5"
-          "westerm"
+          "wezterm"
           "xdg"
         ];
         srv-progs = [

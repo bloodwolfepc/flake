@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
-    name = "westerm";
-    command = "${pkgs.westerm}/bin/westerm";
+    name = "wezterm";
+    command = "${pkgs.wezterm}/bin/wezterm";
     key = "t";
     inherit config;
     inherit extraConfig;

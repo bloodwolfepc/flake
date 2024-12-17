@@ -1,11 +1,11 @@
 { lib, config, pkgs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
     name = "syncthing";
-    packages = [
-      (lib.writeShellScriptBin "syncthing-gen-config" ''
-        ${pkgs.syncthing}/bin/syncthing -generate=myconfig
+    packages = with pkgs;[
+      (writeShellScriptBin "syncthing-gen-config" ''
+        ${syncthing}/bin/syncthing -generate=myconfig
       '')
-      pkgs.syncthing
+      syncthing
     ];
     inherit config;
     inherit extraConfig;

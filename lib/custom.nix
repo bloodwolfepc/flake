@@ -3,11 +3,14 @@
   with lib;
 rec {
   #inherit (builtins) attrNames listToAttrs hasAttr isAttrs getAttr removeAttrs intersectAttrs;
-  mkSyncthingAttrs = devices: dirs: genAttrs dirs (dir: { dir = {
+  mkSyncthingAttrs = devices: dirs: genAttrs dirs (dir: let
     path = dir;
-    inherit devices;
-    ignorePerms = true;
-  };});
+  in {
+    dir = {
+      inherit devices path;
+      ignorePerms = true;
+    };
+  });
   #add a colision safety check between sync and persist arrays
   #allow for making imports
 
@@ -67,16 +70,19 @@ rec {
         else extraHomeConfig
       );
       allSyncDevices = syncDefaultDevices ++ syncExtraDevices;
+      mkSyncthingAttrs' = mkSyncthingAttrs { inherit config; };
   in {
     inherit (applicationOptions) options;
-    config = {#mkIf cfg.enable {
+    config = mkMerge [{#mkIf cfg.enable { 
       ${attrSpace}.${name} = {
         enable = mkDefault false;
         persist.enable = mkDefault false;
         sync.enable = mkDefault false;
       };
-      services.syncthing = mkIf (cfg.sync.enable && cfg.enable && syncDirs != [ ]) {
-        settings.folders = mkSyncthingAttrs allSyncDevices syncDirs;
+      services.syncthing = { #mkIf (cfg.sync.enable && cfg.enable && syncDirs != [ ]) {
+        settings.folders = mkSyncthingAttrs 
+          allSyncDevices 
+          (map (dir: "${config.home.homeDirectory}/${dir}") syncDirs);
       };
       wayland.windowManager.hyprland = mkIf (config.wayland.windowManager.hyprland.enable && cfg.enable) {#mkIf key != null {#(config.${attrSpace}.hyperland.enable && key != null) {
         extraConfig = lib.mkBefore ''
@@ -105,23 +111,23 @@ rec {
       };
       home = {#(mkIf type == home) {
         inherit packages;
-        persistence = mkIf cfg.enable {
-          "${persistRootDir}${config.home.homeDirectory}" = mkIf cfg.persist.enable {
+        persistence = {#mkIf cfg.enable {
+          "${persistRootDir}${config.home.homeDirectory}" = { #mkIf cfg.persist.enable {
             directories = persistDirs;
             files = persistFiles;
           };
-          "${syncRootDir}${config.home.homeDirectory}" = mkIf cfg.sync.enable {
+          "${syncRootDir}${config.home.homeDirectory}" = { #mkIf cfg.sync.enable {
             directories = syncDirs;
             files = syncFiles;
           };
         };
-        file = mkIf cfg.enable (
+        file = (#mkIf cfg.enable (
           mkMerge (map (syncFile: {
             "${syncFile}".source = config.lib.file.mkOutOfStoreSymlink
               "${syncRootDir}${config.home.homeDirectory}/.extra-syncs/${syncFile}";
           }) syncFiles)
         );
-      } // extraHomeConfig;
-    } // extraConfig';
+      };
+    } extraConfig];
   };
 }

@@ -2,7 +2,7 @@
   attrs = lib.custom.mkHomeApplication {
     name = "godot";
     packages = with pkgs; [
-      godot
+      godot_4
     ];
     syncDirs = [
       "godot"
