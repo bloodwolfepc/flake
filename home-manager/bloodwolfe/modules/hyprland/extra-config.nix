@@ -1,5 +1,5 @@
 { config, lib, pkgs, ... }: {
-  extraConfig = lib.mkBefore ''
+  wayland.windowManager.hyprland.extraConfig = lib.mkBefore ''
     submap = INS
       bind = , ${config.kb_NML}, submap, NML
     submap = escape

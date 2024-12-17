@@ -38,12 +38,12 @@
     };
     homeConfigurations = {
       "bloodwolfe@angel" = lib.homeManagerConfiguration {
-        modules = [ ./home-manager/bloodwolfe/angel.nix ];
+        modules = [ ./home-manager/bloodwolfe/angel ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };
       "bloodwolfe@navi" = lib.homeManagerConfiguration {
-        modules = [ ./home-manager/bloodwolfe/waterdreamer.nix ];
+        modules = [ ./home-manager/bloodwolfe/navi ];
         pkgs = pkgsFor.x86_64-linux;
         extraSpecialArgs = { inherit inputs outputs; };
       };

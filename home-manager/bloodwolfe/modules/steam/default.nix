@@ -5,6 +5,8 @@
 
   attrs = lib.custom.mkHomeApplication {
     name = "steam";
+    key = "s";
+    command = "${pkgs.westerm}/bin/westerm";
     persistDirs = [
       ".local/share/Steam"
     ];

@@ -2,6 +2,8 @@
 { lib, config, pkgs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
     name = "firefox";
+    key = "f";
+    command = "${pkgs.firefox}/bin/firefox";
     persistDirs = [
       ".mozilla"
       ".cache/mozilla"

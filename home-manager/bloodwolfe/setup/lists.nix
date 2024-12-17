@@ -1,4 +1,14 @@
-{
+{ lib, ... }: {
+  options.globals.list = {
+    require-nixos = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    require-hm = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    require-pc = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    srv-progs = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    used-progs = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    gaming-progs = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    workstation-progs = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+    unused-progs = lib.mkOption { type = lib.types.listOf lib.types.str; default = [ ]; };
+  }; 
   config = {
     globals = {
       list = {
@@ -28,7 +38,7 @@
           "stylix"
         ];
         require-pc = [
-          "hyperland"
+          "hyprland"
           "rofi"
           "swaync"
           "waybar"

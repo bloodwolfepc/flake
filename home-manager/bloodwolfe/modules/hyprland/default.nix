@@ -27,10 +27,29 @@
       enable = true;
       systemd.enable = true;
       xwayland.enable = true;
-      settings = (import ./settings.nix).settings;
-      extraConfig = (import ./extra-config.nix).extraConfig;
+    };
+    xdg = {
+      enable = true;
+      portal = let
+        hyprland = config.wayland.windowManager.hyprland.package;
+      in {
+        enable = true;
+        configPackages = [
+          hyprland
+        ];
+        extraPortals = with pkgs; [ 
+          xdg-desktop-portal-hyprland
+	        xdg-desktop-portal-wlr
+	        xdg-desktop-portal-gtk
+        ];
+      };
     };
   };
 in {
   inherit (attrs) options config;
+  imports = [
+    ./settings.nix
+    ./extra-config.nix
+    ./modesetting.nix
+  ];
 }

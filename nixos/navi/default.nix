@@ -3,7 +3,7 @@
     [       
       #TODO nixos hardware modules
       ./hardware-configuration.nix
-      ./syncthing.nix
+      #./syncthing.nix
       ./borg.nix
       ../modules/preset/server.nix
       ../modules/users/bloodwolfe

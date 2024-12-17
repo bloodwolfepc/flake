@@ -16,17 +16,22 @@
   ];
   mkSubmap = map: ''
     submap = ${map}
-      bindi = ${config.kb_ISN}, submap, INS
+      bindi = ${config.kb_INS}, submap, INS
       bindi = ${config.kb_NML}, submap, NML
     submap = escape
   '';
-  #${passOneshots}
 in {
-  wayland.windowManager.hyprland = {
-    settings = lib.mkBefore { };
-    extraConfig = lib.mkAfter ''
-      ${lib.concatStringsSet "\n" (map mkSubmap submaps)}
-    '';
+  options.globals.passOneshots = lib.mkOption {
+    type = lib.types.str;
+    default = passOneshots;
+  };
+  config = {
+    wayland.windowManager.hyprland = {
+      settings = lib.mkBefore { };
+      extraConfig = lib.mkAfter ''
+        ${lib.concatStringsSep "\n" (map mkSubmap submaps)}
+      '';
+    };
   };
 }
       

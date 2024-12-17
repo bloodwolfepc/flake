@@ -13,35 +13,19 @@
     inherit extraConfig;
   }; 
   extraConfig = {
-    xdg = {
+    xdg.userDirs = let 
+      me = config.home.homeDirectory;
+    in {
       enable = true;
-      portal = let
-        hyprland = config.wayland.windowManager.hyprland.package;
-      in {
-        enable = true;
-        configPackages = [
-          hyprland
-        ];
-        extraPortals = with pkgs; [ 
-          xdg-desktop-portal-hyprland
-	        xdg-desktop-portal-wlr
-	        xdg-desktop-portal-gtk
-        ];
-      };
-      userDirs = let 
-        me = config.home.homeDirectory;
-      in {
-        enable = true;
-        createDirectories = false;
-        desktop = "${me}/desktop";
-        documents = "${me}/documents";
-        download = "${me}/downloads";
-        music = "${me}/music";
-        pictures = "${me}/pictures";
-        videos = "${me}/videos";
-        extraConfig = {
-          XDG_SCREENSHOTS_DIR = "${me}/snips";
-        };
+      createDirectories = false;
+      desktop = "${me}/desktop";
+      documents = "${me}/documents";
+      download = "${me}/downloads";
+      music = "${me}/music";
+      pictures = "${me}/pictures";
+      videos = "${me}/videos";
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${me}/snips";
       };
     }; 
   };

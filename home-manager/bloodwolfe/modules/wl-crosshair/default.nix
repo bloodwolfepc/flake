@@ -1,4 +1,4 @@
-{ lib, config, pkgs, inputs ... }: let 
+{ lib, config, pkgs, inputs, ... }: let 
   attrs = lib.custom.mkHomeApplication {
     name = "wl-crosshair";
     packages = [

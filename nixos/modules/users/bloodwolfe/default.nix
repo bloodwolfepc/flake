@@ -29,6 +29,6 @@
     ];
   };
 
-  home-manager.users.bloodwolfe = import ../../../../home-manager/bloodwolfe/${config.networking.hostName}.nix;
+  home-manager.users.bloodwolfe = import ../../../../home-manager/bloodwolfe/${config.networking.hostName};
 }
 

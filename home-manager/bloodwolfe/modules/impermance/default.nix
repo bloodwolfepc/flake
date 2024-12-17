@@ -2,13 +2,13 @@
   attrs = lib.custom.mkHomeApplication {
     name = "impermanence";
     inherit config;
-    inherit extraHomeConfig;
+    inherit extraConfig;
   }; 
-  extraHomeConfig = {
-    persistence."/sync/home/bloodwolfe" = {
+  extraConfig = {
+    home.persistence."/sync/home/bloodwolfe" = {
       allowOther = true;
     };
-    persistence."/persist/home/bloodwolfe" = {
+    home.persistence."/persist/home/bloodwolfe" = {
       allowOther = true;
     };
   };

@@ -6,10 +6,10 @@
       inputs.nixvim.packages.x86_64-linux.default 
     ];
     inherit config;
-    inherit extraHomeConfig;
+    inherit extraConfig;
   }; 
-  extraHomeConfig = {
-    sessionVariables = {
+  extraConfig = {
+    home.sessionVariables = {
       EDITOR = "nvim";
     };
   };

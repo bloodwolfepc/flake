@@ -8,13 +8,15 @@ rec {
     inherit devices;
     ignorePerms = true;
   };});
+  #add a colision safety check between sync and persist arrays
+  #allow for making imports
 
   mkApplicationOptions = {
     name,
     attrSpace ? "bwcfg",
     extraOpts ? {}
   }: {
-    options = rec {
+    options = {
       ${attrSpace}.${name} = {
         enable = mkEnableOption "enable ${attrSpace} ${name}";
         persist = {
@@ -30,21 +32,17 @@ rec {
   mkHomeApplication = args:
     mkApplication (args // {type = "home"; });
 
-  #use a command field, and use that commnad in a submapping, also pass the submap as an arg
-  #use a special key to launch programs
-  #add a colision safety check between sync and persist arrays
-  #allow persist and sync files, use the krita method to sync special files
   mkApplication = {
     name ? throw "No name given.",
-    command,
-    key,
+    command ? "null",
+    key ? "null",
     type ? "host",
     attrSpace ? "bwcfg",
     packages ? [ ],
     extraConfig ? { },
     extraHomeConfig ? { },
     extraOpts ? { },
-    peristDirs ? [ ],
+    persistDirs ? [ ],
     persistFiles ? [ ],
     persistRootDir ? "/persist",
     syncDirs ? [ ],
@@ -58,30 +56,72 @@ rec {
       applicationOptions = mkApplicationOptions {
         inherit name attrSpace extraOpts;
       };
-      extraConfig' = if lib.isFunction extraConfig
+      extraConfig' = mkIf cfg.enable (
+        if isFunction extraConfig
         then extraConfig cfg
-        else extraConfig;
-      extraHomeConfig' = if lib.isFunction extraHomeConfig
+        else extraConfig
+      );  
+      extraHomeConfig' = mkIf cfg.enable (
+        if lib.isFunction extraHomeConfig
         then extraHomeConfig cfg
-        else extraHomeConfig;
+        else extraHomeConfig
+      );
       allSyncDevices = syncDefaultDevices ++ syncExtraDevices;
   in {
     inherit (applicationOptions) options;
-    config = mkIf cfg.enable {
-      services.syncthing = mkIf cfg.sync.enable {
+    config = {#mkIf cfg.enable {
+      ${attrSpace}.${name} = {
+        enable = mkDefault false;
+        persist.enable = mkDefault false;
+        sync.enable = mkDefault false;
+      };
+      services.syncthing = mkIf (cfg.sync.enable && cfg.enable && syncDirs != [ ]) {
         settings.folders = mkSyncthingAttrs allSyncDevices syncDirs;
       };
-      home = { #if type is home
+      wayland.windowManager.hyprland = mkIf (config.wayland.windowManager.hyprland.enable && cfg.enable) {#mkIf key != null {#(config.${attrSpace}.hyperland.enable && key != null) {
+        extraConfig = lib.mkBefore ''
+          submap = EXEC
+            bindi = , ${key} submap , EXEC_${name}
+          submap = escape
+          submap = EXEC_${name}    
+	          bindi = , ${config.kb_RIGHT}, layoutmsg, preselect r
+	          bindi = , ${config.kb_DOWN}, layoutmsg, preselect d
+	          bindi = , ${config.kb_UP}, layoutmsg, preselect u
+	          bindi = , ${config.kb_LEFT}, layoutmsg, preselect l
+	          bindi = , ${config.kb_RIGHT}, exec, ${command}
+	          bindi = , ${config.kb_DOWN}, exec, ${command}
+	          bindi = , ${config.kb_UP}, exec, ${command}
+	          bindi = , ${config.kb_LEFT}, exec, ${command}
+            ${config.globals.passOneshots};
+          submap = escape
+          submap = EXEC_WS
+            bindi = , ${key}, workspace, name:${name}
+            bindi = , ${key}, exec, ${command}
+          submap = escape
+          submap = WS
+            bindi = , ${key}, workspace, name:${name}
+          submap = escape
+        '';
+      };
+      home = {#(mkIf type == home) {
         inherit packages;
-        persistence = {
+        persistence = mkIf cfg.enable {
           "${persistRootDir}${config.home.homeDirectory}" = mkIf cfg.persist.enable {
             directories = persistDirs;
+            files = persistFiles;
           };
           "${syncRootDir}${config.home.homeDirectory}" = mkIf cfg.sync.enable {
             directories = syncDirs;
+            files = syncFiles;
           };
         };
-      } // extraHomeConfig';
+        file = mkIf cfg.enable (
+          mkMerge (map (syncFile: {
+            "${syncFile}".source = config.lib.file.mkOutOfStoreSymlink
+              "${syncRootDir}${config.home.homeDirectory}/.extra-syncs/${syncFile}";
+          }) syncFiles)
+        );
+      } // extraHomeConfig;
     } // extraConfig';
   };
 }

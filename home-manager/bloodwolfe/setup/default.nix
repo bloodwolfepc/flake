@@ -1,8 +1,17 @@
 { inputs, outputs, lib, pkgs, ... }: {
-  imports = [
-    #everything in moules
+  imports = [ 
+    ../modules
+    #../modules/appimages
+    #../modules/sops
+    #../modules/hyprland
+    #../modules/impermance
     ./lists.nix
-  ] ++ (builtins.attrValues outputs.customHomeManagerModules);
+  ] 
+  ++ (builtins.attrValues outputs.customHomeManagerModules)
+    #TODO find a way to import all from dir
+    #++ lib.fileset.toList (lib.fileset.fileFiler (file: file.hasExt "nix") ../modules)
+    #++ map (dir: ../modules/${dir}/default.nix) builtins.filter (path: builtins.pathExists (path + "/default.nix")) (builtins.listDir ../modules)
+  ;
   programs.home-manager.enable = true;
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
