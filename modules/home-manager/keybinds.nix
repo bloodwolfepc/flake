@@ -28,12 +28,11 @@
       default = "e";
       type = lib.types.str;
     };
-    #might move to w and change f to find
     kb_WS = lib.mkOption {
       default = "f";
       type = lib.types.str;
     };
-    kb_EXEC_WS = lib.mkOption {
+    kb_DEPLOY = lib.mkOption {
       default = "d";
       type = lib.types.str;
     };

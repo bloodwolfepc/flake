@@ -9,9 +9,6 @@
     systemd.enable = true;
     xwayland.enable = true;
     settings = {
-      windowrule = [
-        "pseudo, fcitx"
-      ];
       exec-once = [
         "hyprctl dispatch workspace name:main"
         "hyprctl dispatch submap INS"
@@ -25,8 +22,6 @@
         "carla /home/bloodwolfe/carla/default.carxp --no-gui"
         #set wireplumber default sink
         #"wpctl set-default `wpctl status | grep playback.UMC_Headphones | egrep '^ │( )*[0-9]*' -o | cut -c6-55 | egrep -o '[0-9]*'`"
-        "fcitx5 -d -r"
-        "fcitx5-remote -r"
       ];
       env = [
 	      "XCURSOR_SIZE,24"

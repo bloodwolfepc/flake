@@ -8,7 +8,7 @@
   extraConfig = {
     programs.mangohud = {
       enable = true;
-      enableSessionWide = true;
+      enableSessionWide = false;
       settings = {
         no_display = true;
         output_folder = "${config.home.homeDirectory}/mangohud-logs";

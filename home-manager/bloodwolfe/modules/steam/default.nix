@@ -14,7 +14,7 @@
     inherit extraConfig;
   }; 
   extraConfig = let
-    adhere-workspace = "g";
+    adhere-workspace = "steam";
   in {
     wayland.windowManager.hyprland = {
       settings.windowrulev2 = [

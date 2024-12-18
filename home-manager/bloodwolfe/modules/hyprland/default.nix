@@ -51,5 +51,6 @@ in {
     ./settings.nix
     ./extra-config.nix
     ./modesetting.nix
+    ./options.nix
   ];
 }

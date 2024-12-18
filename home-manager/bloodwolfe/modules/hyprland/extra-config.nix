@@ -7,7 +7,7 @@
       bindi = ,${config.kb_INS}, submap, INS
       bindi = ,${config.kb_EXEC}, submap, EXEC
       bindi = ,${config.kb_WS}, submap, WS
-      bindi = ,${config.kb_EXEC_WS}, submap, EXEC_WS
+      bindi = ,${config.kb_DEPLOY}, submap, DEPLOY
       bindi = ,${config.kb_TERM}, submap, TERM
       bindi = ,${config.kb_MIGRATE}, submap, MIGRATE
       bindi = ,${config.kb_POSITION}, submap, POSITION

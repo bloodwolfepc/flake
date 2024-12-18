@@ -11,7 +11,7 @@
     lib.concatStringsSep "\n" (map (key: "bindi = , ${key}, submap, ${escape-to-mode}") keys);
   passOneshots = pkgs.writeText "passOneshots" mkOneShots;
   submaps = [
-     "WS" "EXEC_WS" "TERM" "MIGRATE"
+     "WS" "DEPLOY" "TERM" "MIGRATE"
     "POSITION" "REC" "MONITOR" "RESIZE"
   ];
   mkSubmap = map: ''

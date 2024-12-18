@@ -4,10 +4,13 @@
     syncDirs = [
       ".config/fcitx5"
     ];
-    inherit config;
-    inherit extraConfig;
-  }; 
-  extraConfig = {
+    pc-windowrule = [
+      "pseudo, fcitx"
+    ];
+    pc-exec-once = [
+      "${pkgs.fcitx5}/bin/fcitx5 -d -r"
+      "${pkgs.fcitx5}/bin/fcitx5-remote -r"
+    ];
     i18n = {
       inputMethod = {
         enabled = "fcitx5";
@@ -23,7 +26,8 @@
         };
       };
     };
-  };
+    inherit config;
+  }; 
 in {
   inherit (attrs) options config;
 }
